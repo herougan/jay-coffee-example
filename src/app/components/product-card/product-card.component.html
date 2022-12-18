@@ -1,1 +1,7 @@
-<p>product-card works!</p>
+<div class="card" style="width: 18rem" *ngIf="product">
+	<img src="{{product.img}}" class="card-img" alt="{{product.desc}}">
+	<div class="card-body">
+		<h2 class="card-text">{{product.name | uppercase}}</h2>
+		<h5 class="card-title">{{product.desc}}</h5>
+	</div>
+</div>
