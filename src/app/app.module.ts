@@ -3,10 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MainNavBarComponent } from './components/main-nav-bar/main-nav-bar.component';
+import { CarousellComponent } from './components/carousell/carousell.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { BannerComponent } from './components/banner/banner.component';
+import { InfoCardComponent } from './components/info-card/info-card.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './home/home.component';
+import { ShopComponent } from './shop/shop.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainNavBarComponent,
+    CarousellComponent,
+    ProductCardComponent,
+    ProductListComponent,
+    BannerComponent,
+    InfoCardComponent,
+    FooterComponent,
+    HomeComponent,
+    ShopComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
