@@ -1,7 +1,21 @@
-<div class="card" style="width: 18rem" *ngIf="product">
-	<img src="{{product.img}}" class="card-img" alt="{{product.desc}}">
-	<div class="card-body">
-		<h2 class="card-text">{{product.name | uppercase}}</h2>
-		<h5 class="card-title">{{product.desc}}</h5>
+<!-- <div class="bg-img" style="width: 15rem; height: 15 rem" *ngIf="product">
+	<img src="{{product.img}}" style="width: 15em; height: 15em" class="" alt="{{product.desc}}">
+	<div class="overlay">
+		<div class="foreground">
+			<p>HI</p>
+		</div>
+	</div>
+	<div class="mask justify-content-center text-center">
+		<h2 class="">{{product.name | uppercase}}</h2>
+		<h5 class="">{{product.desc}}</h5>
+	</div>
+</div> -->
+<div class="bg-image" style="max-width: 22rem;" *ngIf="product">
+	<!-- <img src="{{product.img}}" class="w-100" /> -->
+	<div class="row" style="background-image: url('{{product.img}}'); width: 15em; height: 15em;"></div>
+	<div class="foreground overlay mask text-light d-flex justify-content-center 
+	flex-column text-center" style="background-color: rgba(0, 0, 0, 0.5)">
+	  <h4>{{ product.name | uppercase }}</h4>
+	  <p class="m-0">{{ product.desc }}</p>
 	</div>
 </div>

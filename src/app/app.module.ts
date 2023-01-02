@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { ShopComponent } from './shop/shop.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { FeatureProductListComponent } from './components/feature-product-list/feature-product-list.component';
+import { FeatureBannerComponent } from './components/feature-banner/feature-banner.component';
 
 @NgModule({
   declarations: [
@@ -25,11 +26,12 @@ import { FeatureProductListComponent } from './components/feature-product-list/f
     BannerComponent,
     InfoCardComponent,
     FooterComponent,
+    FeatureProductListComponent,
+    FeatureBannerComponent,
     /* Pages */
     HomeComponent,
     ShopComponent,
     ProductDetailComponent,
-    FeatureProductListComponent
   ],
   imports: [
     BrowserModule,
