@@ -15,6 +15,7 @@ import { ShopComponent } from './shop/shop.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { FeatureProductListComponent } from './components/feature-product-list/feature-product-list.component';
 import { FeatureBannerComponent } from './components/feature-banner/feature-banner.component';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { FeatureBannerComponent } from './components/feature-banner/feature-bann
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({}, {})
   ],
   providers: [],
   bootstrap: [AppComponent]
