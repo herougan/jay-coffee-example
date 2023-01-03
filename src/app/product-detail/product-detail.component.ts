@@ -16,6 +16,8 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getMainProducts()
       .subscribe(products => this.products = products);
+    this.products.forEach(product => console.log(product));
+    console.log("HelloWorld");
   }
 
 }
