@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
-import { MOCK_PRODUCTS } from 'src/assets/static/data/mock-products';
 
 @Component({
   selector: 'app-product-card',
@@ -14,7 +13,7 @@ export class ProductCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.product = MOCK_PRODUCTS[0];
+    
   }
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
-import { MOCK_PRODUCTS } from 'src/assets/static/data/mock-products';
+import { ProductService } from 'src/app/services/product-service.service';
 
 @Component({
   selector: 'app-product-list',
@@ -11,10 +11,14 @@ export class ProductListComponent implements OnInit {
 
   products: Product[] = [];
 
-  constructor() { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.products = MOCK_PRODUCTS;
+    this.productService.getMainProducts()
+      .subscribe(products => this.products = products);
+    // this.products.forEach(element => {
+    //     console.log(element);
+    // });
   }
 
 }

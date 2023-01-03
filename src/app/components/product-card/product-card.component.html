@@ -1,18 +1,17 @@
-<!-- <div class="bg-image" style="max-width: 22rem;" *ngIf="product">
-	<div class="row" style="background-image: url('{{product.img}}'); width: 15em; height: 15em;"></div>
-	<div class="foreground overlay mask text-light d-flex justify-content-center 
-	flex-column text-center" style="background-color: rgba(0, 0, 0, 0.5)">
-	  <h4>{{ product.name | uppercase }}</h4>
-	  <p class="m-0">{{ product.desc }}</p>
-	</div>
-</div> -->
-<div class="card mb-3 product-card" style="width: 18rem;" *ngIf="product">
-	<img class="product-card-img" src="{{product.img}}" class="card-img-top" alt="...">
-	<div class="card-img-overlay product-card-body">
+<!-- Type 1 -->
+<div class="card mb-3 product-card mx-2" *ngIf="product">
+	<img class="product-card-img" src="{{product.img}}"  alt="...">
+	<div class="card-img-overlay product-card-overlay">
 		<h5 class="card-title">{{ product.name | uppercase }}</h5>
-		<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+		<div *ngIf="product.shortDesc">
+			<p class="card-text">{{product.shortDesc}}</p>
+		</div>
 	</div>
-	<div class="card-body">
-		<h5 class="card-text">{{product.desc }}</h5>
+	<div class="card-body product-card-body">
+		<h5 class="card-text text-justify">{{product.desc }}</h5>
 	</div>
 </div>
+<!-- Type 2 -->
+
+
+<!-- Type 3 -->

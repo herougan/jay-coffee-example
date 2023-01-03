@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../models/product';
 import { ProductService } from '../services/product-service.service';
 
@@ -9,15 +9,16 @@ import { ProductService } from '../services/product-service.service';
 })
 export class ProductDetailComponent implements OnInit {
 
-  products: Product[] = [];
+  // products: Product[] = [];
+  @Input() product?: Product;
 
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.productService.getMainProducts()
-      .subscribe(products => this.products = products);
-    this.products.forEach(product => console.log(product));
-    console.log("HelloWorld");
+    // this.productService.getMainProducts()
+    //   .subscribe(products => this.products = products);
+    // this.products.forEach(product => console.log(product));
+    // console.log("HelloWorld");
   }
 
 }
