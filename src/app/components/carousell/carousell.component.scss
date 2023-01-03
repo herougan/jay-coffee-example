@@ -1,0 +1,31 @@
+.carousel-inner {
+  height: 70vh;
+}
+
+.carousel-indicators button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid white;
+  opacity: 1;
+  background: transparent;
+}
+
+.carousel-indicators button.active {
+  background: white;
+}
+
+.carousel-item {
+  height: 100%;
+
+  img {
+    filter: brightness(80%);
+  }
+}
+.carousel-overlay {
+  position: absolute;
+  bottom: 5rem;
+  left: 4rem;
+  color: white;
+  z-index: 1;
+}
