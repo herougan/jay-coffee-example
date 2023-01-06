@@ -1,30 +1,54 @@
 .product-card-body {
 	width: 30vw;
-	height: 25vw;
+	height: 6vw;
 } 
 
 .product-card h5 {
-	font-size: 1.2vw;
+	font-size: 1.4vw;
 }
 .product-card a, p {
-	font-size: 0.8vw;
+	font-size: 1vw;
 }
 
-.product-card-overlay:hover .product-card-img {
+.product-card-img:hover {
 	// $gradient: linear-gradient(180deg, rgba($primary, .15), rgba($success, 0));
-	background: rgba(195, 97, 0, 0.1);
+	// background: rgba(195, 97, 0, 0.3);
 	// transition: opacity 1s;
+	opacity: 0;
 }
 
-.product-card-img {
+.product-card-img img {
 	object-fit: cover;
 	width: 30vw;
 	height: 30vw;
 }
 
-.product-card:hover .product-card-overlay  {
+.product-card:hover .product-card-overlay {
 	// display: block
 	opacity: 1;
+}
+.product-card:hover .product-card-img {
+	// display: block
+	// background-color:rgba(195, 97, 0, 1);
+	background:rgba(195, 97, 0, 1);
+	// color:rgba(195, 97, 0, 1);
+	// z-index: 1;
+	opacity: 0.6;
+	transition: opacity 0.15s;
+}
+.product-card:hover img {
+	opacity: 0.8;
+}
+.product-card:hover .card-title {
+	border-radius: 1vw;
+	border-color:rgba(170, 60, 0, 1);
+}
+// the top of the card is like sharp but bent! TODO
+.product-card-overlay .product-card-desc {
+	background-color:rgba(200, 100, 10, .5);
+	width: fit-content;
+	padding: 0.2vw;
+	border-radius: .25vw;
 }
 
 .product-card, .product-card-img {  
@@ -34,13 +58,13 @@
 	transition-delay: 0s;
 }
 
-.product-card:hover .product-card-img {
-	opacity: 0.1;
-	transition: opacity 0.15s;
-}
-
 .product-card .product-card-overlay {
 	// display: none;
 	opacity: 0;
 	transition: opacity 0.1s;
+}
+
+.card-title {
+	color: black;
+	font-weight: 700;
 }

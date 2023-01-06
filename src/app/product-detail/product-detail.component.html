@@ -1,11 +1,7 @@
 <p>product-detail works!</p>
-<div class="d-flex flex-column">
-	<!-- <div class="d-flex flex-row">
-		<app-product-card [product]="products[8]"></app-product-card>
-		<app-product-card [product]="products[9]"></app-product-card>
-		<app-product-card [product]="products[10]"></app-product-card>
-		<app-product-card [product]="products[11]"></app-product-card>
-	</div> -->
+<div *ngIf="product">
+	<p>{{product.id}}</p>
+	<img src="{{product.img}}">
 </div>
 
 <!--Dont need multiple flex rows, just dictate they take up 1/3 row space, same on height, then
