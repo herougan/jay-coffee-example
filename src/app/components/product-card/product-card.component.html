@@ -1,18 +1,31 @@
 <!-- Type 1 -->
-<div class="card mb-3 product-card mx-2" style="pointer-events: none;" *ngIf="product" onclick="" routerLink="/detail/{{product.id}}">
-	<div class="product-card-img rounded-top" style="pointer-events: auto;" routerLink="/detail/{{product.id}}">
-		<img class="rounded-top" src="{{product.img}}"  alt="...">
-	</div>
-	<div class="card-img-overlay product-card-overlay d-flex flex-column-reverse">
-		<div class="d-flex">
-			<h5 class="card-title">{{ product.name | uppercase }}</h5>
-			<div *ngIf="product.shortDesc" class="product-card-desc">
-				<p class="card-text">{{product.shortDesc}}</p>
+<div class="card mb-3 product-card mx-2 border-0" style="pointer-events: none;" *ngIf="product" onclick="" routerLink="/detail/{{product.id}}">
+	<!-- Image -->
+	<div class="product-card-img" style="pointer-events: auto; position: relative" routerLink="/detail/{{product.id}}">
+		<img src="{{product.img}}"  alt="...">
+		<div class="product-desc-popup pt-2">
+			<div *ngIf="product.shortDesc" class="product-card-desc card-text px-2">
+				<div class="">
+					<h5>{{product.shortDesc}}</h5>
+				</div>
 			</div>
+			<div class="card-text px-2">
+				<div class="">
+					<p>{{product.desc}}</p>
+				</div>
+			</div>
+			<ng-container *ngIf="product.tags">
+				<div class="product-card-tags px-1" *ngFor="let tag of product.tags; index as i">
+					<p [ngClass]="{'bg-success': (tagTypes[i] == 'success'), 'bg-danger': (tagTypes[i] == 'danger'), 
+					'bg-warning': (tagTypes[i] == 'warning'), 'bg-info': (tagTypes[i] == 'info')}"></p>
+				</div>
+			</ng-container>
 		</div>
 	</div>
+	<!-- Overlay -->
+	<!-- Body -->
 	<div class="card-body product-card-body">
-		<h5 class="card-text text-justify">{{product.desc }}</h5>
+		<h4 class="card-title py-1">{{ product.name }}</h4>
 	</div>
 </div>
 <!-- Type 2 -->

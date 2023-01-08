@@ -1,6 +1,5 @@
 <div class="main-nav-bar d-flex d-row align-items-center">
-	<div class="d-flex align-items-stretch flex-fill" style="opacity: 0.2; background-image: url('assets/static/images/banner/wood_texture.jpg'); 
-	position: absolute; height:10vh; width: 100vw; top: 0; bottom: 0; left: 0; right: 0; z-index: 0"></div>
+	<div class="d-flex nav-bar-background align-items-stretch flex-fill"></div>
     <div class="mx-4 nav-logo-container"> <!-- USE GRIDS INSTEAD! -->
       <img src="...">
     </div>
@@ -24,7 +23,6 @@
 		</div>
 	</div>
 </div>
-<router-outlet></router-outlet>
 <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
@@ -78,7 +76,7 @@
         </li>
       </ul>
       <ul class="navbar-nav me-2 mb-2 mb-lg-0 align-items-center">
-        <li class="nav-item">
+        <li class="nav-item mx-2">
           <button type="button" class="btn btn-primary">Order Online</button>
         </li>
         <li class="nav-item">
@@ -88,3 +86,4 @@
     </div>
   </div>
 </nav>
+<router-outlet></router-outlet>

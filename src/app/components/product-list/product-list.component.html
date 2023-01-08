@@ -1,7 +1,8 @@
-<div class="d-flex flex-row justify-content-center flex-wrap my-4">
-	<div class="p-2 align-self-stretch" *ngFor="let product of products; index as i">
-		<div *ngIf="i<6">
+<div class="d-flex flex-row justify-content-center flex-wrap my-4 mx-2">
+	<ng-container class="p-2 align-self-stretch product-list" *ngFor="let product of products; index as i">
+		<ng-container *ngIf="i<6">
 			<app-product-card [product]="product"></app-product-card>
-		</div>
-	</div>
+		</ng-container>
+	</ng-container>
+	<!--<div class="second-type-product-list"></div>-->
 </div>

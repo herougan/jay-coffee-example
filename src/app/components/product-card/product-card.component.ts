@@ -9,10 +9,17 @@ import { Product } from 'src/app/models/product';
 export class ProductCardComponent implements OnInit {
   
   @Input() product?: Product;
+  tagTypes: string[];
 
-  constructor() { }
+  constructor() {
+    this.tagTypes = [];
+   }
 
   ngOnInit(): void {
-    
+    if (this?.product?.tags) {
+      this?.product?.tags?.forEach(tag => {
+        this.tagTypes.push("info"); // To push what kind of product tag type for colouring
+      });
+    }
   }
 }
