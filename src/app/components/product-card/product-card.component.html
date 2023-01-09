@@ -3,23 +3,22 @@
 	<!-- Image -->
 	<div class="product-card-img" style="pointer-events: auto; position: relative" routerLink="/detail/{{product.id}}">
 		<img src="{{product.img}}"  alt="...">
-		<div class="product-desc-popup pt-2">
-			<div *ngIf="product.shortDesc" class="product-card-desc card-text px-2">
-				<div class="">
+		<div class="product-desc-popup	d-flex flex-column justify-content-center">
+			<ng-container *ngIf="product.shortDesc">
+				<div class="product-card-desc card-text px-3">
 					<h5>{{product.shortDesc}}</h5>
 				</div>
-			</div>
-			<div class="card-text px-2">
-				<div class="">
-					<p>{{product.desc}}</p>
-				</div>
-			</div>
-			<ng-container *ngIf="product.tags">
-				<div class="product-card-tags px-1" *ngFor="let tag of product.tags; index as i">
-					<p [ngClass]="{'bg-success': (tagTypes[i] == 'success'), 'bg-danger': (tagTypes[i] == 'danger'), 
-					'bg-warning': (tagTypes[i] == 'warning'), 'bg-info': (tagTypes[i] == 'info')}"></p>
-				</div>
 			</ng-container>
+			<div class="product-card-desc card-text px-3" 
+			[ngStyle]="{'text-align': (product.shortDesc) ? 'left' : 'center'}">
+				<p>{{product.desc}}</p>
+			</div>
+		</div>
+	</div>
+	<div class="product-card-tags d-flex d-row mt-3 ms-3" *ngIf="product.tags">
+		<div class="mx-1" *ngFor="let tag of product.tags; index as i">
+			<p class="px-1" [ngClass]="{'bg-success': (tagTypes[i] == 'success'), 'bg-danger': (tagTypes[i] == 'danger'), 
+			'bg-warning': (tagTypes[i] == 'warning'), 'bg-info': (tagTypes[i] == 'info')}">{{tag}}</p>
 		</div>
 	</div>
 	<!-- Overlay -->

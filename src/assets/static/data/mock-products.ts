@@ -2,7 +2,7 @@ import { Product } from "src/app/models/product";
 
 export const MOCK_PRODUCTS: Product[] = [
 	{id: 0, name:'Chocolate Cake', img:'assets/static/images/products/cake_1.jpg', desc:'Chocolate cake made from 96% Gambian chocolate. A',
-	tags: ['Nuts, Alcohol']},
+	tags: ['Nuts', 'Alcohol']},
 	{id: 1, name:'Cheese Cake', img:'assets/static/images/products/cake_2.jpg', desc:'Cheesy cake full of cheesy goodness. B',
 	tags: ['']},
 	{id: 2, name:'Cappuccino', img:'assets/static/images/products/coffee_1.jpg', desc:'Hearty cup of Cappuccino. C', shortDesc: 'Cuppa cappa',

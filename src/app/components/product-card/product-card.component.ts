@@ -1,3 +1,4 @@
+import { UpperCasePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
 
@@ -18,7 +19,11 @@ export class ProductCardComponent implements OnInit {
   ngOnInit(): void {
     if (this?.product?.tags) {
       this?.product?.tags?.forEach(tag => {
-        this.tagTypes.push("info"); // To push what kind of product tag type for colouring
+        var type: string = "info";
+        if (tag.toLowerCase() == "nuts") {
+          type = "danger"
+        }
+        this.tagTypes.push(type); // To push what kind of product tag type for colouring
       });
     }
   }

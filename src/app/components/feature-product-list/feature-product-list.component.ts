@@ -15,7 +15,7 @@ export class FeatureProductListComponent implements OnInit {
 
   ngOnInit(): void {
     this.productService
-      .getProducts()
+      .getProducts(0)
       .subscribe((products) => (this.products = products.slice(0, 3)));
   }
 }
