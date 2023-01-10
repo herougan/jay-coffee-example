@@ -1,5 +1,5 @@
 .carousel-inner {
-  height: 70vh;
+  height: 50vw;
 }
 
 .carousel-indicators button {
@@ -28,4 +28,7 @@
   left: 4rem;
   color: white;
   z-index: 1;
+  h2 {
+    font-size: 5vw;
+  }
 }

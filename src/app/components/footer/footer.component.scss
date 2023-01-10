@@ -5,3 +5,27 @@
 	background-position: bottom right;
   }
   
+.banner {
+	.email-input {
+		width: 100%;
+	}
+	a, p {
+		font-size: 1.2vw;
+	}
+	h3 {
+		font-weight: 600;
+		font-size: 1.6vw;
+	}
+	h4 {
+		font-weight: 500;
+		font-size: 1.5vw;
+	}
+	h5 {
+		font-weight: 500;
+		font-size: 1.4vw;
+	}
+}
+
+.banner-logo img {
+	width: 10vw;
+}

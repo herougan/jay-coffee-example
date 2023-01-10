@@ -6,14 +6,17 @@
 // 	font-size: 0.65vw;
 //   }
 .product-card {
+	font-size: 1.1vw;
 	h5 {
-		font-size: 1.2vw;
+		font-size: 1.4vw;
+		margin-bottom: 0.3rem;
+		font-weight: 600;
 	};
 	h4 {
-		font-size: 1.1vw;
+		font-size: 1.3vw;
 	};
 	a, p {
-		font-size: 0.9vw;
+		font-size: 1vw;
 	};
 }
 .product-card-img:hover {
@@ -27,7 +30,7 @@
 
 .product-card:hover {
 	.product-card-img {
-		background:rgba(210, 111, 0, 0.5);
+		background:rgba(236, 122, 14, 0.6);
 		opacity: 1;
 		transition: opacity 0.15s;
 	}

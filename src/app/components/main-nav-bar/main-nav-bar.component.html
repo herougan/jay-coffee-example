@@ -1,14 +1,30 @@
-<div class="main-nav-bar d-flex d-row align-items-center">
+<div class="main-nav-bar d-flex d-row align-items-center sticky-top">
 	<div class="d-flex nav-bar-background align-items-stretch flex-fill"></div>
-    <div class="mx-4 nav-logo-container"> <!-- USE GRIDS INSTEAD! -->
+    <div class="mx-4 nav-logo-container">
       <img src="...">
     </div>
-	<div class="nav-router-links-container">
+	<div class="nav-router-links-container d-flex">
 		<nav>
 		  <a class="mx-3 nav-bar-link" routerLink="/home">Home</a>
 		  <a class="mx-3 nav-bar-link" routerLink="/shop">Shop</a>
 		  <a class="mx-3 nav-bar-link" routerLink="/shop">History</a>
 		</nav>
+    <li class="nav-item dropdown">
+      <!-- <a
+        class="nav-link dropdown-toggle"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Dropdown
+      </a> -->
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><hr class="dropdown-divider" /></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </li>
 	</div>
 	<div class="nav-buttons-container d-flex ms-auto pe-5">
 		<div class="cart-button mx-3 align-self-center" routerLink="/home">
@@ -23,7 +39,7 @@
 		</div>
 	</div>
 </div>
-<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+<!-- <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
     <button
@@ -85,5 +101,5 @@
       </ul>
     </div>
   </div>
-</nav>
+</nav> -->
 <router-outlet></router-outlet>
