@@ -16,6 +16,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { FeatureProductListComponent } from './components/feature-product-list/feature-product-list.component';
 import { FeatureBannerComponent } from './components/feature-banner/feature-banner.component';
 import { StoreModule } from '@ngrx/store';
+import { FeatureCardComponent } from './feature-card/feature-card.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { StoreModule } from '@ngrx/store';
     HomeComponent,
     ShopComponent,
     ProductDetailComponent,
+    FeatureCardComponent,
   ],
   imports: [
     BrowserModule,
