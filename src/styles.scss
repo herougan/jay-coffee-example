@@ -13,5 +13,17 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
 * {
-	font-family: Roboto;
+  font-family: Roboto;
 }
+
+@font-face {
+  font-family: "Vollkorn", Arial, Helvetica;
+  src: local("Vollkorn"),
+    url(./assets/fonts/Vollkorn-Regular.ttf) format("truetype");
+}
+
+$ivory: #ffecd1;
+$teal: #15616d;
+$navy: #001524;
+$orange: #ff7d00;
+$brick: #78290f;

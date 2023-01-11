@@ -1,3 +1,5 @@
+@import "../../../styles.scss";
+
 .carousel-inner {
   height: 40vw;
 }
@@ -28,7 +30,15 @@
   left: 4rem;
   color: white;
   z-index: 1;
-  h2 {
-    font-size: 5vw;
-  }
+}
+
+.carousel-subheading {
+  font-size: 1rem;
+  color: #ffffff;
+}
+.carousel-title {
+  font-size: 2rem;
+  color: #ffffff;
+  font-family: "Vollkorn";
+  font-weight: 500;
 }
