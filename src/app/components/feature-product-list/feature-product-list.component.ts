@@ -9,6 +9,7 @@ import { filter } from 'rxjs';
   styleUrls: ['./feature-product-list.component.scss'],
 })
 export class FeatureProductListComponent implements OnInit {
+  
   products: Product[] = [];
 
   constructor(private productService: ProductService) {}

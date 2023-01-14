@@ -16,7 +16,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { FeatureProductListComponent } from './components/feature-product-list/feature-product-list.component';
 import { FeatureBannerComponent } from './components/feature-banner/feature-banner.component';
 import { StoreModule } from '@ngrx/store';
-import { FeatureCardComponent } from './feature-card/feature-card.component';
+import { FeatureCardComponent } from './components/feature-card/feature-card.component';
+import { FeatureListComponent } from './components/feature-list/feature-list.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { FeatureCardComponent } from './feature-card/feature-card.component';
     ShopComponent,
     ProductDetailComponent,
     FeatureCardComponent,
+    FeatureListComponent,
   ],
   imports: [
     BrowserModule,

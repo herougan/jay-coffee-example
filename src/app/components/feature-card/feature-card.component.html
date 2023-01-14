@@ -1,0 +1,27 @@
+<!-- Type 1 -->
+<div class="card mb-2 detail-card mx-2 border-0" style="pointer-events: none;" *ngIf="detail" onclick="" routerLink="/detail/{{detail.id}}">
+	<!-- Image -->
+	<div class="detail-card-img" style="pointer-events: auto; position: relative" routerLink="/detail/{{detail.id}}">
+		<img src="{{detail.img}}"  alt="...">
+		<div class="detail-desc-popup	d-flex flex-column justify-content-center">
+			<ng-container *ngIf="detail.shortDesc">
+				<div class="detail-card-desc card-text px-3">
+					<h5>{{detail.shortDesc}}</h5>
+				</div>
+			</ng-container>
+			<div class="detail-card-desc card-text px-3" 
+			[ngStyle]="{'text-align': (detail.shortDesc) ? 'left' : 'center'}">
+				<p>{{detail.desc}}</p>
+			</div>
+		</div>
+	</div>
+	<!-- Overlay -->
+	<!-- Body -->
+	<div class="card-body detail-card-body">
+		<h4 class="card-title py-1">{{ detail.name }}</h4>
+	</div>
+</div>
+<!-- Type 2 -->
+
+
+<!-- Type 3 -->

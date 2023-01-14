@@ -1,7 +1,10 @@
+@import '../../../styles.scss';
+
 .banner {
 	height: 50vh;
-	background-image: url("/assets/static/images/main_splash.jpg");
+	// background-image: url("/assets/static/images/main_splash.jpg");
 	// object-fit: cover;
+	background-color: $ivory;
 	background-position: bottom right;
   }
   
@@ -31,5 +34,7 @@
 }
 
 .banner-title-name {
-	font-family: Mayland;
+	h1 {
+		font-family: Mayland;
+	}
 }
