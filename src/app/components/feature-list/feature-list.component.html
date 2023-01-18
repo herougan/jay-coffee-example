@@ -1,5 +1,5 @@
-<div class="d-flex flex-row justify-content-center flex-wrap mt-4 my-2 feature-product-list-container">
-	<div class="align-self-stretch" *ngFor="let detail of details">
+<div class="row feature-product-list-container mx-2 mt-4">
+	<div class="feature-card-container col-4" *ngFor="let detail of details">
 	  <app-feature-card [detail]="detail"></app-feature-card>
 	</div>
   </div>

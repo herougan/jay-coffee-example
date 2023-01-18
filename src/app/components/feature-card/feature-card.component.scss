@@ -1,0 +1,41 @@
+.detail-card-img {
+	// flex: 1 1 0px;
+	// overflow: hidden;
+	// width: 33%;
+	> img {
+		object-fit: cover;
+		width: 30vw;
+		height: 30vw;
+	}
+}
+
+.detail-card-body, .detail-card-mask {
+	height: 10vw;
+	bottom: 0vw;
+	width: 100%;
+	position: absolute;
+}
+
+.detail-card-body {
+
+
+	h4 {
+		color: white;
+		opacity: 1;
+		font-size: 2.2vw;
+		font-weight: 500;
+	};
+
+
+	p {
+		color: white;
+		opacity: 1;
+		font-size: 1.2vw;
+		font-weight: lighter;
+	};
+}
+
+.detail-card-mask {
+	-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));
+	background-color: black;
+}
