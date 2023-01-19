@@ -8,7 +8,8 @@ import { Product } from '../models/product';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit(): void {
     

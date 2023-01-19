@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-main-nav-bar',
@@ -7,7 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainNavBarComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    document.addEventListener("DOMContentLoaded", () => {
+      let nav = document.querySelector('.main-nav-bar');
+      
+      if (nav)
+        window.addEventListener('scroll', () => {
+          let scrollTop = window.scrollY;
+          console.log(scrollTop);
+          if (scrollTop > 1000) {
+            nav?.classList.add('hide-nav');
+          } else {
+            nav?.classList.remove('hide-nav');
+          }
+        });
+    }) }
 
   ngOnInit(): void {
   }
