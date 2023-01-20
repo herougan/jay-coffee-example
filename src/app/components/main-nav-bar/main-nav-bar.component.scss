@@ -8,16 +8,16 @@
 
 .main-nav-bar {
 	// background-color:rgb(170, 102, 1);
-  	transition: visibility 0s, opacity 0.25s linear;
+  	transition: visibility 0s, opacity 0.15s ease;
 	opacity: 1;
-	visibility: visible;
+	// visibility: visible;
 }
 
 .hide-nav {
 	// display: none!important;
-  	transition: visibility 0s, opacity 0.25s linear;
+  	transition: visibility 0s, opacity 0.15s ease;
 	opacity: 0;
-	visibility: hidden;
+	// visibility: hidden;
 }
 
 .navbar-title {

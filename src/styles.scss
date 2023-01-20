@@ -10,9 +10,16 @@
 }
 
 @font-face {
-  font-family: "Vollkorn", Arial, Helvetica;
+  font-family: "Vollkorn";
   src: local("Vollkorn"),
-    url(./assets/fonts/Vollkorn-Regular.ttf) format("truetype");
+    url(./assets/fonts/Vollkorn/Vollkorn-Regular.ttf) format("truetype");
+}
+
+// --gradient: {}
+:root {
+  @function --jay-gradient() {
+    @return 1;
+  }
 }
 
 $ivory: #ffecd1;
