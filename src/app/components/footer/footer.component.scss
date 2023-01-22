@@ -1,7 +1,7 @@
 @import '../../../styles.scss';
 
 .banner {
-	height: 50vh;
+	height: 48vh;
 	// background-image: url("/assets/static/images/main_splash.jpg");
 	// object-fit: cover;
 	background-color: $ivory;
@@ -9,25 +9,22 @@
   }
   
 .banner {
-	.email-input {
-		width: 100%;
-	}
 	a, p {
-		font-size: 1.2vw;
+		font-size: 1.3vw;
 		font-family: Vollkorn;
 		font-weight: 400;
 	}
 	h3 {
 		font-weight: 600;
-		font-size: 1.6vw;
+		font-size: 1.7vw;
 	}
 	h4 {
 		font-weight: 500;
-		font-size: 1.5vw;
+		font-size: 1.6vw;
 	}
 	h5 {
 		font-weight: 500;
-		font-size: 1.4vw;
+		font-size: 1.5vw;
 	}
 }
 
@@ -38,5 +35,39 @@
 .banner-title-name {
 	h1 {
 		font-family: Mayland;
+		margin: 1rem;
+		font-size: max(5vw, 25px); // how
 	}
+}
+
+.banner-list {
+	p {
+		margin-bottom: .5rem;
+	}
+}
+
+.banner-title-repeating {
+	opacity: 0.1;
+}
+.banner-title-repeating-container {
+	position: absolute;
+	display: none;
+}
+.email-input {
+	width: 70%;
+}
+.email-input, .email-input-button {
+	height: 3vw;
+	font-size: 1.3vw;
+}
+.email-input-button {
+
+}
+
+.copyright-body {
+	p {
+		font-weight: 500;
+		margin-bottom: .5rem;
+	}
+	padding-inline-start: 4em;
 }

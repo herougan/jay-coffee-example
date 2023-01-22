@@ -26,10 +26,13 @@
 }
 .carousel-overlay {
   position: absolute;
-  bottom: 5rem;
-  left: 4rem;
+  bottom: 10vw;
+  left: 40vw;
   color: white;
   z-index: 1;
+  .btn {
+    margin-top: 2vw
+   }
 }
 
 .carousel-subheading {
