@@ -1,13 +1,13 @@
-<div class="banner position-relative">
+<div class="banner position-relative pb-3">
 	<!-- First Row -->
-	<div class="container mt-2">
+	<div class="row mt-2" id="banner-top-row">
 		<div class="col-sm-3 col-12">
-			<div class="d-flex flex-column banner-logo ms-2 mt-5 align-items-center justify-content-center">
+			<div class="d-flex flex-column banner-logo ms-2 mt-5">
 				<img src="assets/static/images/main_logo.png" alt="Logo">
 				<div class="banner-title-name">
 					<h1>Maycier</h1>
 				</div>
-				<div class="banner-title-repeating-container">
+				<div class="banner-title-repeating-container" aria-hidden="true">
 					<div class="banner-title-name banner-title-repeating">
 						<h1>Maycier</h1>
 					</div>
@@ -50,7 +50,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-3 col-12">
+		<div class="col-sm-3 col-12 ms-5 ms-sm-0">
 			<div class="flex-row mt-4">
 				<h3>Connect</h3>
 			</div>
@@ -74,7 +74,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-3 col-12">
+		<div class="col-sm-3 col-12 ms-5 ms-sm-0">
 			<div class="flex-column mt-4 banner-list">
 				<h3>Shop</h3>
 				<p>Coffee</p>
@@ -84,7 +84,7 @@
 				<p>Utensils</p>
 			</div>
 		</div>
-		<div class="col-sm-3 col-12">
+		<div class="col-sm-3 col-12 ms-5 ms-sm-0">
 			<div class="flex-row mt-4 banner-list">
 				<h3>Merchandise</h3>
 				<p>Toys</p>
@@ -95,8 +95,8 @@
 		</div>
 	</div>
 	<!-- Second Row -->
-	<div class="d-flex flex-row">
-		<div class="col-3 copyright-body">
+	<div class="d-flex flex-row pt-5" id="banner-second-row">
+		<div class="col-3 copyright-body ms-2 ms-sm-3">
 			<p class="">
 				Copyright © 2023
 			</p>
@@ -107,11 +107,19 @@
 		<div class="col-3">
 
 		</div>
-		<div class="col-6">
-			<div class="d-flex">
+		<div class="col-4">
+			<!-- <div class="d-flex">
 				<input class="email-input" type="email" placeholder="Sign up for our newsletter">
 				<input class="email-input-button" type="submit" value="Subscribe">
-			</div>
+			</div> -->
+				<input class="email-input rounded-0" type="email" placeholder="Sign up for our newsletter">
 		</div>
+		<div class="col-1">
+			<input class="email-input-button rounded-0" type="submit" value="Subscribe">
+		</div>
+		<!-- This caused issue of extra margins at the end -->
+		<!-- <div class="col-1">
+			
+		</div> -->
 	</div>
 </div>

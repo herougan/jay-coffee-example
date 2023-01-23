@@ -1,42 +1,50 @@
 @import '../../../styles.scss';
 
 .banner {
-	height: 48vh;
 	// background-image: url("/assets/static/images/main_splash.jpg");
 	// object-fit: cover;
 	background-color: $ivory;
 	background-position: bottom right;
+	border-color: rgba(255, 255, 255, 0.5);
   }
   
 .banner {
 	a, p {
-		font-size: 1.3vw;
 		font-family: Vollkorn;
 		font-weight: 400;
+		// font-size: 1.3rem;
+		font-size: 160%;
 	}
 	h3 {
 		font-weight: 600;
-		font-size: 1.7vw;
+		// font-size: 1.7rem;
+		font-size: 210%;
 	}
 	h4 {
 		font-weight: 500;
-		font-size: 1.6vw;
+		// font-size: 1.6rem;
+		font-size: 190%;
 	}
 	h5 {
 		font-weight: 500;
-		font-size: 1.5vw;
+		// font-size: 1.5rem;
+		font-size: 170%;
 	}
 }
 
-.banner-logo img {
-	width: 10vw;
+.banner-logo {	
+	padding-inline-start: 4em;
+	img {
+		// width: 8rem;
+		max-width: 75%;
+	}
 }
 
 .banner-title-name {
 	h1 {
 		font-family: Mayland;
 		margin: 1rem;
-		font-size: max(5vw, 25px); // how
+		font-size: 5rem; // how
 	}
 }
 
@@ -54,14 +62,22 @@
 	display: none;
 }
 .email-input {
-	width: 70%;
+	width: 100%;
+	background-color: $ivory;
+	padding-left: 6px;
 }
 .email-input, .email-input-button {
-	height: 3vw;
-	font-size: 1.3vw;
+	height: 4vw;
+	font-size: 160%;
+	border: 1px solid white;
 }
 .email-input-button {
-
+	// color: $ivory;
+	// display: inline-block;
+	// text-align: center;
+	// vertical-align: middle;
+	line-height:normal;
+	background-color: white;
 }
 
 .copyright-body {
@@ -70,4 +86,16 @@
 		margin-bottom: .5rem;
 	}
 	padding-inline-start: 4em;
+}
+
+@media(max-width: 578px) {
+	#banner-top-row {
+		border-bottom: 1px;
+	}
+}
+
+/* Banner Rows */
+
+#banner-top-row, #banner-second-row {
+	margin-right: 0px;
 }
