@@ -11,9 +11,11 @@ export class ProductCardComponent implements OnInit {
   
   @Input() product?: Product;
   tagTypes: string[];
+  colours: string[];
 
   constructor() {
     this.tagTypes = [];
+    this.colours = [];
    }
 
   ngOnInit(): void {
@@ -26,5 +28,8 @@ export class ProductCardComponent implements OnInit {
         this.tagTypes.push(type); // To push what kind of product tag type for colouring
       });
     }
+
+    // Choose colours of hover description background
+    this.colours = ["white", "white", "white"];
   }
 }

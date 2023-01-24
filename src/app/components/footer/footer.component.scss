@@ -37,6 +37,7 @@
 	img {
 		// width: 8rem;
 		max-width: 75%;
+		align-self: center;
 	}
 }
 
@@ -62,7 +63,7 @@
 	display: none;
 }
 .email-input {
-	width: 100%;
+	width: 50%;
 	background-color: $ivory;
 	padding-left: 6px;
 }
@@ -85,12 +86,18 @@
 		font-weight: 500;
 		margin-bottom: .5rem;
 	}
-	padding-inline-start: 4em;
+	// padding-inline-start: 4em;
 }
 
 @media(max-width: 578px) {
 	#banner-top-row {
 		border-bottom: 1px;
+	}
+	.banner-logo img {
+		align-self: center;
+	}
+	.banner-title-name {
+		align-self: center;
 	}
 }
 
