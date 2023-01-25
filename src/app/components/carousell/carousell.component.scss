@@ -1,7 +1,16 @@
-@import "../../../styles.scss";
+@import "../../../variables.scss";
 
 .carousel-inner {
-  height: 40vw;
+  img {
+    height: 40vmax;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.carousel-indicators {
+  // top: calc(40vmax - 20px);
+  top: calc(40vmax - 20px);
 }
 
 .carousel-indicators button {
@@ -22,27 +31,64 @@
 
   img {
     filter: brightness(80%);
+    // object-fit: cover; // TODO the buttons are phasing through the image, since the carousel-image is smaller than the carousel-inner container... I don't know why.
   }
 }
+
 .carousel-overlay {
   position: absolute;
-  bottom: 14vw;
-  left: 60vw;
+  top: calc(40vmax - 15rem);
+  left: calc(100vw - 40rem);
   color: white;
   z-index: 1;
   .btn {
     margin-top: 2vw;
-    font-size: 1.6vw;
-   }
+    font-size: 1.6rem;
+  }
+  .carousel-subheading {
+    font-size: 1.2rem;
+    color: #ffffff;
+  }
+  .carousel-title {
+    font-size: 2.5rem;
+    color: #ffffff;
+    font-family: "Vollkorn";
+    font-weight: 500;
+  }
 }
 
-.carousel-subheading {
-  font-size: 1.2vw;
-  color: #ffffff;
+
+@media (max-width: $m) {
+  .carousel-overlay {
+    top: calc(40vmax - 20rem);
+  }
 }
-.carousel-title {
-  font-size: 2.5vw;
-  color: #ffffff;
-  font-family: "Vollkorn";
-  font-weight: 500;
+
+@media (max-width: $s) {
+  .carousel-overlay {
+    position: relative;
+    // top: 40vmax;
+    left: 0;
+    top: 0;
+    margin-left: 1rem;
+    .carousel-subheading {
+      margin-top: 1rem;
+      margin-bottom: 0.1rem;
+      color: #000!important;
+    }
+    .carousel-title {
+      color: #000!important;
+    }
+  }
+  .carousel-inner {
+    height: auto;
+    img {
+      height: 100vw;
+      width: 100%;
+    }
+  }
+  .carousel-indicators {
+    // top: calc(40vmax - 20px);
+    top: calc(100vw - 20px);
+  }
 }

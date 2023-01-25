@@ -1,6 +1,28 @@
+@import '../../../variables.scss';
+
 .banner {
+  position: relative;
+}
+
+.banner-img {
   height: 50vh;
   background-image: url("/assets/static/images/main_splash.jpg");
   // object-fit: cover;
   background-position: bottom right;
+}
+
+.banner-overlay {
+  position: absolute
+}
+
+@media (max-width: $s) {
+  .banner-overlay {
+    position: relative;
+  }
+  
+}
+
+
+@media (max-width: $m) {
+  
 }

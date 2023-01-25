@@ -1,8 +1,10 @@
-@media (min-width: 978px) {
+@import '../../../variables.scss';
+
+@media (max-width: $m) {
     .feature-product-list-container {
 		margin-top: 3vw!important;
     }
 }
-@media (max-width: 480px) {
+@media (max-width: $s) {
 
 }

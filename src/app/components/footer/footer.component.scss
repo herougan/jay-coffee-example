@@ -1,4 +1,4 @@
-@import '../../../styles.scss';
+@import '../../../variables.scss';
 
 .banner {
 	// background-image: url("/assets/static/images/main_splash.jpg");
@@ -33,7 +33,7 @@
 }
 
 .banner-logo {	
-	padding-inline-start: 4em;
+	// padding-inline-start: 4em;
 	img {
 		// width: 8rem;
 		max-width: 75%;
@@ -42,6 +42,7 @@
 }
 
 .banner-title-name {
+	text-align: center;
 	h1 {
 		font-family: Mayland;
 		margin: 1rem;
@@ -68,16 +69,18 @@
 	padding-left: 6px;
 }
 .email-input, .email-input-button {
-	height: 4vw;
-	font-size: 160%;
+	// height: 4vw;
+	font-size: 150%;
 	border: 1px solid white;
+	padding-top: 3px;
+	padding-bottom: 3px;
 }
 .email-input-button {
 	// color: $ivory;
 	// display: inline-block;
 	// text-align: center;
 	// vertical-align: middle;
-	line-height:normal;
+	// line-height:normal;
 	background-color: white;
 }
 
@@ -98,6 +101,15 @@
 	}
 	.banner-title-name {
 		align-self: center;
+	}
+	.email-input {
+		flex: 0.9;
+	}
+	.email-input-button {
+		flex: 0.1;
+	}
+	.input-container {
+		display: flex
 	}
 }
 

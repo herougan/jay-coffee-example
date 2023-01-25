@@ -1,31 +1,37 @@
+@import '../../../variables.scss';
+
 .product-card-body {
 	width: 30vw;
-	height: 6vw;
+	// height: 6vw;
 } 
 // html {
 // 	font-size: 0.65vw;
 //   }
 .product-card {
-	font-size: 20px;
+	// font-size: 20px;
 	h5 {
-		font-size: 21px;
-		margin-bottom: 0.3rem;
-		font-weight: 500;
+		// font-size: 2rem;
+		// margin-bottom: 0.3rem;
+		font-weight: 400;
 	};
 	h4 {
-		font-size: 18px;
+		// font-size: 1.5rem;
 	};
 	a, p {
-		font-size: 15px;
+		// font-size: 1.4rem;
 	};
 }
-.product-card-img:hover {
-	opacity: 0;
-}
-.product-card-img img {
-	object-fit: cover;
-	width: 30vw;
-	height: 30vw;
+.product-card-img {
+	pointer-events: auto; 
+	position: relative;
+	:hover {
+		opacity: 0;
+	}
+	img {
+		object-fit: cover;
+		width: 30vw;
+		height: 30vw;
+	}
 }
 
 .product-card:hover {
@@ -97,16 +103,16 @@
 	font-weight: 600;
 }
 
-@media (max-width: 978px) {
-    .product-card {
-      margin-left: 0!important;
-      margin-right: 0!important;
-	  padding: 0!important;
-    }
-}
-@media (max-width: 480px) {
+// @media (max-width: 978px) {
+//     .product-card {
+//       margin-left: 0!important;
+//       margin-right: 0!important;
+// 	  padding: 0!important;
+//     }
+// }
+// @media (max-width: 480px) {
 
-}
+// }
 
 
 // @include media-breakpoint-up(md) { ... }

@@ -1,7 +1,7 @@
 <!-- Type 1 -->
-<div class="card mb-2 product-card mx-2 border-0" style="pointer-events: none;" *ngIf="product" onclick="" routerLink="/detail/{{product.id}}">
+<div class="card product-card border-0" style="pointer-events: none;" *ngIf="product" onclick="" routerLink="/detail/{{product.id}}">
 	<!-- Image -->
-	<div class="product-card-img" style="pointer-events: auto; position: relative" routerLink="/detail/{{product.id}}">
+	<div class="product-card-img" routerLink="/detail/{{product.id}}">
 		<img src="{{product.img}}"  alt="...">
 		<div class="product-desc-popup	d-flex flex-column justify-content-center">
 			<ng-container *ngIf="product.shortDesc">
@@ -28,7 +28,3 @@
 		<p>{{product.desc}}</p>
 	</div>
 </div>
-<!-- Type 2 -->
-
-
-<!-- Type 3 -->

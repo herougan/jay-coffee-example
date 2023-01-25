@@ -1,6 +1,9 @@
+@import '../../../variables.scss';
+
 .dropdown-toggle::after {
   display: none;
 }
+
 .nav-logo-container img {
 	width: 4vw;
 	height: 4vw;
@@ -27,11 +30,16 @@
 	border-radius: .25vw;
 }
 
+.cart-button, .search-button {
+	cursor: pointer;
+	pointer-events: all;
+}
+
 .nav-bar-background {
 	opacity: 0.08; 
 	background-image: url('/../assets/static/images/banner/wood_texture.jpg'); 
-	position: absolute; 
-	height: 5vw; 
+	pointer-events: none;
+	position: absolute;
 	// width: 100vw; 
 	top: 0; 
 	bottom: 0; 
@@ -47,12 +55,33 @@
 	color: black;
 	font-size: large;
 }
-.main-nav-bar .cart-button {
-}
-.main-nav-bar .search-button {
-}
 
 .main-nav-bar .logo img {
 	width: 3vw;
 	height: 2vw;
+}
+
+.nav-logo-container-detached {
+	margin-block: 0px;
+	width: 2px;
+	height: 2px;
+	transition: width 1s;
+	transition: height 1s;
+}
+
+@media (max-width: $s) {
+	.nav-router-links-container {
+		display: none!important;
+	}
+	.nav-logo-container img {
+		width: 10vw;
+		height: 10vw;
+	}
+	.cart-button svg, .search-button svg {
+		width: 7vw;
+		height: 7vw;
+	}
+	.main-nav-bar {
+		position: relative
+	}
 }
