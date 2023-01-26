@@ -14,7 +14,7 @@ export class MainNavBarComponent implements OnInit {
       if (nav)
         window.addEventListener('scroll', () => {
           let scrollTop = window.scrollY;
-          console.log(scrollTop);
+          // console.log(scrollTop);
           if (scrollTop > 500) {
             nav?.classList.add('hide-nav');
           } else {

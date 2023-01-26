@@ -58,7 +58,7 @@
 }
 
 
-@media (max-width: $m) {
+@media (max-width: $md) {
   .carousel-overlay {
     top: calc(40vmax - 20rem);
   }

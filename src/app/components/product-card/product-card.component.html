@@ -3,7 +3,7 @@
 	<!-- Image -->
 	<div class="product-card-img" routerLink="/detail/{{product.id}}">
 		<img src="{{product.img}}"  alt="...">
-		<div class="product-desc-popup	d-flex flex-column justify-content-center">
+		<div class="product-desc-popup col justify-content-center">
 			<ng-container *ngIf="product.shortDesc">
 				<div class="product-card-desc card-text px-3">
 					<h5>{{product.shortDesc}}</h5>
@@ -15,7 +15,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="product-card-tags d-flex d-row mt-3 ms-3" *ngIf="product.tags">
+	<div class="product-card-tags row mt-3 ms-3" *ngIf="product.tags">
 		<div class="mx-1" *ngFor="let tag of product.tags; index as i">
 			<p class="px-1" [ngClass]="{'bg-success': (tagTypes[i] == 'success'), 'bg-danger': (tagTypes[i] == 'danger'), 
 			'bg-warning': (tagTypes[i] == 'warning'), 'bg-info': (tagTypes[i] == 'info')}">{{tag}}</p>
