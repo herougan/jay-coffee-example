@@ -21,21 +21,22 @@
 }
 .product-card-img {
 	pointer-events: auto; 
-	:hover {
-		opacity: 0;
-	}
+	position: relative;
 	img {
 		object-fit: cover;
 		width:100%;
-		height: 30vw;
+		height: 28vw;
 	}
 }
 
 .product-card:hover {
 	.product-card-img {
-		background:rgba(236, 122, 14, 0.6);
+		background:rgba(236, 122, 14, 0.4);
 		opacity: 1;
 		transition: opacity 0.15s;
+	}
+	.product-card-img + .yellow {
+		background:rgba(255, 234, 0, 0.4);
 	}
 	.product-card-body {
 		opacity: 0.8;
@@ -81,16 +82,23 @@
 	// transition-delay: 0s;
 	transition: opacity 0.1s;
 }
+.product-card-tags p {
+	--bs-bg-opacity: 0.85;
+}
 .product-desc-popup {
 	display: none;
 	opacity: 0;
-	background-color:rgba(200, 100, 10, .9);
+	background-color:rgba(200, 100, 10, .8);
 	position: absolute;
-	bottom: 0%;
+	bottom: 0vw; // 28 - 5vw
 	transition: opacity 0.1s;
-	// width:100%;
-	height: 5vw;
-	padding-top: 0;
+	width: 100%;
+	// height: 5vw;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.yellow-popup {
+	background-color: rgba(255, 247, 0, .8);
 }
 .product-tags {
 	border-radius: .25vw;
@@ -110,5 +118,9 @@
 }
 
 
-// @include media-breakpoint-up(md) { ... }
-// @include media-breakpoint-up(lg) { ... }
+/* Lessons learned:
+	For object-fit: cover to work on an img,
+	the img must have height: 100% and width: 100%,
+	the immediate enclosing div must have nothing else in it and 
+	concrete height and width.
+*/

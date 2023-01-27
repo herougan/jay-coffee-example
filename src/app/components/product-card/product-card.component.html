@@ -3,9 +3,10 @@
 	<!-- Image -->
 	<div class="product-card-img" routerLink="/detail/{{product.id}}">
 		<img src="{{product.img}}"  alt="...">
-		<div class="product-desc-popup col justify-content-center">
+		<div class="product-desc-popup py-2 col justify-content-center"
+			[ngClass]="{'yellow-popup': product.colour == 'yellow'}">
 			<ng-container *ngIf="product.shortDesc">
-				<div class="product-card-desc card-text px-3">
+				<div class="product-card-desc card-text px-3 mt-2">
 					<h5>{{product.shortDesc}}</h5>
 				</div>
 			</ng-container>
@@ -15,9 +16,9 @@
 			</div>
 		</div>
 	</div>
-	<div class="product-card-tags row mt-3 ms-3" *ngIf="product.tags">
+	<div class="product-card-tags d-flex mt-3 ms-3" *ngIf="product.tags">
 		<div class="mx-1" *ngFor="let tag of product.tags; index as i">
-			<p class="px-1" [ngClass]="{'bg-success': (tagTypes[i] == 'success'), 'bg-danger': (tagTypes[i] == 'danger'), 
+			<p class="px-1 col-1" [ngClass]="{'bg-success': (tagTypes[i] == 'success'), 'bg-danger': (tagTypes[i] == 'danger'), 
 			'bg-warning': (tagTypes[i] == 'warning'), 'bg-info': (tagTypes[i] == 'info')}">{{tag}}</p>
 		</div>
 	</div>
@@ -25,6 +26,6 @@
 	<!-- Body -->
 	<div class="card-body product-card-body">
 		<h4 class="card-title pt-1">{{ product.name }}</h4>
-		<p>{{product.desc}}</p>
+		<p>${{product.price}}</p>
 	</div>
 </div>
