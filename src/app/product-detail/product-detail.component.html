@@ -1,8 +1,27 @@
-<p>product-detail works!</p>
-<div *ngIf="product">
-	<p>{{product.id}}</p>
-	<img src="{{product.img}}">
+<div *ngIf="product" class="container pt-5 mt-5">
+  <div class="row">
+    <div class="col-md-6 col-xs-12">
+      <img src="{{ product.img }}" alt="..." class="w-100 h-100" />
+    </div>
+    <div class="col-md-6 col-xs-12">
+      <div class="ps-2 py-2">
+        <h1>{{ product.name }}</h1>
+        <h2 *ngIf="product.shortDesc">{{ product.shortDesc }}</h2>
+        <div class="container"></div>
+        <div class="row g-2 w-50">
+          <div class="col-md-6 col-xs-12">
+            <input
+              type="number"
+              class="form-control border border-dark border-1 py-2 fs-5"
+              id="quantity"
+              aria-describedby="quantity"
+            />
+          </div>
+          <button class="col-md-6 col-xs-12 btn btn-primary py-2 fs-5">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<!--Dont need multiple flex rows, just dictate they take up 1/3 row space, same on height, then
-if there are 100 items, they naturally divide into separate rows-->
