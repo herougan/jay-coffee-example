@@ -1,30 +1,51 @@
 <!-- Type 1 -->
-<div class="card product-card border-0" style="pointer-events: none;" *ngIf="product" onclick="" routerLink="/detail/{{product.id}}">
-	<!-- Image -->
-	<div class="product-card-img" routerLink="/detail/{{product.id}}">
-		<img src="{{product.img}}"  alt="...">
-		<div class="product-desc-popup	d-flex flex-column justify-content-center">
-			<ng-container *ngIf="product.shortDesc">
-				<div class="product-card-desc card-text px-3">
-					<h5>{{product.shortDesc}}</h5>
-				</div>
-			</ng-container>
-			<div class="product-card-desc card-text px-3" 
-			[ngStyle]="{'text-align': (product.shortDesc) ? 'left' : 'center'}">
-				<p>{{product.desc}}</p>
-			</div>
-		</div>
-	</div>
-	<div class="product-card-tags d-flex d-row mt-3 ms-3" *ngIf="product.tags">
-		<div class="mx-1" *ngFor="let tag of product.tags; index as i">
-			<p class="px-1" [ngClass]="{'bg-success': (tagTypes[i] == 'success'), 'bg-danger': (tagTypes[i] == 'danger'), 
-			'bg-warning': (tagTypes[i] == 'warning'), 'bg-info': (tagTypes[i] == 'info')}">{{tag}}</p>
-		</div>
-	</div>
-	<!-- Overlay -->
-	<!-- Body -->
-	<div class="card-body product-card-body">
-		<h4 class="card-title pt-1">{{ product.name }}</h4>
-		<p>{{product.desc}}</p>
-	</div>
+<div
+  class="card product-card border-0"
+  style="pointer-events: none"
+  *ngIf="product"
+  onclick=""
+  routerLink="/detail/{{ product.id }}"
+>
+  <!-- Image -->
+  <div class="product-card-img w-100" routerLink="/detail/{{ product.id }}">
+    <img
+      src="{{ product.img }}"
+      alt="..."
+      class="w-100 h-100 object-fit-cover"
+    />
+    <div class="product-desc-popup d-flex flex-column justify-content-center">
+      <ng-container *ngIf="product.shortDesc">
+        <div class="product-card-desc card-text px-3">
+          <h5>{{ product.shortDesc }}</h5>
+        </div>
+      </ng-container>
+      <div
+        class="product-card-desc card-text px-3"
+        [ngStyle]="{ 'text-align': product.shortDesc ? 'left' : 'center' }"
+      >
+        <p>{{ product.desc }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="product-card-tags d-flex d-row mt-3 ms-3" *ngIf="product.tags">
+    <div class="mx-1" *ngFor="let tag of product.tags; index as i">
+      <p
+        class="px-1"
+        [ngClass]="{
+          'bg-success': tagTypes[i] == 'success',
+          'bg-danger': tagTypes[i] == 'danger',
+          'bg-warning': tagTypes[i] == 'warning',
+          'bg-info': tagTypes[i] == 'info'
+        }"
+      >
+        {{ tag }}
+      </p>
+    </div>
+  </div>
+  <!-- Overlay -->
+  <!-- Body -->
+  <div class="card-body product-card-body">
+    <h4 class="card-title pt-1">{{ product.name }}</h4>
+    <p>{{ product.desc }}</p>
+  </div>
 </div>
