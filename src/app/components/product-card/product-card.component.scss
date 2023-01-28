@@ -82,22 +82,29 @@
 .product-card,
 .product-card-img,
 .product-card-tags {
-  transition-property: width;
-  transition-duration: 0.6s;
-  transition-timing-function: ease;
-  transition-delay: 0s;
+  // transition-property: width;
+  // transition-duration: 0.6s;
+  // transition-timing-function: ease;
+  // transition-delay: 0s;
   transition: opacity 0.1s;
+}
+.product-card-tags p {
+  --bs-bg-opacity: 0.85;
 }
 .product-desc-popup {
   display: none;
   opacity: 0;
-  background-color: rgba(200, 100, 10, 0.9);
+  background-color: rgba(200, 100, 10, 0.8);
   position: absolute;
-  bottom: 0%;
+  bottom: 0vw; // 28 - 5vw
   transition: opacity 0.1s;
   width: 100%;
-  height: 5vw;
-  padding-top: 0;
+  // height: 5vw;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.yellow-popup {
+  background-color: rgba(255, 247, 0, 0.8);
 }
 .product-tags {
   border-radius: 0.25vw;
@@ -107,16 +114,17 @@
   font-weight: 600;
 }
 
-// @media (max-width: 978px) {
-//     .product-card {
-//       margin-left: 0!important;
-//       margin-right: 0!important;
-// 	  padding: 0!important;
-//     }
-// }
-// @media (max-width: 480px) {
+@media (max-width: $md) {
+  .product-card-img img {
+    height: 80vw;
+  }
+}
+@media (max-width: $s) {
+}
 
-// }
-
-// @include media-breakpoint-up(md) { ... }
-// @include media-breakpoint-up(lg) { ... }
+/* Lessons learned:
+	For object-fit: cover to work on an img,
+	the img must have height: 100% and width: 100%,
+	the immediate enclosing div must have nothing else in it and
+	concrete height and width.
+*/

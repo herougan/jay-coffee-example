@@ -2,15 +2,15 @@
 
 .carousel-inner {
   img {
-    height: 40vmax;
+    height: 42vmax;
     width: 100%;
     object-fit: cover;
   }
 }
 
 .carousel-indicators {
-  // top: calc(40vmax - 20px);
-  top: calc(40vmax - 20px);
+  // top: calc(42vmax - 20px);
+  top: calc(42vmax - 20px);
 }
 
 .carousel-indicators button {
@@ -37,7 +37,7 @@
 
 .carousel-overlay {
   position: absolute;
-  top: calc(40vmax - 15rem);
+  top: calc(42vmax - 15rem);
   left: calc(100vw - 40rem);
   color: white;
   z-index: 1;
@@ -58,16 +58,16 @@
 }
 
 
-@media (max-width: $m) {
+@media (max-width: $md) {
   .carousel-overlay {
-    top: calc(40vmax - 20rem);
+    top: calc(42vmax - 20rem);
   }
 }
 
 @media (max-width: $s) {
   .carousel-overlay {
     position: relative;
-    // top: 40vmax;
+    // top: 42vmax;
     left: 0;
     top: 0;
     margin-left: 1rem;
@@ -88,7 +88,7 @@
     }
   }
   .carousel-indicators {
-    // top: calc(40vmax - 20px);
+    // top: calc(42vmax - 20px);
     top: calc(100vw - 20px);
   }
 }

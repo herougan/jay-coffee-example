@@ -8,6 +8,7 @@ export class Product {
 	  public price: number,
 	  public tags?: string[],
 	  public shortDesc?: string,
+	  public colour?: string,
 	) {}
   
   }
