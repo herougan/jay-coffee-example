@@ -5,6 +5,7 @@ export class FeatureCardDetail {
 	  public name: string,
 	  public img: string,
 	  public desc: string,
+	  public copy: string,
 	  public tags?: string[],
 	  public shortDesc?: string,
 	) {}

@@ -9,21 +9,41 @@ export class MainNavBarComponent implements OnInit {
 
   constructor() {
     document.addEventListener("DOMContentLoaded", () => {
-      let nav = document.querySelector('.main-nav-bar');
+      // let nav = document.querySelector('.main-nav-bar');
+      let nav_logo = document.querySelector('.nav-logo-container');
+      let nav_links = document.querySelector('.nav-router-links-container');
+      //
+      let cart_button = document.querySelector('.cart-button');
+      let search_button = document.querySelector('.search-button');
+      let hamburger_button = document.querySelector('.hamburger-button');
       
-      if (nav)
+      if (nav_logo && nav_links && cart_button)
         window.addEventListener('scroll', () => {
           let scrollTop = window.scrollY;
+
           // console.log(scrollTop);
-          if (scrollTop > 500) {
-            nav?.classList.add('hide-nav');
+          if (scrollTop > 400) {
+            nav_logo?.classList.add('hide-nav');
+            nav_links?.classList.add('hide-nav');
           } else {
-            nav?.classList.remove('hide-nav');
+            nav_logo?.classList.remove('hide-nav');
+            nav_links?.classList.remove('hide-nav');
           }
+          if (scrollTop > 300) {
+            cart_button?.classList.add('show-background');
+            //
+            search_button?.classList.add('hide-button');
+            hamburger_button?.classList.add('hide-button');
+          } else {
+            cart_button?.classList.remove('show-background');
+            //
+            search_button?.classList.remove('hide-button');
+            hamburger_button?.classList.remove('hide-button');
+          }
+
         });
     }) }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {  }
 
 }

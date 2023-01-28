@@ -21,4 +21,18 @@ export class ProductService {
   getMainProducts(): Observable<Product[]> {
     return this.getProducts(-1);
   }
+
+  getProduct(id: number): Observable<Product> {
+    let p: Product = this.products[0];
+    this.products.forEach(product => {
+      console.log(product.id + ":" + id);
+      if (product.id === id)
+        p = product;
+    });
+    return of(p); // TODO return failure here
+  }
+
+  searchProducts(): Observable<Product[]> {
+    return this.getProducts(-1);
+  }
 }

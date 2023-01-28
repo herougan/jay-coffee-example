@@ -1,5 +1,5 @@
 <div class="main-nav-bar d-flex d-row align-items-center sticky-top">
-  <div class="d-flex nav-bar-background align-items-stretch flex-fill"></div>
+  <!-- <div class="nav-bar-background d-flex align-items-stretch flex-fill"></div> -->
   <div class="mx-3 mx-sm-4 my-3 my-sm-1 nav-logo-container">
     <img src="assets/static/images/mini_logo.png" />
   </div>
@@ -10,7 +10,7 @@
     </nav>
   </div>
   <div class="nav-buttons-container d-flex ms-auto pe-1 pe-sm-3">
-    <div class="cart-button mx-3 align-self-center" routerLink="/cart">
+    <div class="cart-button mx-1" routerLink="/cart">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20"
@@ -26,7 +26,7 @@
         />
       </svg>
     </div>
-    <!-- <div class="search-button mx-3 align-self-center" routerLink="/shop">
+    <div class="search-button mx-1 align-self-center" routerLink="/shop">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="18.5"
@@ -41,6 +41,12 @@
           stroke-width=".33"
         />
       </svg>
-    </div> -->
+    </div>
+    <div class="hamburger-button mx-1 align-self-center" routerLink="/shop"
+    style="translate: 0 -2px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+      </svg>
+    </div>
   </div>
 </div>

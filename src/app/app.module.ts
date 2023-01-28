@@ -18,7 +18,7 @@ import { FeatureBannerComponent } from './components/feature-banner/feature-bann
 import { StoreModule } from '@ngrx/store';
 import { FeatureCardComponent } from './components/feature-card/feature-card.component';
 import { FeatureListComponent } from './components/feature-list/feature-list.component';
-import { DbMessagerComponent } from './debug/db-messager/db-messager.component';
+import { DbMessengerComponent } from './debug/db-messenger/db-messenger.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,7 @@ import { DbMessagerComponent } from './debug/db-messager/db-messager.component';
     ProductDetailComponent,
     FeatureCardComponent,
     FeatureListComponent,
-    DbMessagerComponent,
+    DbMessengerComponent,
   ],
   imports: [
     BrowserModule,

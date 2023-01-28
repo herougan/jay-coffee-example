@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ɵɵsetComponentScope } from '@angular/core';
 import { Product } from '../../models/product';
 import { MOCK_PRODUCTS } from 'src/assets/static/data/mock-products';
 import { ProductService } from '../../services/product-service.service';
@@ -12,19 +12,15 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductDetailComponent implements OnInit {
   product: Product | undefined;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute,
+    private productService: ProductService) {}
 
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
-    const productIdFromRoute = Number(routeParams.get('productId'));
+    const productIdFromRoute = Number(routeParams.get('id'));
 
-    this.product = MOCK_PRODUCTS.find(
-      (product) => product.id === productIdFromRoute
-    );
-
-    // this.productService.getMainProducts()
-    //   .subscribe(products => this.products = products);
-    // this.products.forEach(product => console.log(product));
-    // console.log("HelloWorld");
+    this.productService.getProduct(productIdFromRoute).subscribe((p => {
+      this.product = p;
+    }))
   }
 }
