@@ -10,9 +10,9 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { BannerComponent } from './components/banner/banner.component';
 import { InfoCardComponent } from './components/info-card/info-card.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HomeComponent } from './home/home.component';
-import { ShopComponent } from './shop/shop.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ShopComponent } from './pages/shop/shop.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { FeatureProductListComponent } from './components/feature-product-list/feature-product-list.component';
 import { FeatureBannerComponent } from './components/feature-banner/feature-banner.component';
 import { StoreModule } from '@ngrx/store';
