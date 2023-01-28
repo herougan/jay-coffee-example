@@ -28,9 +28,6 @@
   position: relative;
   box-sizing: border-box;
   aspect-ratio: 1/1;
-  :hover {
-    opacity: 0;
-  }
   img {
     object-fit: cover;
   }
@@ -99,6 +96,9 @@
 }
 .yellow-popup {
   background-color: rgba(255, 247, 0, 0.8);
+}
+.red-popup {
+  background-color: rgba(255, 0, 0, 0.8);
 }
 .product-tags {
   border-radius: 0.25vw;
