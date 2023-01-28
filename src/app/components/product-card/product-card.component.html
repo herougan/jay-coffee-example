@@ -13,7 +13,8 @@
       alt="..."
       class="w-100 h-100 object-fit-cover"
     />
-    <div class="product-desc-popup d-flex flex-column justify-content-center">
+    <div class="product-desc-popup d-flex flex-column justify-content-center"
+    [ngClass]="{'yellow-popup': product.colour == 'yellow'}">
       <ng-container *ngIf="product.shortDesc">
         <div class="product-card-desc card-text px-3">
           <h5>{{ product.shortDesc }}</h5>

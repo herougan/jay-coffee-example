@@ -17,7 +17,6 @@
 	width: 30vw;
 	position: absolute;
 }
-
 .detail-card-body {
 	max-width: 100%;
 
@@ -36,18 +35,25 @@
 		font-weight: lighter;
 	};
 }
-
 .detail-card-mask {
 	-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));
 	background-color: black;
 	width: 100%;
 }
+.detail-overlay {
+	// display: none;
+	opacity: 0;
+}
+.detail-card:hover {
+	.detail-overlay {
+		// display: block;
+		opacity: 1;
+		transition: opacity 0.15s;
+	}
+}
 
 @media (max-width: $md) {
 	.detail-card-img {
-		// flex: 1 1 0px;
-		// overflow: hidden;
-		// width: 33%;
 		> img {
 			object-fit: cover;
 			width: 100vw;

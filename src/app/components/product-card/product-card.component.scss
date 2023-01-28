@@ -28,9 +28,6 @@
   position: relative;
   box-sizing: border-box;
   aspect-ratio: 1/1;
-  :hover {
-    opacity: 0;
-  }
   img {
     object-fit: cover;
   }
@@ -79,14 +76,8 @@
     width: fit-content;
   }
 }
-.product-card,
-.product-card-img,
-.product-card-tags {
-  // transition-property: width;
-  // transition-duration: 0.6s;
-  // transition-timing-function: ease;
-  // transition-delay: 0s;
-  transition: opacity 0.1s;
+.product-card, .product-card-img, .product-card-tags {  
+	transition: opacity 0.1s;
 }
 .product-card-tags p {
   --bs-bg-opacity: 0.85;
@@ -105,6 +96,9 @@
 }
 .yellow-popup {
   background-color: rgba(255, 247, 0, 0.8);
+}
+.red-popup {
+  background-color: rgba(255, 0, 0, 0.8);
 }
 .product-tags {
   border-radius: 0.25vw;
