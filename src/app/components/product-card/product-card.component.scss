@@ -76,8 +76,10 @@
     width: fit-content;
   }
 }
-.product-card, .product-card-img, .product-card-tags {  
-	transition: opacity 0.1s;
+.product-card,
+.product-card-img,
+.product-card-tags {
+  transition: opacity 0.1s;
 }
 .product-card-tags p {
   --bs-bg-opacity: 0.85;
@@ -93,6 +95,7 @@
   // height: 5vw;
   padding-top: 2px;
   padding-bottom: 2px;
+  color: white;
 }
 .yellow-popup {
   background-color: rgba(255, 247, 0, 0.8);
