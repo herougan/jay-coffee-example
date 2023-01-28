@@ -7,29 +7,25 @@
   routerLink="/detail/{{ product.id }}"
 >
   <!-- Image -->
-  <div class="product-card-img w-100" routerLink="/detail/{{ product.id }}">
+  <div
+    class="product-card-img w-100 mb-1"
+    routerLink="/detail/{{ product.id }}"
+  >
     <img
       src="{{ product.img }}"
       alt="..."
       class="w-100 h-100 object-fit-cover"
     />
-    <div class="product-desc-popup d-flex flex-column justify-content-center"
-    [ngClass]="{'yellow-popup': product.colour == 'yellow',
-                'red-popup': product.colour == 'red',
-                'blue-popup': product.colour == 'blue',
-                'green-popup': product.colour == 'green',
-                'white-popup': product.colour == 'white'}">
-      <ng-container *ngIf="product.shortDesc">
-        <div class="product-card-desc card-text px-3">
-          <h5>{{ product.shortDesc }}</h5>
-        </div>
-      </ng-container>
-      <div
-        class="product-card-desc card-text px-3"
-        [ngStyle]="{ 'text-align': product.shortDesc ? 'left' : 'center' }"
-      >
-        <p>{{ product.desc }}</p>
-      </div>
+    <div
+      class="product-desc-popup d-flex flex-column justify-content-center p-2"
+      [ngClass]="{'yellow-popup': product.colour == 'yellow',
+      'red-popup': product.colour == 'red',
+      'blue-popup': product.colour == 'blue',
+      'green-popup': product.colour == 'green',
+      'white-popup': product.colour == 'white'}"
+    >
+      <span class="fs-4 fw-semibold">TASTES LIKE</span>
+      <span *ngIf="product.notes" class="fs-5">{{ product.notes }}</span>
     </div>
   </div>
   <div class="product-card-tags d-flex d-row mt-3 ms-3" *ngIf="product.tags">
@@ -49,8 +45,8 @@
   </div>
   <!-- Overlay -->
   <!-- Body -->
-  <div class="card-body product-card-body">
-    <h4 class="card-title pt-1">{{ product.name }}</h4>
-    <p>{{ product.desc }}</p>
+  <div class="pt-1 pb-3">
+    <span class="card-title fs-4 fw-semibold">{{ product.name }}</span>
+    <p class="fs-5">{{ product.desc }}</p>
   </div>
 </div>

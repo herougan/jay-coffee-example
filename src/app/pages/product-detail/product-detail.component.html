@@ -1,12 +1,13 @@
 <div *ngIf="product" class="container pt-5 mt-5">
-  <div class="row">
+  <div class="row g-5">
     <div class="col-md-6 col-xs-12">
       <img src="{{ product.img }}" alt="..." class="w-100 h-100" />
     </div>
     <div class="col-md-6 col-xs-12">
-      <div class="ps-2 py-2">
+      <div class="py-2">
         <h1>{{ product.name }}</h1>
         <h2 *ngIf="product.shortDesc">{{ product.shortDesc }}</h2>
+        <p *ngIf="product.desc" class="fs-5">{{ product.desc }}</p>
         <div class="container"></div>
         <div class="row g-2 w-50">
           <div class="col-md-6 col-xs-12">
@@ -21,6 +22,46 @@
             Add to Cart
           </button>
         </div>
+      </div>
+    </div>
+    <div class="col-md-9 col-xs-12">
+      <p class="fs-5">
+        We designed The Daily to be a balanced and approachable drip coffee,
+        drinkable every day yet complex enough to keep you coming back. The
+        Daily is built around seasonally fresh components, typically coffees
+        from South and Central America, chosen carefully to bring together our
+        favorite attributes in coffee, from brightness to body, sweetness to
+        finish. Currently, The Daily is made up of coffees from Brazil and
+        Colombia, and provides everything we look for in a satisfying,
+        drink-every-day blend.
+      </p>
+    </div>
+    <div class="col-md-3 col-xs-12 d-flex flex-column">
+      <div class="border-top border-dark-subtle pt-3">
+        <h3 class="fw-semibold fs-5">TYPE</h3>
+        <p class="fw-bold fs-4">Blend</p>
+      </div>
+      <div class="border-top border-dark-subtle pt-3">
+        <h3 class="fw-semibold fs-5">ORIGIN</h3>
+        <p class="fw-bold fs-4">
+          Cerrado, Minas Gerais, Brazil | Tarqui, Huila, Colombia
+        </p>
+      </div>
+      <div class="border-top border-dark-subtle pt-3">
+        <h3 class="fw-semibold fs-5">PRODUCER</h3>
+        <p class="fw-bold fs-4">Veloso Coffee | El Paraiso cooperatives</p>
+      </div>
+      <div class="border-top border-dark-subtle pt-3">
+        <h3 class="fw-semibold fs-5">VARIETY</h3>
+        <p class="fw-bold fs-4">Caturra, Colombia, Catuai, Red Catuaí</p>
+      </div>
+      <div class="border-top border-dark-subtle pt-3">
+        <h3 class="fw-semibold fs-5">ELEVATION</h3>
+        <p class="fw-bold fs-4">1066–1800 MASL</p>
+      </div>
+      <div class="border-top border-dark-subtle pt-3">
+        <h3 class="fw-semibold fs-5">PROCESS</h3>
+        <p class="fw-bold fs-4">Natural and Washed</p>
       </div>
     </div>
   </div>
