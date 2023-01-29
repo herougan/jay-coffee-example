@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
+import { CartWindowComponent } from '../cart-window/cart-window.component';
+import { SearchWindowComponent } from '../search-window/search-window.component';
 
 @Component({
   selector: 'app-main-nav-bar',
@@ -6,6 +8,9 @@ import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
   styleUrls: ['./main-nav-bar.component.scss']
 })
 export class MainNavBarComponent implements OnInit {
+
+  @ViewChild('search-window') search!: SearchWindowComponent;
+  @ViewChild('cart-window') cart!: CartWindowComponent;
 
   constructor() {
     document.addEventListener("DOMContentLoaded", () => {
@@ -42,7 +47,8 @@ export class MainNavBarComponent implements OnInit {
           }
 
         });
-    }) }
+    }) 
+  }
 
   ngOnInit(): void {  }
 

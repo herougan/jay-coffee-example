@@ -1,1 +1,7 @@
 <p>search-window works!</p>
+<div class="search-window">
+	<input type="text">
+	<div class="search-results">
+		<ng-container *ngFor="let result of results; index as i"></ng-container>
+	</div>
+</div>

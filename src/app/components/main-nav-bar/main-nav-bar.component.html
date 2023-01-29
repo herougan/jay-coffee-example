@@ -10,7 +10,7 @@
     </nav>
   </div>
   <div class="nav-buttons-container d-flex ms-auto pe-1 pe-sm-3">
-    <div class="cart-button mx-1" routerLink="/cart">
+    <div class="cart-button mx-1" routerLink="/cart" onclick="onCart(); cart.show();">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20"
@@ -26,7 +26,7 @@
         />
       </svg>
     </div>
-    <div class="search-button mx-1 align-self-center" routerLink="/shop">
+    <div class="search-button mx-1 align-self-center" routerLink="/shop" onclick="onSearch(); search.show();">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="18.5"
@@ -48,5 +48,10 @@
         <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
       </svg>
     </div>
+    <div class="hamburger-items">
+
+    </div>
   </div>
 </div>
+<app-search-window #search></app-search-window>
+<app-cart-window #cart></app-cart-window>

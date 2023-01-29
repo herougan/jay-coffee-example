@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class CartWindowComponent {
 
+    enabled: boolean = false;
+
+    show(): void {
+      this.enabled = !this.enabled;
+      let window = document.querySelector('.search-window');
+    }
 }
