@@ -46,4 +46,16 @@ export class MainNavBarComponent implements OnInit {
 
   ngOnInit(): void {  }
 
+  /* Nav bar items */
+  onDropDown(): void {
+
+  }
+
+  onCart(): void {
+
+  }
+
+  onSearch(): void {
+    
+  }
 }

@@ -19,6 +19,11 @@ import { StoreModule } from '@ngrx/store';
 import { FeatureCardComponent } from './components/feature-card/feature-card.component';
 import { FeatureListComponent } from './components/feature-list/feature-list.component';
 import { DbMessengerComponent } from './debug/db-messenger/db-messenger.component';
+import { SearchResultComponent } from './pages/search-result/search-result.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { CartWindowComponent } from './components/cart-window/cart-window.component';
+import { SearchWindowComponent } from './components/search-window/search-window.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +44,11 @@ import { DbMessengerComponent } from './debug/db-messenger/db-messenger.componen
     FeatureCardComponent,
     FeatureListComponent,
     DbMessengerComponent,
+    SearchResultComponent,
+    AboutUsComponent,
+    CartComponent,
+    CartWindowComponent,
+    SearchWindowComponent,
   ],
   imports: [
     BrowserModule,
