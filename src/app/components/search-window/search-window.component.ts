@@ -10,17 +10,26 @@ import { Product } from 'src/app/models/product';
 export class SearchWindowComponent {
 
   results: Product[] = [];
+  window: any;
 
-  constructor() {}
+  constructor() {
+  }
 
+  ngOnInit(): void {
+    this.window = document.querySelector('.search-window');
+  }
 
   enabled: boolean = false;
 
   show(): void {
     this.enabled = !this.enabled;
-    let window = document.querySelector('.search-window');
-
+    if (this.enabled)
+      this.window?.classList.remove('hidden-window');
+    else
+      this.window?.classList.add('hidden-window');
   }
 
+  search(): void {
 
+  }
 }

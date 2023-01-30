@@ -1,7 +1,20 @@
-<p>search-window works!</p>
-<div class="search-window">
+<div class="search-window hidden-window">
 	<input type="text">
 	<div class="search-results">
-		<ng-container *ngFor="let result of results; index as i"></ng-container>
+		<ng-container *ngFor="let result of results; index as i">
+			<div class="row" id='result-{{i}}'>
+				<div class="result-img">
+					<picture>
+						<img src={{result.img}}>
+					</picture>
+				</div>
+				<div class="result-title">
+					<p>{{result.name}}</p>
+				</div>
+				<div class="result-price">
+					<p>{{result.price}}</p>
+				</div>
+			</div>
+		</ng-container>
 	</div>
 </div>

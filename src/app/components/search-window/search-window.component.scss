@@ -1,0 +1,21 @@
+.search-window {
+	position: sticky;
+	width: min(500px, 50vw);
+	top: 25px;
+	left: calc(50vw - 250px);
+	background-color: white;
+	z-index: 1;
+	padding: 10px 10px 10px 10px;
+	margin-right: 10px;
+	border-radius: 10px;
+	// Hidden window anti
+	transition: visibility 0.2s ease;
+	visibility: visible;
+	display: block;
+}
+
+.hidden-window {
+	transition: visibility 0.2s ease;
+	visibility: hidden;
+	display: none;
+}

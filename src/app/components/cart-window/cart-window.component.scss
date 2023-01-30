@@ -1,0 +1,21 @@
+.cart-window {
+	// position: absolute;
+	width: min(500px, 80vw);
+	top: 25px;
+	left: 65vw;
+	background-color: white;
+	z-index: 1;
+	padding: 10px 10px 10px 10px;
+	margin-right: 10px;
+	border-radius: 10px;
+	// Hidden window anti
+	transition: visibility 0.2s ease;
+	visibility: visible;
+	display: block;
+}
+
+.hidden-window {
+	transition: visibility 0.2s ease;
+	visibility: hidden;
+	display: none;
+}

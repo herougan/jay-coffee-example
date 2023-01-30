@@ -7,10 +7,22 @@ import { Component } from '@angular/core';
 })
 export class CartWindowComponent {
 
-    enabled: boolean = false;
+  window: any;
 
-    show(): void {
-      this.enabled = !this.enabled;
-      let window = document.querySelector('.search-window');
-    }
+  constructor() {
+  }
+
+  ngOnInit(): void {
+    this.window = document.querySelector('.cart-window');
+  }
+
+  enabled: boolean = false;
+
+  show(): void {
+    this.enabled = !this.enabled;
+    if (this.enabled)
+      this.window?.classList.remove('hidden-window');
+    else
+      this.window?.classList.add('hidden-window');
+  }
 }

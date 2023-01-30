@@ -62,6 +62,5 @@ export class MainNavBarComponent implements OnInit {
   }
 
   onSearch(): void {
-    
   }
 }
