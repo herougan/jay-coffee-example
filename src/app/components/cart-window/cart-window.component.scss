@@ -2,7 +2,8 @@
 	// position: absolute;
 	width: min(500px, 80vw);
 	top: 25px;
-	left: 65vw;
+	left: calc(100vw - 40vw);
+	width: 40vw;
 	background-color: white;
 	z-index: 1;
 	padding: 10px 10px 10px 10px;
@@ -10,12 +11,27 @@
 	border-radius: 10px;
 	// Hidden window anti
 	transition: visibility 0.2s ease;
+	visibility: hidden;
+	display: none;
+}
+
+.cart-window.activated {
 	visibility: visible;
 	display: block;
 }
-
-.hidden-window {
-	transition: visibility 0.2s ease;
-	visibility: hidden;
-	display: none;
+.cart-background.activated {
+	background-color: rgba(0, 0, 0, 0.2);
+	backdrop-filter: blur(5px);
+	visibility: visible;
+	opacity: 1;
+	transition: opacity 0.25s ease;
+}
+.cart-background {
+	visibility: none;
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+	top: 0px;
+	opacity: 0;
+	z-index: 2;
 }

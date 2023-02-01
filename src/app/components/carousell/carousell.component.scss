@@ -11,6 +11,7 @@
 .carousel-indicators {
   // top: calc(42vmax - 20px);
   top: calc(42vmax - 20px);
+  z-index: 1;
 }
 
 .carousel-indicators button {
@@ -20,6 +21,7 @@
   border: 2px solid white;
   opacity: 1;
   background: transparent;
+  z-index: 1;
 }
 
 .carousel-indicators button.active {
@@ -40,7 +42,7 @@
   top: calc(42vmax - 15rem);
   left: calc(100vw - 40rem);
   color: white;
-  z-index: 1;
+  z-index: 0;
   .btn {
     margin-top: 2vw;
     font-size: 1.6rem;

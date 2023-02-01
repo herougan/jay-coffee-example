@@ -1,5 +1,5 @@
-<div class="search-window hidden-window">
-	<input type="text">
+<div class="search-window">
+	<input class="search-bar" type="text">
 	<div class="search-results">
 		<ng-container *ngFor="let result of results; index as i">
 			<div class="row" id='result-{{i}}'>
@@ -17,4 +17,7 @@
 			</div>
 		</ng-container>
 	</div>
+</div>
+<div class="search-background">
+
 </div>
