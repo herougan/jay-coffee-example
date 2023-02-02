@@ -11,3 +11,7 @@ export class Product {
     public colour?: string
   ) {}
 }
+
+export function EmptyProduct(): Product {
+  return new Product(-1, '', '', '', -1, '');
+}

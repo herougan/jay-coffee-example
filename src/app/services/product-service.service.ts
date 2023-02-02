@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { Product } from '../models/product';
+import { Observable, of, EMPTY } from 'rxjs';
+import { Product, EmptyProduct } from '../models/product';
 import { MOCK_PRODUCTS } from '../../assets/static/data/mock-products'
 
 @Injectable({
@@ -50,31 +50,26 @@ export class ProductService {
     return of(this.products.slice(start, end));    
   }
 
-  searchProduct(term: string, id: number): Observable<Product[]> {
-    let searchProducts: Product[] = [];
+  searchProduct(id: number): Observable<Product> {
+    let searchProduct: Product;
 
     // Case insensitive
     this.products.forEach(product => {
       // Match name
-      if (product.name.toUpperCase().includes(term.toUpperCase())) {
-        searchProducts.push(product);
-        return;
-      }
-      // Match short desc
-      if (product.shortDesc && product.shortDesc.toUpperCase().includes(term.toUpperCase())) {
-        searchProducts.push(product);
+      if (product.id == id) {
+        searchProduct = product;
         return;
       }
     });
 
-    return of(searchProducts);
+    return of(EmptyProduct());
   }
 
-  searchProductPaged(term: string, id: number, page: number, display: number): Observable<Product[]> {
+  searchProductPaged(term: string, page: number, display: number): Observable<Product[]> {
 
     let allProducts: Product[] = [];
     
-    this.searchProduct(term, id).subscribe(products => {
+    this.searchProducts(term).subscribe(products => {
       allProducts = products;
     });
 
@@ -88,7 +83,24 @@ export class ProductService {
     return of(this.products.slice(start, end));
   }
 
-  searchProducts(): Observable<Product[]> {
-    return this.getProducts(-1);
+  searchProducts(term: string): Observable<Product[]> {
+    let searchProducts: Product[] = [];
+    if ((term == " ") || (term == "")) return of(searchProducts);
+
+    // Case insensitive
+    this.products.forEach(product => {
+      // Match name
+      if (product.name.toUpperCase().includes(term.toUpperCase())) {
+        searchProducts.push(product);
+        return;
+      }
+      // Match short desc
+      // if (product.shortDesc && product.shortDesc.toUpperCase().includes(term.toUpperCase())) {
+      //   searchProducts.push(product);
+      //   return;
+      // }
+    });
+
+    return of(searchProducts);
   }
 }

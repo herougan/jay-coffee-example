@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductService } from 'src/app/services/product-service.service';
-import { Product } from 'src/app/models/product';
+import { Product, EmptyProduct } from 'src/app/models/product';
 import { HostListener } from '@angular/core';
 
 @Component({
@@ -21,14 +21,18 @@ export class SearchWindowComponent {
     if (this.enabled)
       this.show();
   }
-  @HostListener('document:keypress', ['$event'])
+  @HostListener('document:keyup', ['$event'])
   handleKeyboardEvent(e: KeyboardEvent) {
-    console.log(e);
     if (this.enabled)
       this.search();
   }
+  // @HostListener('document:keydown.backspace', ['$event'])
+  // handleKeyboardBackspaceEvent(e: KeyboardEvent) {
+  //   if (this.enabled)
+  //     this.search();
+  // }
 
-  constructor(product_service: ProductService) {}
+  constructor(private product_service: ProductService) {}
 
   ngOnInit(): void {
     this.window = document.querySelector('.search-window');
@@ -48,10 +52,35 @@ export class SearchWindowComponent {
       this.window?.classList.remove('activated');
       this.backdrop?.classList.remove('activated');
     }
+    // Reset search bar
+    this.search_bar.value = ""; this.results = [];
+  }
+
+  //#region Search
+
+  // Search constants
+  lag_time: number = 200; // ms, don't run this.search() till lag_time is finished (since first character pressed).
+  max_string_override_lag: number = 5; // after $v characters, run this.search()
+  // Search variables
+  search_string: string = "";
+  time_current: number = 0;
+  first_search_time: number = 0; // Resets every this.search() to last_search_time
+  last_search_time: number = 0; // since last change in character
+
+  // Search visual
+  desc_cutoff: number = 30;
+
+  isValid(): boolean {
+    return false;
   }
 
   search(): void {
-    this.results.push(new Product(0, "name", "img", "desc", 0, "notes"));
-    console.log(this.search_bar);
+    this.results = [];
+    if ((this.search_bar.value == "") || (this.search_bar.value == " ")) {return; this.results = [];}
+    this.product_service.searchProducts(this.search_bar.value).subscribe((products) => {
+      this.results = this.results.concat(products);
+    });
   }
+
+  //#endregion
 }
