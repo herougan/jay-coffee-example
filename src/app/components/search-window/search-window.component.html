@@ -2,13 +2,14 @@
 	<!-- Search -->
 	<input class="search-bar" type="text"
 	required minlength="4">
-
+	
 	<!-- Results -->
 	<div class="search-results" 
 	[ngClass]="{'mt-3 mb-2': results.length > 0}">
 		<ng-container *ngFor="let result of results; index as i">
 			<div class="search-result d-flex flex-row" id='result-{{i}}'
-			routerLink="/detail/{{ result.id }}">
+			routerLink="/detail/{{ result.id }}"
+			(click)="onResult();">
 				<div class="result-img mx-3 my-2 col-2">
 					<picture>
 						<img src={{result.img}}>
