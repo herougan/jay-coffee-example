@@ -26,11 +26,11 @@ export class SearchWindowComponent {
     if (this.enabled)
       this.search();
   }
-  // @HostListener('document:keydown.backspace', ['$event'])
-  // handleKeyboardBackspaceEvent(e: KeyboardEvent) {
-  //   if (this.enabled)
-  //     this.search();
-  // }
+
+  @HostListener('click', ['$event.target'])
+  handleClickEvent(where: MouseEvent) {
+    console.log(where);
+  }
 
   constructor(private product_service: ProductService) {}
 
@@ -54,6 +54,10 @@ export class SearchWindowComponent {
     }
     // Reset search bar
     this.search_bar.value = ""; this.results = [];
+  }
+
+  onResult(): void {
+    this.show();
   }
 
   //#region Search

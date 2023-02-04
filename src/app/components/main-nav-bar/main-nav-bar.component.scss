@@ -14,6 +14,7 @@
 	opacity: 1;
 	// height: 0px;
 	// top: 25px; // Uncomment this to start the nav bar at the carousell@home.
+	z-index: 1;
 }
 
 .hide-nav {
@@ -91,6 +92,10 @@
 	height: 2px;
 	transition: width 1s;
 	transition: height 1s;
+}
+
+.diabled {
+	pointer-events: none;
 }
 
 @media (max-width: $s) {

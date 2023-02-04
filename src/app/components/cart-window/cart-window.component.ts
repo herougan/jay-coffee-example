@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-cart-window',
   templateUrl: './cart-window.component.html',
-  styleUrls: ['./cart-window.component.scss']
+  styleUrls: ['./cart-window.component.scss'],
 })
 export class CartWindowComponent {
 
@@ -21,8 +21,8 @@ export class CartWindowComponent {
   show(): void {
     this.enabled = !this.enabled;
     if (this.enabled)
-      this.window?.classList.remove('hidden-window');
+      this.window?.classList.remove('activated');
     else
-      this.window?.classList.add('hidden-window');
+      this.window?.classList.add('activated');
   }
 }
