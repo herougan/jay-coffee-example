@@ -48,14 +48,6 @@ export class SearchWindowComponent {
 
   show(): void {
     this.enabled = !this.enabled;
-    // if (this.enabled) {
-    //   this.window?.classList.add('activated');
-    //   this.backdrop?.classList.add('activated');
-    // }
-    // else {
-    //   this.window?.classList.remove('activated');
-    //   this.backdrop?.classList.remove('activated');
-    // }
     // Reset search bar
     this.search_bar.value = ""; this.results = [];
   }
@@ -90,5 +82,19 @@ export class SearchWindowComponent {
     });
   }
 
+  //#endregion
+  
+  //#region cart
+  addToCart(): void {
+
+  }
+
+  removeToCart(): void {
+
+  }
+
+  clearCart(): void {
+    
+  }
   //#endregion
 }

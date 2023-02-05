@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+ } from 'rxjs';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainNavBarComponent } from './components/main-nav-bar/main-nav-bar.component';
@@ -15,7 +15,6 @@ import { ShopComponent } from './pages/shop/shop.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { FeatureProductListComponent } from './components/feature-product-list/feature-product-list.component';
 import { FeatureBannerComponent } from './components/feature-banner/feature-banner.component';
-import { StoreModule } from '@ngrx/store';
 import { FeatureCardComponent } from './components/feature-card/feature-card.component';
 import { FeatureListComponent } from './components/feature-list/feature-list.component';
 import { DbMessengerComponent } from './debug/db-messenger/db-messenger.component';
@@ -24,6 +23,9 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { CartWindowComponent } from './components/cart-window/cart-window.component';
 import { SearchWindowComponent } from './components/search-window/search-window.component';
+// Actions
+import { StoreModule } from '@ngrx/store';
+import { cartReducer } from './actions/cart.reducer';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,7 @@ import { SearchWindowComponent } from './components/search-window/search-window.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({ cart: cartReducer}, {})
   ],
   providers: [],
   bootstrap: [AppComponent]

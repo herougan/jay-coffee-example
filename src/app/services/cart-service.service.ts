@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CartServiceService {
+export class CartService {
 
   constructor() { }
 
