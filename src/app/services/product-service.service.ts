@@ -25,11 +25,10 @@ export class ProductService {
   getProduct(id: number): Observable<Product> {
     let p: Product = this.products[0];
     this.products.forEach(product => {
-      console.log(product.id + ":" + id);
       if (product.id === id)
         p = product;
     });
-    return of(p); // TODO return failure here
+    return of(p);
   }
 
   getProductsPaged(params: number, page: number, display: number): Observable<Product[]> {

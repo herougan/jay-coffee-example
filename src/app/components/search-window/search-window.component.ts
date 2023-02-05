@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener, Input } from '@angular/core';
 import { ProductService } from 'src/app/services/product-service.service';
 import { Product, EmptyProduct } from 'src/app/models/product';
-import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-search-window',
@@ -10,29 +9,36 @@ import { HostListener } from '@angular/core';
 })
 export class SearchWindowComponent {
 
+  // Search results
   results: Product[] = [];
+  
+  // DOM elements
   search_bar: any;
   window: any;
   backdrop: any;
 
+  // Main-nav-bar control
+  enabled: boolean = false;
+
+
   // Escape to exit
-  @HostListener('document:keydown.escape', ['$event'])
-  handleKeyboardEscapeEvent(e: KeyboardEvent) {
-    if (this.enabled)
-      this.show();
-  }
   @HostListener('document:keyup', ['$event'])
   handleKeyboardEvent(e: KeyboardEvent) {
     if (this.enabled)
       this.search();
   }
 
-  @HostListener('click', ['$event.target'])
-  handleClickEvent(where: MouseEvent) {
-    console.log(where);
+  @HostListener('click', ['$event'])
+  handleClickEvent(e: MouseEvent) {
+    if (this.enabled) {    
+      let element = e.target as HTMLElement;
+      if (element.classList.contains('search-background')) {
+        this.show();
+      }
+    }
   }
 
-  constructor(private product_service: ProductService) {}
+  constructor(private product_service: ProductService, private eRef: ElementRef) {}
 
   ngOnInit(): void {
     this.window = document.querySelector('.search-window');
@@ -40,18 +46,16 @@ export class SearchWindowComponent {
     this.search_bar = document.querySelector('.search-bar');    
   }
 
-  enabled: boolean = false;
-
   show(): void {
     this.enabled = !this.enabled;
-    if (this.enabled) {
-      this.window?.classList.add('activated');
-      this.backdrop?.classList.add('activated');
-    }
-    else {
-      this.window?.classList.remove('activated');
-      this.backdrop?.classList.remove('activated');
-    }
+    // if (this.enabled) {
+    //   this.window?.classList.add('activated');
+    //   this.backdrop?.classList.add('activated');
+    // }
+    // else {
+    //   this.window?.classList.remove('activated');
+    //   this.backdrop?.classList.remove('activated');
+    // }
     // Reset search bar
     this.search_bar.value = ""; this.results = [];
   }

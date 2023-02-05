@@ -78,7 +78,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 8,
-    name: 'Chocolate Cake 2',
+    name: 'Chocolate Cake 2 Aa',
     img: 'assets/static/images/products/cake_1.jpg',
     desc: 'Chocolate cake made from 96% Gambian chocolate.',
     tags: ['Nuts', 'Alcohol'],
@@ -87,7 +87,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 9,
-    name: 'Cheese Cake 2',
+    name: 'Cheese Cake 2 Bb',
     img: 'assets/static/images/products/cake_2.jpg',
     desc: 'Cheesy cake full of cheesy goodness.',
     tags: [''],
@@ -97,7 +97,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 10,
-    name: 'Cappuccino 2',
+    name: 'Cappuccino 2 Cc',
     img: 'assets/static/images/products/coffee_1.jpg',
     desc: 'Hearty cup of Cappuccino.',
     shortDesc: 'Sourced humanely from Ethopia',
@@ -107,7 +107,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 11,
-    name: 'Coffee 2',
+    name: 'Coffee 2 Dd',
     img: 'assets/static/images/products/coffee_2.jpg',
     desc: "Warm cup of Classic'.",
     shortDesc: 'Contains nuts',
@@ -117,7 +117,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 12,
-    name: 'Gift 2',
+    name: 'Gift 2 Ee',
     img: 'assets/static/images/products/gift_1.jpg',
     desc: 'Gift for the entire family. E',
     tags: [''],
@@ -126,7 +126,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 13,
-    name: 'Toy 2',
+    name: 'Toy 2 Ff',
     img: 'assets/static/images/products/toy_1.jpg',
     desc: 'Cute Teddy Bear',
     tags: [''],
@@ -135,7 +135,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 14,
-    name: 'ToyB 2',
+    name: 'ToyB 2 Gg',
     img: 'assets/static/images/products/toy_2.jpg',
     desc: 'Cute Bunny Rabbit',
     tags: [''],
@@ -144,7 +144,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 15,
-    name: 'ToyC 2',
+    name: 'ToyC 2 Hh',
     img: 'assets/static/images/products/toy_3.jpg',
     desc: 'Cute Dog Huggie',
     tags: [''],
@@ -153,7 +153,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 16,
-    name: 'Chocolate Cake 3',
+    name: 'Chocolate Cake 3 Ii',
     img: 'assets/static/images/products/cake_1.jpg',
     desc: 'Chocolate cake made from 96% Gambian chocolate.',
     tags: ['Nuts', 'Alcohol'],
@@ -162,7 +162,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 17,
-    name: 'Cheese Cake 3',
+    name: 'Cheese Cake 3 Jj',
     img: 'assets/static/images/products/cake_2.jpg',
     desc: 'Cheesy cake full of cheesy goodness.',
     tags: [''],
@@ -172,7 +172,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 18,
-    name: 'Cappuccino 3',
+    name: 'Cappuccino 3 Kk',
     img: 'assets/static/images/products/coffee_1.jpg',
     desc: 'Hearty cup of Cappuccino.',
     shortDesc: 'Sourced humanely from Ethopia',
@@ -182,7 +182,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 19,
-    name: 'Coffee 3',
+    name: 'Coffee 3 Ll',
     img: 'assets/static/images/products/coffee_2.jpg',
     desc: "Warm cup of Classic'.",
     shortDesc: 'Contains nuts',
@@ -192,7 +192,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 20,
-    name: 'Gift 3',
+    name: 'Gift 3 Mm',
     img: 'assets/static/images/products/gift_1.jpg',
     desc: 'Gift for the entire family. E',
     tags: [''],
@@ -201,7 +201,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 21,
-    name: 'Toy 3',
+    name: 'Toy 3 Nn',
     img: 'assets/static/images/products/toy_1.jpg',
     desc: 'Cute Teddy Bear',
     tags: [''],
@@ -210,7 +210,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 22,
-    name: 'ToyB 3',
+    name: 'ToyB 3 Oo',
     img: 'assets/static/images/products/toy_2.jpg',
     desc: 'Cute Bunny Rabbit',
     tags: [''],
@@ -219,7 +219,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 23,
-    name: 'ToyC 3',
+    name: 'ToyC 3 Pp',
     img: 'assets/static/images/products/toy_3.jpg',
     desc: 'Cute Dog Huggie',
     tags: [''],
@@ -228,7 +228,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 24,
-    name: 'Chocolate Cake 4',
+    name: 'Chocolate Cake 4 Qq',
     img: 'assets/static/images/products/cake_1.jpg',
     desc: 'Chocolate cake made from 96% Gambian chocolate.',
     tags: ['Nuts', 'Alcohol'],
@@ -237,7 +237,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 25,
-    name: 'Cheese Cake 4',
+    name: 'Cheese Cake 4 Rr',
     img: 'assets/static/images/products/cake_2.jpg',
     desc: 'Cheesy cake full of cheesy goodness.',
     tags: [''],
@@ -247,7 +247,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 26,
-    name: 'Cappuccino 4',
+    name: 'Cappuccino 4 Ss',
     img: 'assets/static/images/products/coffee_1.jpg',
     desc: 'Hearty cup of Cappuccino.',
     shortDesc: 'Sourced humanely from Ethopia',
@@ -257,7 +257,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 27,
-    name: 'Coffee 4',
+    name: 'Coffee 4 Tt',
     img: 'assets/static/images/products/coffee_2.jpg',
     desc: "Warm cup of Classic'.",
     shortDesc: 'Contains nuts',
@@ -267,7 +267,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 28,
-    name: 'Gift 4',
+    name: 'Gift 4 Uu',
     img: 'assets/static/images/products/gift_1.jpg',
     desc: 'Gift for the entire family. E',
     tags: [''],
@@ -276,7 +276,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 29,
-    name: 'Toy 4',
+    name: 'Toy 4 Vv',
     img: 'assets/static/images/products/toy_1.jpg',
     desc: 'Cute Teddy Bear',
     tags: [''],
@@ -285,7 +285,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 30,
-    name: 'ToyB 4',
+    name: 'ToyB 4 Ww',
     img: 'assets/static/images/products/toy_2.jpg',
     desc: 'Cute Bunny Rabbit',
     tags: [''],
@@ -294,7 +294,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 31,
-    name: 'ToyC 4',
+    name: 'ToyC 4 Xx',
     img: 'assets/static/images/products/toy_3.jpg',
     desc: 'Cute Dog Huggie',
     tags: [''],
@@ -303,7 +303,7 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 31,
-    name: 'WeedToy 4',
+    name: 'WeedToy 4 Yy',
     img: 'assets/static/images/products/toy_3.jpg',
     desc: 'Cute Dog Huggie',
     tags: [''],
@@ -312,8 +312,17 @@ export const MOCK_PRODUCTS: Product[] = [
   },
   {
     id: 31,
-    name: 'Aalien 4',
+    name: 'Aalien 4 Zz',
     img: 'assets/static/images/products/toy_3.jpg',
+    desc: 'Cute Dog Huggie',
+    tags: [''],
+    price: 45,
+    notes: 'Cherry, Chocolate, Almond',
+  },
+  {
+    id: 31,
+    name: 'Bbasketbball 5 11',
+    img: 'assets/static/images/products/toy_1.jpg',
     desc: 'Cute Dog Huggie',
     tags: [''],
     price: 45,

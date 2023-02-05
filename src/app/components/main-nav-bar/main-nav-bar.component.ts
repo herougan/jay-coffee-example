@@ -53,41 +53,51 @@ export class MainNavBarComponent implements OnInit {
     }) 
   }
 
-  ngOnInit(): void {  }
+  ngOnInit(): void {  
+
+  }
 
   /* Nav bar items */
   onDropDown(): void {
 
   }
 
-  cart_active: boolean = false;
-  search_active: boolean = false;
+  //#region Search/Cart
+  
+  @HostListener('document:keydown.escape', ['$event'])
+  handleKeyboardEscapeEvent(e: KeyboardEvent) {
+    if (this.cart.enabled) this.cart.show();
+    if (this.search.enabled) this.search.show();
+  }
 
   onCart(): void {
-    if (this.search_active) return;
+    if (this.search.enabled) return;
     this.cart.show();
-    this.cart_active = !this.cart_active;
 
-    if (this.search_active || this.cart_active) {
+    if (this.search.enabled || this.cart.enabled) {
       this.cart_button.classList.remove('disabled');
       this.search_button.classList.remove('disabled');
     }
   }
 
   onSearch(): void {
-    if (this.cart_active) return;
+    if (this.cart.enabled) return;
     this.search.show();
-    this.search_active = !this.search_active;
+
+    if (this.search.enabled || this.cart.enabled) {
+      this.cart_button.classList.remove('disabled');
+      this.search_button.classList.remove('disabled');
+    }
   }
 
   close(): void {
-    if (this.cart_active) {
-      this.cart_active = !this.cart_active;
+    if (this.cart.enabled) {
       this.cart.show();
     }
-    if (this.search_active) {
-      this.search_active = !this.search_active;
+    if (this.search.enabled) {
       this.search.show();
     }
   }
+
+  //#endregion
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-cart-window',
@@ -6,8 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./cart-window.component.scss'],
 })
 export class CartWindowComponent {
-
+  
+  // DOM elements
   window: any;
+
+  // Main-nav-bar control
+  enabled: boolean = false;
 
   constructor() {
   }
@@ -15,8 +19,6 @@ export class CartWindowComponent {
   ngOnInit(): void {
     this.window = document.querySelector('.cart-window');
   }
-
-  enabled: boolean = false;
 
   show(): void {
     this.enabled = !this.enabled;

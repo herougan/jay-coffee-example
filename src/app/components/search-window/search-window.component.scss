@@ -1,6 +1,8 @@
+@import "../../../variables.scss";
+
 .search-window {
 	position: fixed;
-	width: min(500px, 50vw);
+	width: 56vw;
 	top: 25px;
 	left: 100vw;
 	background-color: white;
@@ -12,9 +14,10 @@
 }
 .search-bar {
 	width: 100%;
+	outline: transparent;
 }
 .search-window.activated {
-	left: calc(50vw - 250px);
+	left: calc(50vw - 28vw);
 	display:block;
 	opacity: 1;
 	transition: visibility 0.2s ease, left 0.2s ease;
@@ -25,6 +28,7 @@
 	visibility: visible;
 	opacity: 1;
 	transition: opacity 0.25s ease;
+	pointer-events: all;
 }
 .search-background {
 	visibility: none;
@@ -43,6 +47,7 @@
 }
 .search-result {
 	border-top: 1px black;
+	overflow-x: hidden;
 	.result-img {
 		height: 50px;
 		width: 50px;
@@ -63,7 +68,30 @@
 	p {
 		margin-bottom: 0px;
 	}
-	:hover {
-		background-color: rgba(222, 222, 222);
+	cursor: pointer;
+}
+.search-result:hover {
+	background-color: rgba(222, 222, 222);
+}
+
+@media (max-width: $md) {
+	.search-window {
+		width: 80vw;
+	}
+	.search-window.activated {
+		left: calc(50vw - 40vw);
+	}
+	.search-result {
+		.result-desc {
+			display: none;
+		}
+	}
+}
+
+@media (max-width: $s) {
+	.search-result {
+		.result-button {
+			display: none;
+		}
 	}
 }

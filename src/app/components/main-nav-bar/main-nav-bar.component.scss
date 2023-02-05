@@ -58,14 +58,11 @@
 	right: 0px;
 	transition: background-color 0.5s ease, right 0.5s ease;
 }
-// Consider transitioning the cart button to the right
 
 .nav-bar-background {
 	opacity: 0.08; 
-	// background-image: url('/../assets/static/images/banner/wood_texture.jpg'); 
 	pointer-events: none;
 	position: absolute;
-	// width: 100vw; 
 	top: 0; 
 	bottom: 0; 
 	left: 0; 
@@ -106,10 +103,27 @@
 		width: 10vw;
 		height: 10vw;
 	}
-	.cart-button svg, .search-button svg {
-		width: 7vw;
+
+	// Buttons
+	.cart-button svg {
 		height: 7vw;
+		width: 7vw;
 	}
+	.search-button svg {
+		height: 6.8vw;
+		width: 6.8vw;
+	}
+	.hamburger-button svg {
+		height: 8.5vw;
+		width: 8.5vw;
+	}
+	.search-button {
+		translate: 2px 0px;
+	}
+	.hamburger-button {
+		translate: -5px -3px;
+	}
+
 	.main-nav-bar {
 		position: relative
 	}
