@@ -1,6 +1,8 @@
 import { Component, ElementRef, HostListener, Input } from '@angular/core';
 import { ProductService } from 'src/app/services/product-service.service';
 import { Product, EmptyProduct } from 'src/app/models/product';
+import { CartService } from 'src/app/services/cart-service.service';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-search-window',
@@ -8,6 +10,9 @@ import { Product, EmptyProduct } from 'src/app/models/product';
   styleUrls: ['./search-window.component.scss']
 })
 export class SearchWindowComponent {
+
+  // TODO not sure if necessary
+  count$: Observable<number>;
 
   // Search results
   results: Product[] = [];
@@ -38,7 +43,10 @@ export class SearchWindowComponent {
     }
   }
 
-  constructor(private product_service: ProductService, private eRef: ElementRef) {}
+  constructor(private product_service: ProductService, private eRef: ElementRef,
+    private cartService: CartService, private store: Store<{ count : number}>) {
+      this.count$ = store.select('count');
+    }
 
   ngOnInit(): void {
     this.window = document.querySelector('.search-window');

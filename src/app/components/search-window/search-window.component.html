@@ -6,7 +6,7 @@
 	</div>
 	
 	<!-- Results -->
-	<div class="search-results" 
+	<div class="search-results overflow-scroll" 
 	[ngClass]="{'mt-3 mb-2': results.length > 0}">
 		<ng-container *ngFor="let result of results; index as i">
 			<div class="search-result d-flex flex-row" id='result-{{i}}'

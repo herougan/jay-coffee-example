@@ -1,5 +1,16 @@
-<div class="cart-window" (keydown.code.escape)="show();">
+<div class="cart-window" (keydown.code.escape)="show();" [ngClass]="{activated: enabled}">
+	<div class="cart-title">
+		<h1>Cart</h1>
+	</div>
+	<!-- <div ngIf*="count > 0" class="cart-list">
 
+	</div> -->
+	<!-- <div ngIf*="count" class="cart-empty"> 
+		<h3>Your cart is empty</h3>
+	</div> -->
+	<div class="cart-continue">
+
+	</div>
 </div>
 <!-- <div class="cart-background">
 

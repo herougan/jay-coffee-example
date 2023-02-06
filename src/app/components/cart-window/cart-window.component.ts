@@ -34,10 +34,10 @@ export class CartWindowComponent {
 
   show(): void {
     this.enabled = !this.enabled;
-    if (this.enabled)
-      this.window?.classList.remove('activated');
-    else
-      this.window?.classList.add('activated');
+    // if (this.enabled)
+    //   this.window?.classList.remove('activated');
+    // else
+    //   this.window?.classList.add('activated');
   }
 
   addToCart(): void {

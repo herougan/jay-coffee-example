@@ -91,12 +91,10 @@ export class MainNavBarComponent implements OnInit {
   }
 
   close(): void {
-    if (this.cart.enabled) {
+    if (this.cart.enabled)
       this.cart.show();
-    }
-    if (this.search.enabled) {
+    if (this.search.enabled)
       this.search.show();
-    }
   }
 
   //#endregion

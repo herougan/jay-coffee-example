@@ -8,8 +8,9 @@
         <h1>{{ product.name }}</h1>
         <h2 *ngIf="product.shortDesc">{{ product.shortDesc }}</h2>
         <p *ngIf="product.desc" class="fs-5">{{ product.desc }}</p>
+        <h2>${{ product.price }}</h2>
         <div class="container"></div>
-        <div class="row g-2 w-50">
+        <div class="submit-row row g-2">
           <div class="col-md-6 col-xs-12">
             <input
               type="number"
@@ -18,7 +19,8 @@
               aria-describedby="quantity"
             />
           </div>
-          <button class="col-md-6 col-xs-12 btn btn-primary py-2 fs-5">
+          <button class="col-md-6 col-xs-12 btn btn-primary py-2 fs-5
+          text-nowrap">
             Add to Cart
           </button>
         </div>
