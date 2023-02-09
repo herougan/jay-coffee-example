@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of, EMPTY } from 'rxjs';
 import { Product, EmptyProduct } from '../models/product';
 import { MOCK_PRODUCTS } from '../../assets/static/data/mock-products'
+import { CartItem } from '../models/cart-item';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,10 @@ export class ProductService {
         p = product;
     });
     return of(p);
+  }
+
+  getPrices(cartItems: CartItem[]): Observable<number[]> {
+    return of([]);
   }
 
   getProductsPaged(params: number, page: number, display: number): Observable<Product[]> {
@@ -93,11 +98,6 @@ export class ProductService {
         searchProducts.push(product);
         return;
       }
-      // Match short desc
-      // if (product.shortDesc && product.shortDesc.toUpperCase().includes(term.toUpperCase())) {
-      //   searchProducts.push(product);
-      //   return;
-      // }
     });
 
     return of(searchProducts);

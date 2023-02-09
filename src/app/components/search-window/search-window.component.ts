@@ -3,6 +3,9 @@ import { ProductService } from 'src/app/services/product-service.service';
 import { Product, EmptyProduct } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart-service.service';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
+import { addProductToCart } from 'src/app/actions/cart.actions';
 
 @Component({
   selector: 'app-search-window',
@@ -11,7 +14,6 @@ import { Store } from '@ngrx/store';
 })
 export class SearchWindowComponent {
 
-  // TODO not sure if necessary
   count$: Observable<number>;
 
   // Search results
@@ -93,8 +95,8 @@ export class SearchWindowComponent {
   //#endregion
   
   //#region cart
-  addToCart(): void {
-
+  addToCart(product: Product): void {
+    this.store.dispatch(addProductToCart({product}));
   }
 
   removeToCart(): void {

@@ -1,9 +1,11 @@
+@import '../../../variables.scss';
+
 .cart-window {
 	position: fixed;
 	width: min(500px, 50vw);
-	top: 25px;
-	left: calc(100vw - 55vw);
-	width: 80vw;
+	top: 30px;
+	left: calc(100vw - 34vw);
+	width: max(100px, 29vw);
 	background-color: white;
 	z-index: 3;
 	padding: 10px 10px 10px 10px;
@@ -46,3 +48,9 @@
 // 	z-index: 2;
 // 	pointer-events: none;;
 // }
+
+@media (max-width: $md) {
+	.card-title h2 {
+		font-size: 20px;
+	}
+}

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { Product } from '../models/product';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,11 @@ import { Observable, of } from 'rxjs';
 export class CartService {
 
   constructor() { }
+
+  getCart(user_id: number): Observable<Product[]> {
+    // User_id not relevant. Just for completion's sake
+    return of([]);
+  }
 
   addToCart(): void {
 

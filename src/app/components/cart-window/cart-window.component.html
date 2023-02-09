@@ -1,6 +1,6 @@
 <div class="cart-window" (keydown.code.escape)="show();" [ngClass]="{activated: enabled}">
 	<div class="cart-title">
-		<h1>Cart</h1>
+		<h2>Cart</h2>
 	</div>
 	<!-- <div ngIf*="count > 0" class="cart-list">
 
@@ -8,8 +8,53 @@
 	<!-- <div ngIf*="count" class="cart-empty"> 
 		<h3>Your cart is empty</h3>
 	</div> -->
-	<div class="cart-continue">
-
+	<!-- <div *ngIf="count$" class="cart-test" (click)="addToCart()">
+		<h2>Count: {{count$ | async}}</h2>
+	</div> -->
+	<div class="cart-continue mx-1">
+		<ng-container *ngFor="let item of cart$ | async index as i">
+			<div class="search-result d-flex flex-row" id='result-{{i}}'
+			routerLink="/detail/{{ item.product.id }}"
+			(click)="onResult();">
+				<div class="result-img mx-1 me-3 mx-md-1 mx-md-3 my-2 my-sm-2 col-2">
+					<picture>
+						<img src={{ item.img }}>
+					</picture>
+				</div>
+				<div class="result-body col-10 d-flex flex-row justify-content-center align-items-center ">
+					<div class="result-title 
+					col-9 	col-sm-8 	col-md-3">
+						<p>{{item.product.id}}</p>
+					</div>
+					<div class="result-desc 
+										col-md-7">
+						<p>{{ (item.product.desc.length>desc_cutoff) ? (item.product.desc | slice:0:desc_cutoff) + '...' : (item.product.desc) }}</p>
+					</div>
+					<div class="result-price 
+					col-3 	col-sm-3 	col-md-1">
+						<p>{{item.price}}</p>
+					</div>
+					<!-- Result count Management -->
+					<div class="result-count">
+						<input #result_input placeholder="{{item.count}}" 
+						(change)="editCartCount(result_input.valueAsNumber, item)"
+						type="number">
+					</div>
+					<div class="result-delete">
+						<svg (click)="removeFromCart(item)"></svg>
+					</div>
+					<div class="result-button
+							col-sm-1 	col-md-1">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+							<path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+						</svg>
+					</div>
+				</div>
+			</div>
+		</ng-container>
+		<div *ngIf="cart$ | async" class="cart-empty">
+			<h3>Cart is empty</h3>
+		</div>
 	</div>
 </div>
 <!-- <div class="cart-background">

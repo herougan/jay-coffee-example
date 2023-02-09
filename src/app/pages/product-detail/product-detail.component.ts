@@ -4,6 +4,8 @@ import { MOCK_PRODUCTS } from 'src/assets/static/data/mock-products';
 import { ProductService } from '../../services/product-service.service';
 import { ActivatedRoute } from '@angular/router';
 
+import { addProductToCart } from 'src/app/actions/cart.actions';
+
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
@@ -22,5 +24,10 @@ export class ProductDetailComponent implements OnInit {
     this.productService.getProduct(productIdFromRoute).subscribe((p => {
       this.product = p;
     }))
+  }
+
+
+  addProductToCart(product: Product): void {
+    
   }
 }

@@ -1,6 +1,11 @@
 import { UpperCasePipe } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/models/product';
+import { Store } from '@ngrx/store';
+
+import { addProductToCart } from 'src/app/actions/cart.actions';
+import { CartService } from 'src/app/services/cart-service.service';
+import { CartItem } from 'src/app/models/cart-item';
 
 @Component({
   selector: 'app-product-card',
@@ -13,7 +18,9 @@ export class ProductCardComponent implements OnInit {
   tagTypes: string[];
   colours: string[];
 
-  constructor() {
+  @Output() productOut?: Product;
+
+  constructor(private cartService: CartService, private store: Store<{ cart: CartItem[] }>) {
     this.tagTypes = [];
     this.colours = [];
    }
@@ -31,5 +38,11 @@ export class ProductCardComponent implements OnInit {
 
     // Choose colours of hover description background
     this.colours = ["white", "white", "white"];
+  }
+
+
+  // Product List parent
+  onChosen(product: Product): void {
+    this.store.dispatch(addProductToCart({product}));
   }
 }
