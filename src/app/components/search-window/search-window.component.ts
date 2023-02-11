@@ -4,8 +4,10 @@ import { Product, EmptyProduct } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart-service.service';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { CartItem } from 'src/app/models/cart-item';
+import { CartState, cartReducer } from 'src/app/actions/cart.reducer';
 
-import { addProductToCart } from 'src/app/actions/cart.actions';
+import { addProductToCart, removeFromCart, clearCart } from 'src/app/actions/cart.actions';
 
 @Component({
   selector: 'app-search-window',
@@ -14,10 +16,10 @@ import { addProductToCart } from 'src/app/actions/cart.actions';
 })
 export class SearchWindowComponent {
 
-  count$: Observable<number>;
-
   // Search results
   results: Product[] = [];
+  //
+  // cart$: Observable<CartState>;
   
   // DOM elements
   search_bar: any;
@@ -46,8 +48,8 @@ export class SearchWindowComponent {
   }
 
   constructor(private product_service: ProductService, private eRef: ElementRef,
-    private cartService: CartService, private store: Store<{ count : number}>) {
-      this.count$ = store.select('count');
+    private cartService: CartService/*, private store: Store<{ cart : CartState}> */) {
+      // this.cart$ = store.select('cart');
     }
 
   ngOnInit(): void {
@@ -95,16 +97,17 @@ export class SearchWindowComponent {
   //#endregion
   
   //#region cart
-  addToCart(product: Product): void {
-    this.store.dispatch(addProductToCart({product}));
-  }
+  // addToCart(product: Product): void {
+  //   let count: number = 1;
+  //   this.store.dispatch(addProductToCart({product, count}));
+  // }
 
-  removeToCart(): void {
+  // removeFromCart(product: Product): void {
+  //   this.store.dispatch(removeFromCart({product}));
+  // }
 
-  }
-
-  clearCart(): void {
-    
-  }
+  // clearCart(): void {
+  //   this.store.dispatch(clearCart());
+  // }
   //#endregion
 }

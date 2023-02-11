@@ -20,7 +20,7 @@ export class ProductCardComponent implements OnInit {
 
   @Output() productOut?: Product;
 
-  constructor(private cartService: CartService, private store: Store<{ cart: CartItem[] }>) {
+  constructor(private cartService: CartService /*, private store: Store<{ cart: CartItem[] }> */) {
     this.tagTypes = [];
     this.colours = [];
    }
@@ -42,7 +42,8 @@ export class ProductCardComponent implements OnInit {
 
 
   // Product List parent
-  onChosen(product: Product): void {
-    this.store.dispatch(addProductToCart({product}));
-  }
+  // onChosen(product: Product): void {
+  //   let count: number = 1;
+  //   this.store.dispatch(addProductToCart({product, count}));
+  // }
 }

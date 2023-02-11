@@ -8,6 +8,7 @@ import { AsyncPipe } from '@angular/common';
 
 // Actions
 import { addToCart, removeFromCart, clearCart, changeCartItemCount, addProductToCart } from 'src/app/actions/cart.actions';
+import { CartState } from 'src/app/actions/cart.reducer';
 
 @Component({
   selector: 'app-cart-window',
@@ -17,7 +18,8 @@ import { addToCart, removeFromCart, clearCart, changeCartItemCount, addProductTo
 export class CartWindowComponent {
 
   // True Cart
-  cart$: Observable<CartItem[]>;
+  cart$: Observable<CartState>;
+  // cart$: CartItem[] = [];
   
   // DOM elements
   window: any;
@@ -28,7 +30,7 @@ export class CartWindowComponent {
   // Visual constants
   desc_cutoff: number = 10;
 
-  constructor(private cartService: CartService, private store: Store<{ cart: CartItem[] }>) {
+  constructor(private cartService: CartService , private store: Store<{ cart: CartState }> ) {
     this.cart$ = store.select('cart');
   }
 
@@ -41,7 +43,8 @@ export class CartWindowComponent {
   }
 
   addProductToCart(product: Product): void {
-    this.store.dispatch(addProductToCart({product}));
+    let count: number = 1;
+    this.store.dispatch(addProductToCart({product, count}));
   }
 
   addToCart(item: CartItem): void {
@@ -49,7 +52,8 @@ export class CartWindowComponent {
   }
 
   removeFromCart(item: CartItem): void {
-    this.store.dispatch(removeFromCart({item}));
+    let product: Product = item.product;
+    this.store.dispatch(removeFromCart({product}));
   }
 
   clearCart(): void {

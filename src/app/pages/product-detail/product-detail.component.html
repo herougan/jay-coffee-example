@@ -13,6 +13,7 @@
         <div class="submit-row row g-2">
           <div class="col-md-6 col-xs-12">
             <input
+              #product_count
               type="number"
               class="form-control border border-dark border-1 py-2 fs-5"
               id="quantity"
@@ -20,7 +21,8 @@
             />
           </div>
           <button class="col-md-6 col-xs-12 btn btn-primary py-2 fs-5
-          text-nowrap">
+          text-nowrap"
+          (click)="addProductToCart(product_count.valueAsNumber, product)">
             Add to Cart
           </button>
         </div>

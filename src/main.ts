@@ -20,7 +20,6 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 bootstrapApplication(AppComponent, {
   providers: [
     provideStore(),
+    // provideState(),
   ],
 });
-// Argument of type '{ cart: ActionReducer<State, Action>; }' is not assignable to parameter of type 'FeatureSlice<unknown, Action>'.
-//   Object literal may only specify known properties, and 'cart' does not exist in type 'FeatureSlice<unknown, Action>'
