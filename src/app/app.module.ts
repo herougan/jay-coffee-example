@@ -55,7 +55,7 @@ import { cartReducer } from './actions/cart.reducer';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ cart: cartReducer }),
+    StoreModule.forRoot({ cart: cartReducer }, {}),
   ],
   providers: [],
   bootstrap: [AppComponent]
