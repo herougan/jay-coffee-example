@@ -11,7 +11,7 @@
 	<!-- <div *ngIf="count$" class="cart-test" (click)="addToCart()">
 		<h2>Count: {{count$ | async}}</h2>
 	</div> -->
-	<div class="cart-continue mx-1">
+	<!-- <div class="cart-continue mx-1">
 		<ng-container *ngFor="let item of cart$ | async index as i">
 			<div class="search-result d-flex flex-row" id='result-{{i}}'
 			routerLink="/detail/{{ item.product.id }}"
@@ -34,7 +34,7 @@
 					col-3 	col-sm-3 	col-md-1">
 						<p>{{item.price}}</p>
 					</div>
-					<!-- Result count Management -->
+					
 					<div class="result-count">
 						<input #result_input placeholder="{{item.count}}" 
 						(change)="editCartCount(result_input.valueAsNumber, item)"
@@ -55,7 +55,7 @@
 		<div *ngIf="cart$ | async" class="cart-empty">
 			<h3>Cart is empty</h3>
 		</div>
-	</div>
+	</div> -->
 </div>
 <!-- <div class="cart-background">
 

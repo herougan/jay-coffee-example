@@ -1,10 +1,10 @@
 import { UpperCasePipe } from '@angular/common';
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/models/product';
-import { Store } from '@ngrx/store';
+// import { Store } from '@ngrx/store';
 
 import { addProductToCart } from 'src/app/actions/cart.actions';
-import { CartService } from 'src/app/services/cart-service.service';
+// import { CartService } from 'src/app/services/cart-service.service';
 import { CartItem } from 'src/app/models/cart-item';
 
 @Component({
@@ -20,7 +20,7 @@ export class ProductCardComponent implements OnInit {
 
   @Output() productOut?: Product;
 
-  constructor(private cartService: CartService, private store: Store<{ cart: CartItem[] }>) {
+  constructor(/*private cartService: CartService , private store: Store<{ cart: CartItem[] }> */) {
     this.tagTypes = [];
     this.colours = [];
    }
@@ -41,8 +41,8 @@ export class ProductCardComponent implements OnInit {
   }
 
 
-  // Product List parent
-  onChosen(product: Product): void {
-    this.store.dispatch(addProductToCart({product}));
-  }
+  // // Product List parent
+  // onChosen(product: Product): void {
+  //   this.store.dispatch(addProductToCart({product}));
+  // }
 }

@@ -25,8 +25,7 @@ export class ProductDetailComponent implements OnInit {
       this.product = p;
     }))
   }
-
-
+  
   addProductToCart(product: Product): void {
     
   }

@@ -1,8 +1,8 @@
 import { Component, ElementRef, HostListener, Input } from '@angular/core';
 import { ProductService } from 'src/app/services/product-service.service';
 import { Product, EmptyProduct } from 'src/app/models/product';
-import { CartService } from 'src/app/services/cart-service.service';
-import { Store } from '@ngrx/store';
+// import { CartService } from 'src/app/services/cart-service.service';
+// import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { addProductToCart } from 'src/app/actions/cart.actions';
@@ -14,7 +14,7 @@ import { addProductToCart } from 'src/app/actions/cart.actions';
 })
 export class SearchWindowComponent {
 
-  count$: Observable<number>;
+  // count$: Observable<number>;
 
   // Search results
   results: Product[] = [];
@@ -46,8 +46,8 @@ export class SearchWindowComponent {
   }
 
   constructor(private product_service: ProductService, private eRef: ElementRef,
-    private cartService: CartService, private store: Store<{ count : number}>) {
-      this.count$ = store.select('count');
+    /*private cartService: CartService , private store: Store<{ count : number}> */) {
+      // this.count$ = store.select('count');
     }
 
   ngOnInit(): void {
@@ -95,9 +95,9 @@ export class SearchWindowComponent {
   //#endregion
   
   //#region cart
-  addToCart(product: Product): void {
-    this.store.dispatch(addProductToCart({product}));
-  }
+  // addToCart(product: Product): void {
+  //   this.store.dispatch(addProductToCart({product}));
+  // }
 
   removeToCart(): void {
 
