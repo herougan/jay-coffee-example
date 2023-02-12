@@ -24,8 +24,8 @@ import { CartComponent } from './pages/cart/cart.component';
 import { CartWindowComponent } from './components/cart-window/cart-window.component';
 import { SearchWindowComponent } from './components/search-window/search-window.component';
 // Actions
-// import { StoreModule } from '@ngrx/store';
-// import { cartReducer } from './actions/cart.reducer';
+import { StoreModule } from '@ngrx/store';
+import { cartReducer } from './actions/cart.reducer';
 
 @NgModule({
   declarations: [
@@ -55,7 +55,7 @@ import { SearchWindowComponent } from './components/search-window/search-window.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // StoreModule.forRoot({ cart: cartReducer })
+    StoreModule.forRoot({ cart: cartReducer }),
   ],
   providers: [],
   bootstrap: [AppComponent]

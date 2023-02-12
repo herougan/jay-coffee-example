@@ -5,9 +5,10 @@ import { CartItem } from 'src/app/models/cart-item';
 import { Store } from '@ngrx/store';
 // import { CartService } from 'src/app/services/cart-service.service';
 import { AsyncPipe } from '@angular/common';
+import { CartState } from 'src/app/actions/cart.reducer';
 
 // Actions
-// import { addToCart, removeFromCart, clearCart, changeCartItemCount, addProductToCart } from 'src/app/actions/cart.actions';
+import { addToCart, removeFromCart, clearCart, changeCartItemCount, addProductToCart } from 'src/app/actions/cart.actions';
 
 @Component({
   selector: 'app-cart-window',
@@ -17,7 +18,7 @@ import { AsyncPipe } from '@angular/common';
 export class CartWindowComponent {
 
   // True Cart
-  // cart$: Observable<CartItem[]>;
+  cart$: Observable<CartState>;
   
   // DOM elements
   window: any;
@@ -28,8 +29,8 @@ export class CartWindowComponent {
   // Visual constants
   desc_cutoff: number = 10;
 
-  constructor(/*, private store: Store<{ cart: CartItem[] }> */) {
-    // this.cart$ = store.select('cart');
+  constructor(private store: Store<{ cart: CartState }>) {
+    this.cart$ = store.select('cart');
   }
 
   ngOnInit(): void {
@@ -40,26 +41,27 @@ export class CartWindowComponent {
     this.enabled = !this.enabled;
   }
 
-  // addProductToCart(product: Product): void {
-  //   this.store.dispatch(addProductToCart({product}));
-  // }
+  addProductToCart(product: Product): void {
+    let count: number = 1;
+    this.store.dispatch(addProductToCart({count, product}));
+  }
 
-  // addToCart(item: CartItem): void {
-  //   this.store.dispatch(addToCart({item}));
-  // }
+  addToCart(item: CartItem): void {
+    this.store.dispatch(addToCart({item}));
+  }
 
-  // removeFromCart(item: CartItem): void {
-  //   this.store.dispatch(removeFromCart({item}));
-  // }
+  removeFromCart(item: CartItem): void {
+    this.store.dispatch(removeFromCart({item}));
+  }
 
-  // clearCart(): void {
-  //   this.store.dispatch(clearCart());
-  // }
+  clearCart(): void {
+    this.store.dispatch(clearCart());
+  }
 
-  // editCartCount(count: number, item: CartItem): void {
-  //   item.count = count;
-  //   this.store.dispatch(changeCartItemCount({item}));
-  // }
+  editCartCount(count: number, item: CartItem): void {
+    item.count = count;
+    this.store.dispatch(changeCartItemCount({item}));
+  }
 
   onResult(): void {
 

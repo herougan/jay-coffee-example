@@ -3,10 +3,10 @@ import { addToCart, removeFromCart, clearCart, addProductToCart, changeCartItemC
 import { Product } from "../models/product";
 import { CartItem } from "../models/cart-item";
 
-export const initialState: State = {
+export const initialState: CartState = {
 	cartItems: [],
 };
-export interface State {
+export interface CartState {
 	cartItems: CartItem[];
 }
 
@@ -14,34 +14,66 @@ export interface State {
 export const cartReducer = createReducer(
 	initialState,
 	on(addToCart, (state, {item}) => ({...state, cartItems: state.cartItems.concat(item)})),
-	on(addProductToCart, (state, {product}) => {
-		// let added: boolean = false;
-		// for (let i = 0; i < state.cartItems.length; i++) {
-		// 	if (state.cartItems[i].product.id == product.id) {
-		// 		++state.cartItems[i].count;
-		// 		added = true;
-		// 		break;
-		// 	}
-		// }
+	on(addProductToCart, (state, {count, product}) => {
 
-		// if (!added) {
-		// 	state.cartItems.push(new CartItem(product, 1, product.price));
-		// }
-		// // return Object.assign({}, state, {});
-		return state;
+		let index = state.cartItems.findIndex(obj => {
+		  return obj.product.id === product.id;
+		});
+
+		console.log("Adding " + count + " item(s): " + state.cartItems + "; at index " + index);
+		
+		// Edit item
+		if (index !== -1) {
+			return Object.assign({},
+				state,	
+				{
+					cartItems: Object.assign({}, 
+						...state.cartItems,
+						{
+							[index]: new CartItem(product, state.cartItems[index].count + count),
+						},
+					)
+				}
+			);
+		}
+
+		// test
+		let tryout = Object.assign({}, 
+			state,
+			{
+				cartItems:  [...state.cartItems, new CartItem(product, count),],
+			}				
+		);
+		console.log(state);
+		console.log(tryout);
+		// let tryout2 = Object.assign({},
+		// 	state,	
+		// 	{
+		// 		cartItems: Object.assign({}, 
+		// 			...state.cartItems,
+		// 			{
+		// 				[0]: new CartItem(product, 1),
+		// 			},
+		// 		)
+		// 	}
+		// );
+		// console.log(tryout2);
+
+		// New item
+		index = state.cartItems.length;
+		return Object.assign({}, 
+			state,
+			{
+				cartItems:  [...state.cartItems, new CartItem(product, count),],
+			}				
+		);
 	}),
 	on(removeFromCart, (state, {item}) => {
-		// for (let i = 0; i < state.cartItems.length; i++) {
-		// 	if (state.cartItems[i].product.id == item.product.id) {
-		// 		// --state.cartItems[i].count;
-		// 		// if (state.cartItems[i].count <= 0) {
-		// 		// 	state.cartItems.slice(i, 1);
-		// 		// 	break;
-		// 		// }
-		// 		state.cartItems.slice(i, 1);
-		// 		break;
-		// 	}
-		// }
+
+		const index = state.cartItems.findIndex(obj => {
+		  return obj.product.id === item.product.id;
+		});
+		
 		return state;
 	}),
 	on(clearCart, (state) => ({...state, cartItems: []})),
@@ -58,14 +90,4 @@ export const cartReducer = createReducer(
 		// }
 		return state;
 	}),
-	//
-	//
-	//
-	// on(addNumber, (state) => {
-	// 	return state + 1;
-	// }),
-	// on(removeNumber, (state) => {
-	// 	return state - 1;
-	// }),
-	// on(clearNumber, (state) => 0),
 );
