@@ -13,50 +13,57 @@
 	</div> -->
 	<div class="cart-continue mx-1">
 		<ng-container *ngFor="let item of (cart$ | async)?.cartItems; index as i">
-			<div class="search-result d-flex flex-row"
+			<div class="cart-item-detail row my-1 mb-4"
 			routerLink="/detail/{{ item.product.id }}"
 			(click)="onResult();">
-				<div class="result-img mx-1 me-3 mx-md-1 mx-md-3 my-2 my-sm-2 col-2">
+				<!-- Icon -->
+				<div class="detail-img col-2">
 					<picture>
 						<img src="{{ item.product.img }}">
 					</picture>
 				</div>
-				<!-- <div class="result-body col-10 d-flex flex-row justify-content-center align-items-center ">
-					<div class="result-title 
-					col-9 	col-sm-8 	col-md-3">
-						<p>{{item.product.id}}</p>
+				<!-- Name and Type -->
+				<div class="detail-body col-7 col">
+					<!-- Name -->
+					<div class="name">
+						<p>{{item.product.name}}</p>
 					</div>
-					<div class="result-desc 
-										col-md-7">
-						<p>{{ (item.product.desc.length>desc_cutoff) ? (item.product.desc | slice:0:desc_cutoff) + '...' : (item.product.desc) }}</p>
+					<!-- Type -->
+					<div class="tags row">
+						<ng-container *ngFor="let tag of item.product.tags">
+							<p>{{tag}}</p>
+						</ng-container>
 					</div>
-					<div class="result-price 
-					col-3 	col-sm-3 	col-md-1">
-						<p>{{item.product}}</p>
+					<!-- Count x Price -->
+					<div class="pricing row">
+						<div class="col-4">
+							<input class="detail-count"
+							value="{{item.count}}">
+						</div>
+						<div class="col-1">
+							<p>x</p>
+						</div>
+						<div class="col-5">
+							<p>
+								{{item.product.price}}
+							</p>
+						</div>
 					</div>
-					
-					<div class="result-count">
-						<input #result_input placeholder="{{item.count}}" 
-						(change)="editCartCount(result_input.valueAsNumber, item)"
-						type="number">
-					</div>
-					<div class="result-delete">
-						<svg (click)="removeFromCart(item)"></svg>
-					</div>
-					<div class="result-button
-							col-sm-1 	col-md-1">
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
-							<path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
-						</svg>
-					</div>
-				</div> -->
+				</div>
+				
+				<!-- Delete -->
+				<div class="detail-delete col-1" (click)="removeFromCart(item);">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+						<path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+					</svg>
+				</div>
 			</div>
 		</ng-container>
 		<div *ngIf="(cart$ | async)?.cartItems?.length == 0" class="cart-empty">
 			<h3>Cart is empty</h3>
 		</div>
-		<div *ngIf="(cart$ | async)?.cartItems?.length">
-			<h3>Price: </h3>
+		<div [ngStyle]="{'display': (cart$ | async)?.cartItems?.length ? 'visible' : 'none'}"> <!-- *ngIf="(cart$ | async)?.cartItems?.length" -->
+			<h3 class="cart-price">Total: $0</h3>
 		</div>
 	</div>
 </div>

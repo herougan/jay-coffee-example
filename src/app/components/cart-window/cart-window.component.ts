@@ -22,6 +22,7 @@ export class CartWindowComponent {
   
   // DOM elements
   window: any;
+  price_label: HTMLInputElement;
 
   // Main-nav-bar control
   enabled: boolean = false;
@@ -31,6 +32,10 @@ export class CartWindowComponent {
 
   constructor(private store: Store<{ cart: CartState }>) {
     this.cart$ = store.select('cart');
+    this.cart$.subscribe(() => {
+      this.updateCartPrice();
+    })
+    this.price_label = document.querySelector('.cart-price')!;
   }
 
   ngOnInit(): void {
@@ -63,7 +68,26 @@ export class CartWindowComponent {
     this.store.dispatch(changeCartItemCount({item}));
   }
 
+  // Other actions
   onResult(): void {
 
+  }
+
+  calcCartPrice(): number {
+    let total = 0;
+
+    this.cart$.subscribe(cart => {
+      cart.cartItems.forEach(item => {
+        total += item.product.price * item.count;
+      });
+    })
+    return total;
+  }
+
+  updateCartPrice(): void {
+    let label = document.querySelector('.cart-price') as HTMLInputElement;
+    console.log(label + "Total: $" + this.calcCartPrice());
+    if (label)
+      label.value = "Total: $" + this.calcCartPrice();
   }
 }

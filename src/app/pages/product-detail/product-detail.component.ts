@@ -33,6 +33,14 @@ export class ProductDetailComponent implements OnInit {
   }
   
   addProductToCart(count: number, product: Product): void {
+    if (count < 1) {
+      this.launchAlert("Only positive numbers allowed!");
+      return;
+    }
     this.store.dispatch(addProductToCart({count, product}));
+  }
+
+  launchAlert(message: string): void {
+
   }
 }

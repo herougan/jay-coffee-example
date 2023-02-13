@@ -62,12 +62,8 @@
 			object-fit: cover;
 		}
 	}
-	.result-title {
-	}
-	.result-price {
-	}
-	.result-desc {
-		
+	.result-button {
+		display: none;
 	}
 	p {
 		margin-bottom: 0px;
@@ -76,6 +72,9 @@
 }
 .search-result:hover {
 	background-color: rgba(222, 222, 222);
+	.result-button {
+		display: block;
+	}
 }
 
 @media (max-width: $md) {

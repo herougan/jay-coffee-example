@@ -16,48 +16,27 @@ export const cartReducer = createReducer(
 	on(addToCart, (state, {item}) => ({...state, cartItems: state.cartItems.concat(item)})),
 	on(addProductToCart, (state, {count, product}) => {
 
-		let index = state.cartItems.findIndex(obj => {
+		let index: number = state.cartItems.findIndex(obj => {
 		  return obj.product.id === product.id;
 		});
-
-		console.log("Adding " + count + " item(s): " + state.cartItems + "; at index " + index);
 		
 		// Edit item
 		if (index !== -1) {
 			return Object.assign({},
 				state,	
 				{
-					cartItems: Object.assign({}, 
-						...state.cartItems,
-						{
-							[index]: new CartItem(product, state.cartItems[index].count + count),
-						},
-					)
+					cartItems:  [...state.cartItems.slice(0, index), 
+						new CartItem(product, state.cartItems[index].count + count),
+					...state.cartItems.slice(index + 1)],
+					// Object.assign({}, 
+					// 	...state.cartItems,
+					// 	{
+					// 		[index]: new CartItem(product, state.cartItems[index].count + count),
+					// 	},
+					// )
 				}
 			);
 		}
-
-		// test
-		let tryout = Object.assign({}, 
-			state,
-			{
-				cartItems:  [...state.cartItems, new CartItem(product, count),],
-			}				
-		);
-		console.log(state);
-		console.log(tryout);
-		// let tryout2 = Object.assign({},
-		// 	state,	
-		// 	{
-		// 		cartItems: Object.assign({}, 
-		// 			...state.cartItems,
-		// 			{
-		// 				[0]: new CartItem(product, 1),
-		// 			},
-		// 		)
-		// 	}
-		// );
-		// console.log(tryout2);
 
 		// New item
 		index = state.cartItems.length;
@@ -70,24 +49,45 @@ export const cartReducer = createReducer(
 	}),
 	on(removeFromCart, (state, {item}) => {
 
-		const index = state.cartItems.findIndex(obj => {
+		const index: number = state.cartItems.findIndex(obj => {
 		  return obj.product.id === item.product.id;
 		});
+
+		// test
+		let tryout = Object.assign({}, 
+			state,
+			{
+				cartItems:  [...state.cartItems.slice(0, index), 
+					// new CartItem(state.cartItems[index].product, state.cartItems[index].count - 1),
+					 ...state.cartItems.slice(index + 1)],
+			}				
+		);
+		console.log(state);
+		console.log(tryout);
 		
-		return state;
+		return Object.assign({}, 
+			state,
+			{
+				cartItems:  [...state.cartItems.slice(0, index), 
+					// new CartItem(state.cartItems[index].product, state.cartItems[index].count - 1),
+					 ...state.cartItems.slice(index + 1)],
+			}				
+		);
 	}),
 	on(clearCart, (state) => ({...state, cartItems: []})),
 	on(changeCartItemCount, (state, {item}) => {
-		// for (let i = 0; i < state.cartItems.length; i++) {
-		// 	if (state.cartItems[i].product.id == item.product.id) {
-		// 		if (item.count == 0) {
-		// 			state.cartItems.slice(i, 1);
-		// 			break;
-		// 		}
-		// 		state.cartItems[i].count = item.count;
-		// 		break;
-		// 	}
-		// }
-		return state;
+
+		const index: number = state.cartItems.findIndex(obj => {
+		  return obj.product.id === item.product.id;
+		});
+		
+		return Object.assign({}, 
+			state,
+			{
+				cartItems:  [...state.cartItems.slice(0, index), 
+					new CartItem(item.product, item.count),
+					 ...state.cartItems.slice(index + 1)],
+			}				
+		);
 	}),
 );
