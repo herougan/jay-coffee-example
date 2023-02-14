@@ -43,4 +43,11 @@ export class ProductDetailComponent implements OnInit {
   launchAlert(message: string): void {
 
   }
+
+  validationCheck($event: Event): void {
+    let t = $event.currentTarget as HTMLInputElement;
+    let s = parseInt(t.value, 10);
+
+    if (!Number.isInteger(s)) t.value = "";
+  }
 }

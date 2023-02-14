@@ -4,14 +4,14 @@
 	position: fixed;
 	width: min(500px, 50vw);
 	top: 30px;
-	left: calc(100vw - 35vw);
-	width: max(100px, 29vw);
+	left: calc(100vw - 38vw);
+	width: max(150px, 33vw);
 	background-color: white;
 	z-index: 3;
 	padding: 10px 10px 10px 10px;
 	margin-right: 10px;
 	border-radius: 10px;
-	height: 200px; // test
+	// height: 200px;
 	box-shadow: 
 		1px 1px 0px 0px rgb(0 0 0 / 10%),
 		1px 0px 1px 0px rgb(0 0 0 / 10%),
@@ -50,6 +50,16 @@
 	}
 	.detail-delete {
 		cursor: pointer;
+	}
+	.pricing {
+		// align-items: center;
+	}
+}
+.cart-continue {
+	button {
+		width: 100%;
+		height: 50px;
+		font-size: larger;
 	}
 }
 

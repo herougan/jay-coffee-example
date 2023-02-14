@@ -15,6 +15,7 @@ export const cartReducer = createReducer(
 	initialState,
 	on(addToCart, (state, {item}) => ({...state, cartItems: state.cartItems.concat(item)})),
 	on(addProductToCart, (state, {count, product}) => {
+		if (!Number.isInteger(count)) return state;
 
 		let index: number = state.cartItems.findIndex(obj => {
 		  return obj.product.id === product.id;

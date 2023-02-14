@@ -6,6 +6,7 @@ import { Product, EmptyProduct } from 'src/app/models/product';
 import { Observable } from 'rxjs';
 
 import { addProductToCart } from 'src/app/actions/cart.actions';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-search-window',
@@ -46,8 +47,7 @@ export class SearchWindowComponent {
   }
 
   constructor(private product_service: ProductService, private eRef: ElementRef,
-    /*private cartService: CartService , private store: Store<{ count : number}> */) {
-      // this.count$ = store.select('count');
+    private store: Store) {
     }
 
   ngOnInit(): void {
@@ -55,6 +55,8 @@ export class SearchWindowComponent {
     this.backdrop = document.querySelector('.search-background');  
     this.search_bar = document.querySelector('.search-bar');    
   }
+
+  /* ===== Events ===== */
 
   show(): void {
     this.enabled = !this.enabled;
@@ -90,6 +92,11 @@ export class SearchWindowComponent {
     this.product_service.searchProducts(this.search_bar.value).subscribe((products) => {
       this.results = this.results.concat(products);
     });
+  }
+  
+  addProductToCart(product: Product): void {
+    let count: number = 1;
+    this.store.dispatch(addProductToCart({count, product}));
   }
 
   //#endregion

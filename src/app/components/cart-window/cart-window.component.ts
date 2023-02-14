@@ -3,8 +3,6 @@ import { Observable } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { CartItem } from 'src/app/models/cart-item';
 import { Store } from '@ngrx/store';
-// import { CartService } from 'src/app/services/cart-service.service';
-import { AsyncPipe } from '@angular/common';
 import { CartState } from 'src/app/actions/cart.reducer';
 
 // Actions
@@ -19,6 +17,7 @@ export class CartWindowComponent {
 
   // True Cart
   cart$: Observable<CartState>;
+  total_price: number = 0;
   
   // DOM elements
   window: any;
@@ -81,13 +80,14 @@ export class CartWindowComponent {
         total += item.product.price * item.count;
       });
     })
+
+  this.total_price = total
     return total;
   }
 
   updateCartPrice(): void {
-    let label = document.querySelector('.cart-price') as HTMLInputElement;
-    console.log(label + "Total: $" + this.calcCartPrice());
+    let label = document.querySelector('.cart-price') as HTMLHeadingElement;
     if (label)
-      label.value = "Total: $" + this.calcCartPrice();
+      label.textContent = "Total: $" + this.calcCartPrice();
   }
 }

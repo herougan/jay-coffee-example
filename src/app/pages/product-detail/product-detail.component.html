@@ -14,9 +14,11 @@
           <div class="col-md-6 col-xs-12">
             <input #cart_count
               type="number"
+              inputmode="numeric"
               class="form-control border border-dark border-1 py-2 fs-5"
               id="quantity"
               aria-describedby="quantity"
+              (keyup)="validationCheck($event);"
             />
           </div>
           <button class="col-md-6 col-xs-12 btn btn-primary py-2 fs-5
