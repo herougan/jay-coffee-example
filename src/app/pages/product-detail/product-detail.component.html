@@ -12,17 +12,20 @@
         <div class="container"></div>
         <div class="submit-row row g-2">
           <div class="col-md-6 col-xs-12">
-            <input #cart_count
+            <input
+              #cart_count
               type="number"
               inputmode="numeric"
-              class="form-control border border-dark border-1 py-2 fs-5"
+              class="form-control border border-dark rounded-0 border-1 py-3 px-4 fs-5"
               id="quantity"
               aria-describedby="quantity"
               (keyup)="validationCheck($event);"
             />
           </div>
-          <button class="col-md-6 col-xs-12 btn btn-primary py-2 fs-5
-          text-nowrap" (click)="addProductToCart(cart_count.valueAsNumber, product)">
+          <button
+            class="col-md-6 col-xs-12 btn btn-primary py-2 fs-5 text-nowrap"
+            (click)="addProductToCart(cart_count.valueAsNumber, product)"
+          >
             Add to Cart
           </button>
         </div>
@@ -31,11 +34,10 @@
     <div class="col-md-9 col-xs-12">
       <p class="fs-5">
         We designed The Daily to be a balanced and approachable drip coffee,
-        drinkable every day yet complex enough to keep you coming back. 
+        drinkable every day yet complex enough to keep you coming back.
       </p>
       <p class="fs-5">
-        The
-        Daily is built around seasonally fresh components, typically coffees
+        The Daily is built around seasonally fresh components, typically coffees
         from South and Central America, chosen carefully to bring together our
         favorite attributes in coffee, from brightness to body, sweetness to
         finish. Currently, The Daily is made up of coffees from Brazil and

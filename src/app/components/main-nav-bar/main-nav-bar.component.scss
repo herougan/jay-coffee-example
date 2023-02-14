@@ -1,137 +1,139 @@
-@import '../../../variables.scss';
+@import "../../../variables.scss";
 
 .dropdown-toggle::after {
   display: none;
 }
 
 .nav-logo-container img {
-	width: 4vw;
-	height: 4vw;
+  width: 4vw;
+  height: 4vw;
 }
 
 .main-nav-bar {
-  	transition: visibility 0s, opacity 0.15s ease;
-	opacity: 1;
-	// height: 0px;
-	// top: 25px; // Uncomment this to start the nav bar at the carousell@home.
-	z-index: 1;
+  transition: visibility 0s, opacity 0.15s ease;
+  opacity: 1;
+  // height: 0px;
+  // top: 25px; // Uncomment this to start the nav bar at the carousell@home.
+  z-index: 1;
 }
 
 .hide-nav {
-  	transition: visibility 0s, opacity 0.15s ease;
-	opacity: 0;
+  transition: visibility 0s, opacity 0.15s ease;
+  opacity: 0;
 }
 
 .navbar-title {
-	background-color:rgba(200, 100, 10, .5);
-	width: fit-content;
-	padding: 0.2vw;
-	border-radius: .25vw;
+  background-color: rgba(200, 100, 10, 0.5);
+  width: fit-content;
+  padding: 0.2vw;
+  border-radius: 0.25vw;
 }
 
 .hide-button {
-	display: none;
-	visibility: 0;
-	pointer-events: none;
-	right: 0px;
-	transition: visibility 0.5s ease, right 0.5s ease;
+  display: none;
+  visibility: 0;
+  pointer-events: none;
+  right: 0px;
+  transition: visibility 0.5s ease, right 0.5s ease;
 }
 
-.cart-button, .search-button, .hamburger-button {
-	cursor: pointer;
-	pointer-events: all;
-	text-align: center;
-	background-color: rgba(255, 255, 255, 0);
-	vertical-align: middle;
-	// background
-	border: 1px solid  rgba(255, 255, 255, 0);
-	border-radius: 15px;	
-	height: 30px;
-	width: 30px;
-	padding: 3px 0px;
-	// transition
-	transition: background-color 0.5s ease-out;	
+.cart-button,
+.search-button,
+.hamburger-button {
+  cursor: pointer;
+  pointer-events: all;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0);
+  vertical-align: middle;
+  // background
+  border: 1px solid rgba(255, 255, 255, 0);
+  border-radius: 15px;
+  height: 30px;
+  width: 30px;
+  padding: 3px 0px;
+  // transition
+  transition: background-color 0.5s ease-out;
 }
 
 .cart-button.show-background {
-	background-color: white;
-	right: 0px;
-	transition: background-color 0.5s ease, right 0.5s ease;
+  background-color: white;
+  right: 0px;
+  transition: background-color 0.5s ease, right 0.5s ease;
 }
 
 .nav-bar-background {
-	opacity: 0.08; 
-	pointer-events: none;
-	position: absolute;
-	top: 0; 
-	bottom: 0; 
-	left: 0; 
-	right: 0; 
-	z-index: 0
+  opacity: 0.08;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
 }
 
 // Nav bar links
 .main-nav-bar nav a.nav-bar-link {
-	font-weight: 500;
-	text-decoration: none;
-	color: black;
-	font-size: large;
+  font-weight: 500;
+  text-decoration: none;
+  color: black;
+  font-size: large;
 }
 
 .main-nav-bar .logo img {
-	width: 3vw;
-	height: 2vw;
+  width: 3vw;
+  height: 2vw;
 }
 
 .nav-logo-container-detached {
-	margin-block: 0px;
-	width: 2px;
-	height: 2px;
-	transition: width 1s;
-	transition: height 1s;
+  margin-block: 0px;
+  width: 2px;
+  height: 2px;
+  transition: width 1s;
+  transition: height 1s;
 }
 
 .diabled {
-	pointer-events: none;
+  pointer-events: none;
 }
 
 @media (max-width: $s) {
-	.nav-router-links-container {
-		display: none!important;
-	}
-	.nav-logo-container img {
-		width: 10vw;
-		height: 10vw;
-	}
+  .nav-router-links-container {
+    display: none !important;
+  }
+  .nav-logo-container img {
+    width: 10vw;
+    height: 10vw;
+  }
 
-	// Buttons
-	.cart-button svg {
-		height: 7vw;
-		width: 7vw;
-	}
-	.search-button svg {
-		height: 6.8vw;
-		width: 6.8vw;
-	}
-	.hamburger-button svg {
-		height: 8.8vw;
-		width: 8.8vw;
-	}
-	.search-button {
-		translate: 2px 1px;
-	}
-	.hamburger-button {
-		translate: -2px -3px!important;
-	}
+  // Buttons
+  .cart-button svg {
+    height: 7vw;
+    width: 7vw;
+  }
+  .search-button svg {
+    height: 6.8vw;
+    width: 6.8vw;
+  }
+  .hamburger-button svg {
+    height: 8.8vw;
+    width: 8.8vw;
+  }
+  .search-button {
+    translate: 2px 1px;
+  }
+  .hamburger-button {
+    translate: -2px -3px !important;
+  }
 
-	.main-nav-bar {
-		position: relative
-	}
+  .main-nav-bar {
+    position: relative;
+  }
 }
 
 @media (min-width: $xl) {
-	.nav-logo-container img {
-		width: 22px;
-		height: 22px;
-	}
+  .nav-logo-container img {
+    width: 22px;
+    height: 22px;
+  }
 }

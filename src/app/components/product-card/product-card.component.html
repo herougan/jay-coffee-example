@@ -17,13 +17,15 @@
     />
     <div
       class="product-desc-popup d-flex flex-column justify-content-center p-2"
-      [ngClass]="{'yellow-popup': product.colour == 'yellow',
-      'red-popup': product.colour == 'red',
-      'blue-popup': product.colour == 'blue',
-      'green-popup': product.colour == 'green',
-      'white-popup': product.colour == 'white'}"
+      [ngClass]="{
+        'grey-popup': product.colour == 'yellow',
+        'red-popup': product.colour == 'red',
+        'blue-popup': product.colour == 'blue',
+        'green-popup': product.colour == 'green',
+        'white-popup': product.colour == 'white'
+      }"
     >
-      <span class="fs-4 fw-semibold">TASTES LIKE</span>
+      <span class="fs-4 fw-semibold">Tastes like</span>
       <span *ngIf="product.notes" class="fs-5">{{ product.notes }}</span>
     </div>
   </div>

@@ -1,4 +1,4 @@
-@import '../../../variables.scss';
+@import "../../../variables.scss";
 
 .banner {
   position: relative;
@@ -6,24 +6,23 @@
 
 .banner-img {
   height: 50vh;
-  background-image: url("/assets/static/images/main_splash.jpg");
+  // background-image: url("/assets/static/images/banner/black_marble.jpg");
+  background-color: rgb(0, 0, 0);
   // object-fit: cover;
   background-position: bottom right;
 }
 
 .banner-overlay {
-  position: absolute
+  position: absolute;
+  color: rgb(255, 255, 255);
 }
 
 @media (max-width: $s) {
   .banner-overlay {
     position: relative;
   }
-  
-}// adjust banner font, adjust shadows
+} // adjust banner font, adjust shadows
 // shadows img is 30vw, shadow is 30vw, margins?
 
-
 @media (max-width: $md) {
-  
 }
