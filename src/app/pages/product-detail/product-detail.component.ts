@@ -4,16 +4,24 @@ import { MOCK_PRODUCTS } from 'src/assets/static/data/mock-products';
 import { ProductService } from '../../services/product-service.service';
 import { ActivatedRoute } from '@angular/router';
 
+import { addProductToCart } from 'src/app/actions/cart.actions';
+import { Store } from '@ngrx/store';
+
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.scss'],
 })
 export class ProductDetailComponent implements OnInit {
+
   product: Product | undefined;
 
   constructor(private route: ActivatedRoute,
-    private productService: ProductService) {}
+    private productService: ProductService,
+    private store: Store) {
+    }
+
+  /* Emit (add)="onAdd($event)" (parent) (child) @Output() add = new EventEmitter<string>() */
 
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
@@ -22,5 +30,17 @@ export class ProductDetailComponent implements OnInit {
     this.productService.getProduct(productIdFromRoute).subscribe((p => {
       this.product = p;
     }))
+  }
+  
+  addProductToCart(count: number, product: Product): void {
+    if (count < 1) {
+      this.launchAlert("Only positive numbers allowed!");
+      return;
+    }
+    this.store.dispatch(addProductToCart({count, product}));
+  }
+
+  launchAlert(message: string): void {
+
   }
 }

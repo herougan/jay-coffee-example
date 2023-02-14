@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product-service.service';
 import { filter } from 'rxjs';
+// import { CartService } from 'src/app/services/cart-service.service';
+// import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-feature-product-list',
@@ -12,7 +14,9 @@ export class FeatureProductListComponent implements OnInit {
   
   products: Product[] = [];
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService /*, private cartService: CartService, private store: Store<{count: number, product: Product}> */) {
+    
+  }
 
   ngOnInit(): void {
     this.productService

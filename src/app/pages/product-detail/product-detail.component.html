@@ -8,10 +8,12 @@
         <h1>{{ product.name }}</h1>
         <h2 *ngIf="product.shortDesc">{{ product.shortDesc }}</h2>
         <p *ngIf="product.desc" class="fs-5">{{ product.desc }}</p>
+        <h2>${{ product.price }}</h2>
         <div class="container"></div>
-        <div class="row g-2 w-50">
+        <div class="submit-row row g-2">
           <div class="col-md-6 col-xs-12">
             <input
+              #cart_count
               type="number"
               class="form-control border border-dark rounded-0 border-1 py-3 px-4 fs-5"
               id="quantity"
@@ -19,7 +21,8 @@
             />
           </div>
           <button
-            class="col-md-6 col-xs-12 btn btn-outline-dark rounded-0 border border-dark py-3 px-4"
+            class="col-md-6 col-xs-12 btn btn-primary py-2 fs-5 text-nowrap"
+            (click)="addProductToCart(cart_count.valueAsNumber, product)"
           >
             Add to Cart
           </button>
@@ -29,8 +32,10 @@
     <div class="col-md-9 col-xs-12">
       <p class="fs-5">
         We designed The Daily to be a balanced and approachable drip coffee,
-        drinkable every day yet complex enough to keep you coming back. The
-        Daily is built around seasonally fresh components, typically coffees
+        drinkable every day yet complex enough to keep you coming back.
+      </p>
+      <p class="fs-5">
+        The Daily is built around seasonally fresh components, typically coffees
         from South and Central America, chosen carefully to bring together our
         favorite attributes in coffee, from brightness to body, sweetness to
         finish. Currently, The Daily is made up of coffees from Brazil and

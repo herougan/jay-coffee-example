@@ -1,0 +1,51 @@
+<div class="search-window" [ngClass]="{activated: enabled}">
+	<!-- Search -->
+	<div class="mx-1">
+		<input class="search-bar" type="text" placeholder="Search here..."
+		required minlength="4">
+	</div>
+	
+	<!-- Results -->
+	<div class="search-results" 
+	[ngClass]="{'mt-3 mb-2': results.length > 0}">
+		<ng-container *ngFor="let result of results; index as i">
+			<div class="search-result d-flex flex-row" id='result-{{i}}'
+			routerLink="/detail/{{ result.id }}"
+			(click)="onResult();">
+				<div class="result-img mx-1 me-3 mx-md-1 mx-md-3 my-2 my-sm-2 col-2">
+					<picture>
+						<img src={{result.img}}>
+					</picture>
+				</div>
+				<div class="result-body col-10 d-flex flex-row justify-content-start align-items-center ">
+					<div class="result-title 
+					col-9 	col-sm-8 	col-md-3">
+						<p>{{result.name}}</p>
+					</div>
+					<div class="result-desc 
+										col-md-7">
+						<p>{{ (result.desc.length>desc_cutoff)? (result.desc | slice:0:desc_cutoff)+'...':(result.desc) }}</p>
+					</div>
+					<div class="result-price 
+					col-3 	col-sm-3 	col-md-1">
+						<p>{{result.price}}</p>
+					</div>
+					<div class="result-button
+							col-sm-1 	col-md-1"
+							> <!--(click)="addToCart(result)"-->
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16">
+							<path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
+							<path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+						</svg>
+					</div>
+				</div>
+			</div>
+		</ng-container>
+		<div class="search-result-ellipses">
+
+		</div>
+	</div>
+</div>
+<div class="search-background" [ngClass]="{activated: enabled}">
+
+</div>

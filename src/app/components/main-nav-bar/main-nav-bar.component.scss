@@ -14,6 +14,7 @@
   opacity: 1;
   // height: 0px;
   // top: 25px; // Uncomment this to start the nav bar at the carousell@home.
+  z-index: 1;
 }
 
 .hide-nav {
@@ -31,7 +32,9 @@
 .hide-button {
   display: none;
   visibility: 0;
-  transition: visibility 0.5s ease;
+  pointer-events: none;
+  right: 0px;
+  transition: visibility 0.5s ease, right 0.5s ease;
 }
 
 .cart-button,
@@ -54,16 +57,14 @@
 
 .cart-button.show-background {
   background-color: white;
-  // border: 1px solid white;
-  transition: background-color 0.5s ease;
+  right: 0px;
+  transition: background-color 0.5s ease, right 0.5s ease;
 }
 
 .nav-bar-background {
   opacity: 0.08;
-  // background-image: url('/../assets/static/images/banner/wood_texture.jpg');
   pointer-events: none;
   position: absolute;
-  // width: 100vw;
   top: 0;
   bottom: 0;
   left: 0;
@@ -92,6 +93,10 @@
   transition: height 1s;
 }
 
+.diabled {
+  pointer-events: none;
+}
+
 @media (max-width: $s) {
   .nav-router-links-container {
     display: none !important;
@@ -100,12 +105,35 @@
     width: 10vw;
     height: 10vw;
   }
-  .cart-button svg,
-  .search-button svg {
-    width: 7vw;
+
+  // Buttons
+  .cart-button svg {
     height: 7vw;
+    width: 7vw;
   }
+  .search-button svg {
+    height: 6.8vw;
+    width: 6.8vw;
+  }
+  .hamburger-button svg {
+    height: 8.8vw;
+    width: 8.8vw;
+  }
+  .search-button {
+    translate: 2px 1px;
+  }
+  .hamburger-button {
+    translate: -2px -3px !important;
+  }
+
   .main-nav-bar {
     position: relative;
+  }
+}
+
+@media (min-width: $xl) {
+  .nav-logo-container img {
+    width: 22px;
+    height: 22px;
   }
 }
