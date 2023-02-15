@@ -6,3 +6,15 @@ img {
 .submit-row {
   width: max(235px, 50%);
 }
+
+.product-add {
+  height: 45px;
+  border-radius: 0px;
+}
+.product-input {
+  input {
+    height: 45px;
+    border-right: 0px!important;
+  }
+  padding-right: 0px!important;
+}

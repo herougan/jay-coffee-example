@@ -26,6 +26,9 @@ import { SearchWindowComponent } from './components/search-window/search-window.
 // Actions
 import { StoreModule } from '@ngrx/store';
 import { cartReducer } from './actions/cart.reducer';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { ProductNotFoundComponent } from './pages/product-not-found/product-not-found.component';
+import { TestPageComponent } from './pages/test-page/test-page.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,9 @@ import { cartReducer } from './actions/cart.reducer';
     CartComponent,
     CartWindowComponent,
     SearchWindowComponent,
+    PageNotFoundComponent,
+    ProductNotFoundComponent,
+    TestPageComponent,
   ],
   imports: [
     BrowserModule,

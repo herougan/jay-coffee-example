@@ -302,7 +302,7 @@ export const MOCK_PRODUCTS: Product[] = [
     notes: 'Cherry, Chocolate, Almond',
   },
   {
-    id: 31,
+    id: 32,
     name: 'WeedToy 4 Yy',
     img: 'assets/static/images/products/toy_3.jpg',
     desc: 'Cute Dog Huggie',
@@ -311,7 +311,7 @@ export const MOCK_PRODUCTS: Product[] = [
     notes: 'Cherry, Chocolate, Almond',
   },
   {
-    id: 31,
+    id: 33,
     name: 'Aalien 4 Zz',
     img: 'assets/static/images/products/toy_3.jpg',
     desc: 'Cute Dog Huggie',
@@ -320,7 +320,7 @@ export const MOCK_PRODUCTS: Product[] = [
     notes: 'Cherry, Chocolate, Almond',
   },
   {
-    id: 31,
+    id: 34,
     name: 'Bbasketbball 5 11',
     img: 'assets/static/images/products/toy_1.jpg',
     desc: 'Cute Dog Huggie',

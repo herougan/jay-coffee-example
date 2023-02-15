@@ -29,21 +29,22 @@
 						<p>{{item.product.name}}</p>
 					</div>
 					<!-- Type -->
-					<div *ngIf="item.product.tags" class="tags row">
+					<div *ngIf="item.product.tags" class="tags flex-row">
 						<ng-container *ngFor="let tag of item.product.tags">
-							<p>{{tag}}</p>
+							{{tag}}
 						</ng-container>
 					</div>
 					<!-- Count x Price -->
-					<div class="pricing row">
-						<div class="col-4 text-center">
+					<div class="pricing row align-items-center">
+						<div class="pricing-count col-4 text-center">
 							<input class="detail-count"
+							(keyup)="validationCheck($event, item)"
 							value="{{item.count}}">
 						</div>
-						<div class="col-1 text-center">
+						<div class="pricing-x col-1 text-center">
 							<p>x</p>
 						</div>
-						<div class="col-5 text-center">
+						<div class="pricing-price col-5 text-center">
 							<p>
 								${{item.product.price}}
 							</p>
@@ -58,14 +59,19 @@
 				</div>
 			</div>
 		</ng-container>
-		<div *ngIf="(cart$ | async)?.cartItems?.length == 0" class="cart-empty">
+		<div *ngIf="(cart$ | async)?.cartItems?.length == 0" class="cart-empty my-4">
 			<h3>Cart is empty</h3>
 		</div>
-		<div [ngStyle]="{'display': (cart$ | async)!.cartItems.length == 0 ? 'none' : 'block'}">
+		<div class="mt-2" [ngStyle]="{'display': (cart$ | async)!.cartItems.length == 0 ? 'none' : 'block'}">
 			<h3 class="cart-price">Total: $0</h3>
 		</div>
-		<div class="cart-continue mx-1 my-2 mt-3">
-			<button>Continue</button>
+		<div class="mt-2">
+			<div *ngIf="(cart$ | async)!.cartItems.length > 0" class="cart-view mx-1 my-2 mt-3">
+				<button (click)="show()">VIEW CART</button>
+			</div>
+			<div class="cart-continue mx-1 my-2">
+				<button (click)="show()">CONTINUE</button>
+			</div>
 		</div>
 	</div>
 </div>

@@ -90,4 +90,17 @@ export class CartWindowComponent {
     if (label)
       label.textContent = "Total: $" + this.calcCartPrice();
   }
+
+  validationCheck($event: Event, _item: CartItem): void {
+    let t = $event.currentTarget as HTMLInputElement;
+    let s = parseInt(t.value, 10);
+
+    if (!Number.isInteger(s)) t.value = "";
+
+    if (Number.isInteger(s)) {
+      let item: CartItem = new CartItem(_item.product, s);
+      this.store.dispatch(changeCartItemCount({item}));
+      t.focus();
+    }
+  }
 }

@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 
 import { addProductToCart } from 'src/app/actions/cart.actions';
 import { Store } from '@ngrx/store';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-window',
@@ -47,7 +48,7 @@ export class SearchWindowComponent {
   }
 
   constructor(private product_service: ProductService, private eRef: ElementRef,
-    private store: Store) {
+    private store: Store, private router: Router) {
     }
 
   ngOnInit(): void {
@@ -62,10 +63,20 @@ export class SearchWindowComponent {
     this.enabled = !this.enabled;
     // Reset search bar
     this.search_bar.value = ""; this.results = [];
+    if (this.enabled) this.search_bar.focus();
   }
 
   onResult(): void {
     this.show();
+
+    // Going to another page
+    if (!this.enabled) {
+      // console.log("Something");
+      // const currentUrl = this.router.url;
+      // this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      //     this.router.navigate([currentUrl]);
+      // });
+    }
   }
 
   //#region Search
