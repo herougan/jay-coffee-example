@@ -1,1 +1,15 @@
-<p>cart works!</p>
+<div class="cart-title align-self-center text-center">
+	<h1>Cart</h1>
+</div>
+
+<div class="cart-list">
+	<ng-container *ngFor="let item of (cart$ | async)?.cartItems; index as i">
+		<div class="cart-item-detail"
+		routerLink="/detail/{{item.product.id}}">
+
+
+
+
+		</div>
+	</ng-container>
+</div>
