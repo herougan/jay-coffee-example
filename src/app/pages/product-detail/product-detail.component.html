@@ -19,11 +19,11 @@
               class="form-control border border-dark rounded-0 border-1 py-3 px-4 fs-5"
               id="quantity"
               aria-describedby="quantity"
-              (keyup)="validationCheck($event);"
+              (keyup)="validationCheck($event)"
             />
           </div>
           <button
-            class="product-add col-md-6 col-xs-12 btn btn-primary py-2 fs-5 text-nowrap"
+            class="product-add col-md-6 col-xs-12 btn btn-dark rounded-0 py-2 fs-5 text-nowrap"
             (click)="addProductToCart(cart_count.valueAsNumber, product)"
           >
             Add to Cart
