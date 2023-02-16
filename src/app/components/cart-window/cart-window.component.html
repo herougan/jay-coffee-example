@@ -18,56 +18,58 @@
   <div class="cart-list mx-1">
     <ng-container *ngFor="let item of (cart$ | async)?.cartItems; index as i">
       <div
-        class="cart-item-detail justify-content-center row my-1 mb-4"
+        class="cart-item-detail"
         routerLink="/detail/{{ item.product.id }}"
         (click)="onResult()"
       >
-        <!-- Icon -->
-        <div class="detail-img col-2">
-          <picture>
-            <img src="{{ item.product.img }}" />
-          </picture>
-        </div>
-        <!-- Name and Type -->
-        <div class="detail-body col-7 col">
-          <!-- Name -->
-          <div class="fs-4">{{ item.product.name }}</div>
-          <!-- Type -->
-          <div *ngIf="item.product.tags" class="tags flex-row">
+        <div class="row align-items-center">
+          <!-- Icon -->
+          <div class="col-3 detail-img">
+            <picture>
+              <img src="{{ item.product.img }}" />
+            </picture>
+          </div>
+          <!-- Name and Type -->
+          <div class="col-7 detail-body fs-4">
+            <!-- Name -->
+            <div>${{ item.product.price }}</div>
+            <div>{{ item.product.name }}</div>
+            <!-- Type -->
+            <!-- <div *ngIf="item.product.tags" class="tags flex-row">
             <ng-container
               *ngFor="let tag of item.product.tags"
               class="bg-dark text-white"
             >
               {{ tag }}
             </ng-container>
-          </div>
-          <!-- Count x Price -->
-          <div class="row align-items-center">
-            <div class="col-4 text-center">
-              <input
+          </div> -->
+            <!-- Count x Price -->
+            <div>
+              <!-- <input
                 class="detail-count"
                 (keyup)="validationCheck($event, item)"
                 value="{{ item.count }}"
-              />
+              /> -->
+              Qty: {{ item.count }}
             </div>
-            <div class="col-2 text-center">x</div>
-            <div class="col-5 text-center">${{ item.product.price }}</div>
           </div>
-        </div>
-        <!-- Delete -->
-        <div class="detail-delete col-1" (click)="removeFromCart(item)">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            class="bi bi-trash3"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"
-            />
-          </svg>
+          <!-- <div class="col-2 text-center">${{ item.product.price }}</div> -->
+
+          <!-- Delete -->
+          <div class="col-2 detail-delete" (click)="removeFromCart(item)">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-trash3"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"
+              />
+            </svg>
+          </div>
         </div>
       </div>
     </ng-container>
