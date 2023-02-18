@@ -1,6 +1,11 @@
-<div class="row feature-product-list-container mx-4 my-4">
-	<div class="feature-card-container col-12 col-md-4 my-4" *ngFor="let detail of details">
-	  <app-feature-card [detail]="detail"></app-feature-card>
-	</div>
+<div class="py-5">
+  <p class="fs-2 text-center">the signature collection</p>
+  <div class="row feature-product-list-container mx-4 my-4">
+    <div
+      class="feature-card-container col-12 col-md-4 my-4"
+      *ngFor="let detail of details"
+    >
+      <app-feature-card [detail]="detail"></app-feature-card>
+    </div>
   </div>
-  
+</div>
