@@ -21,7 +21,7 @@ export class CartWindowComponent {
   
   // DOM elements
   window: any;
-  price_label: HTMLInputElement;
+  price_label: HTMLHeadingElement;
 
   // Main-nav-bar control
   enabled: boolean = false;
@@ -33,7 +33,7 @@ export class CartWindowComponent {
     this.cart$ = store.select('cart');
     this.cart$.subscribe(() => {
       this.updateCartPrice();
-    })
+    });
     this.price_label = document.querySelector('.cart-price')!;
   }
 

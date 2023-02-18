@@ -92,7 +92,13 @@
         *ngIf="(cart$ | async)!.cartItems.length > 0"
         class="cart-view mx-1 my-2 mt-3"
       >
-        <button routerLink="/cart   " (click)="show()">VIEW CART</button>
+        <button routerLink="/cart" (click)="show()">VIEW CART</button>
+      </div>
+      <div
+        *ngIf="(cart$ | async)!.cartItems.length > 0"
+        class="cart-view mx-1 my-2"
+      >
+        <button routerLink="/cart" (click)="show()">CHECKOUT</button>
       </div>
       <div class="cart-continue mx-1 my-2">
         <button (click)="show()">CONTINUE</button>

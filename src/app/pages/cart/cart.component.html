@@ -3,44 +3,68 @@
 </div>
 
 <div class="cart-list mx-5 my-5">
+    <div class="cart-list-headers row justify-content-center">
+      <div class="col-auto">
+		<div class="cart-header-start-blocker"></div>
+      </div>
+      <div class="col-1">
+		<h4>Name</h4>
+      </div>
+      <div class="col-1">
+		<h4>Price</h4>
+      </div>
+      <div class="col-2">
+		<h4>Quantity</h4>
+      </div>
+      <div class="col-1">
+		<h4>Total</h4>
+      </div>
+	  <div class="col-auto">
+		<div class="cart-header-end-blocker"></div>
+	  </div>
+    </div>
 	<ng-container *ngFor="let item of (cart$ | async)?.cartItems; index as i">
-		<div class="cart-item-detail my-2"> 
-			<div class="row align-items-center">
-				<div class="col-1 detail-front-buffer"></div>
+		<div class="cart-item-detail my-4"> 
+			<span class="row justify-content-center align-items-center">
 				<!-- Icon -->
-				<div class="col-4 detail-img">
+				<div class="col-auto detail-img">
 					<picture>
 						<img src="{{ item.product.img }}" />
 					</picture>
 				</div>
 				<!-- Name and Type -->
-				<div class="col-1 detail-body fs-4" routerLink="/detail/{{ item.product.id }}">
-					<div>${{ item.product.price }}</div>
-					<div>{{ item.product.name }}</div>
+				<div class="col-1 detail-body" routerLink="/detail/{{ item.product.id }}">
+					<div><h2>{{ item.product.name }}</h2></div>
 				</div>
-				<div class="col-4 detail-count row">
-					<div class="col-4 detail-count-down">
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-							<path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+				<div class="col-1 detail-body-price">
+					<div><h2>${{ item.product.price }}</h2></div>
+				</div>
+				<span class="col-2 detail-count d-flex flex-row">
+					<div class="detail-count-down py-5" (click)="decrement(item, detail_count_input)">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+							<path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
 						</svg>
 					</div>
 					<!-- Count x Price -->
-					<div class="col-4 detail-count">
-					<!-- <input
-						class="detail-count"
-						(keyup)="validationCheck($event, item)"
-						value="{{ item.count }}"
-					/> -->
-						Qty: {{ item.count }}
+					<div class="detail-count mx-3 py-5">
+						<input
+							#detail_count_input
+							class="detail-count-input"
+							(keyup)="validationCheck($event, item)"
+							value="{{ item.count }}"
+						/>
 					</div>
-					<div class="col-4 detail-count-up">
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-							<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+					<div class="detail-count-up py-5" (click)="increment(item, detail_count_input)">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+							<path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
 						</svg>
 					</div>
+				</span>
+				<div class="col-1 detail-body-total">
+					<div><h2>${{ item.product.price * item.count }}</h2></div>
 				</div>
 				<!-- Delete -->
-				<div class="col-1 detail-delete"> <!--  (click)="removeFromCart(item)" -->
+				<div class="col-auto detail-delete" (click)="removeFromCart(item)">
 					<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="16"
@@ -54,8 +78,25 @@
 					/>
 					</svg>
 				</div>
-				<div class="col-1 detail-end-buffer"></div>
-			</div>
+			</span>
 		</div>
 	</ng-container>
+	<div *ngIf="(cart$ | async)!.cartItems!.length == 0"
+	class="cart-empty text-center my-5" routerLink="/home">
+		<h2>Your cart is empty</h2>
+	</div>
+</div>
+
+<div class="cart-footer 
+			d-flex flex-column justify-content-end align-items-end
+			mx-5">
+	<div class="cart-net">
+		<h3 class="cart-page-price">Total: $0</h3>
+	</div>
+	<div class="calculate-shipping">
+		<button>Calculate Shipping</button>
+	</div>
+	<div class="cart-checkout">
+
+	</div>
 </div>
