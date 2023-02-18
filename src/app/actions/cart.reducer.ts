@@ -1,5 +1,5 @@
 import { createReducer, on, Action } from "@ngrx/store";
-import { addToCart, removeFromCart, clearCart, addProductToCart, changeCartItemCount } from "./cart.actions";
+import { addToCart, removeFromCart, clearCart, addProductToCart, changeCartItemCount, initCart } from "./cart.actions";
 import { Product } from "../models/product";
 import { CartItem } from "../models/cart-item";
 
@@ -89,6 +89,15 @@ export const cartReducer = createReducer(
 					new CartItem(item.product, item.count),
 					 ...state.cartItems.slice(index + 1)],
 			}				
+		);
+	}),
+	// Init
+	on(initCart, (state, {items}) => {
+		return Object.assign({},
+			state, 
+			{
+				cartItems: [...state.cartItems, ...items],
+			}
 		);
 	}),
 );

@@ -100,7 +100,11 @@
     </div>
     <div class="mt-2 row">
       <div *ngIf="(cart$ | async)!.cartItems.length > 0" class="cart-view col">
-        <button (click)="show()" class="btn btn-dark rounded-0">
+        <button
+          (click)="show()"
+          routerLink="/cart"
+          class="btn btn-dark rounded-0"
+        >
           View Cart
         </button>
       </div>
