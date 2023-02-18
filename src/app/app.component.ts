@@ -17,12 +17,12 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    // this.cartService.getCart(0).subscribe((products) => {
-    //   let items: CartItem[] = [];
-    //   products.forEach(product => {
-    //     items.push(new CartItem(product, 1));
-    //   });
-    //   this.store.dispatch(initCart({items}));
-    // });
+    this.cartService.initFakeCart().subscribe((items) => {
+      // let items: CartItem[] = [];
+      // products.forEach(product => {
+      //   items.push(new CartItem(product, 1));
+      // });
+      this.store.dispatch(initCart({items}));
+    });
   }
 }
