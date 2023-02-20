@@ -95,7 +95,7 @@
     >
       <div class="d-flex justify-content-between fs-5 text-muted">
         <div>Sub-total</div>
-        <div>$0</div>
+        <div><h5 class="cart-price">$0</h5></div>
       </div>
     </div>
     <div class="mt-2 row">
@@ -108,14 +108,8 @@
           View Cart
      </button>
       </div>
-      <div
-        *ngIf="(cart$ | async)!.cartItems.length > 0"
-        class="cart-view mx-1 my-2"
-      >
-        <button routerLink="/cart" (click)="show()">CHECKOUT</button>
-      </div>
-      <div class="cart-continue col">
-        <button (click)="show()" class="btn btn-dark rounded-0">
+      <div *ngIf="(cart$ | async)!.cartItems.length > 0" class="cart-continue col">
+        <button routerLink="/cart" (click)="show()" class="btn btn-dark rounded-0">
           Check Out
         </button>
       </div>

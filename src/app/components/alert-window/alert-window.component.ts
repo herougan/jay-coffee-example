@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Alert } from 'src/app/models/alert';
 
 @Component({
   selector: 'app-alert-window',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AlertWindowComponent {
 
+  alerts: Alert[] = [];
+
+
+  // Utility function
+
+  // Disappear after a while
+  timeElapsed: number[] = [];
 }

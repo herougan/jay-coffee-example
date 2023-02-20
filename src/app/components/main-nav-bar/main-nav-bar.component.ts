@@ -72,6 +72,11 @@ export class MainNavBarComponent implements OnInit {
       this.cart_button.classList.remove('disabled');
       this.search_button.classList.remove('disabled');
     }
+
+    if (this.cart.enabled) 
+      this.cart_button.classList.add('alt-show-background');
+    else
+      this.cart_button.classList.remove('alt-show-background');
   }
 
   onSearch(): void {

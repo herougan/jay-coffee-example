@@ -45,6 +45,7 @@ export class CartWindowComponent {
     this.enabled = !this.enabled;
   }
 
+  //#region Cart
   addProductToCart(product: Product): void {
     let count: number = 1;
     this.store.dispatch(addProductToCart({count, product}));
@@ -102,5 +103,12 @@ export class CartWindowComponent {
       this.store.dispatch(changeCartItemCount({item}));
       t.focus();
     }
+  }
+  //#endregion
+
+  /* Scroll */
+  scrollBar: any;
+  timeoutScroll(): void {
+
   }
 }

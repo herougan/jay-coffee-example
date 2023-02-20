@@ -24,6 +24,10 @@ export class CartComponent {
     });
     this.price_label = document.querySelector('.cart-price')!;
   }
+  
+  ngOnInit(): void {
+    this.updateCartPrice();
+  }
 
   calcCartPrice(): number {
     let total = 0;
@@ -40,7 +44,6 @@ export class CartComponent {
 
   updateCartPrice(): void {
     let label = document.querySelector('.cart-page-price') as HTMLHeadingElement;
-    console.log(label);
     if (label)
       label.textContent = "Total: $" + this.calcCartPrice();
   }

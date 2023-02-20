@@ -98,3 +98,12 @@
 		}
 	}
 }
+
+/* Scroll related */
+*::-webkit-scrollbar {
+  width: 4px;
+}
+*::-webkit-scrollbar-thumb {
+background-color: darkgrey;
+border-radius: 8px;
+}

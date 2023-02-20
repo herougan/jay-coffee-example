@@ -125,4 +125,10 @@ export class SearchWindowComponent {
     
   }
   //#endregion
+
+  /* Scroll */
+  scrollBar: any;
+  timeoutScroll(): void {
+
+  }
 }

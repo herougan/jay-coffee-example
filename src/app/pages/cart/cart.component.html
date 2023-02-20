@@ -7,10 +7,10 @@
       <div class="col-auto">
 		<div class="cart-header-start-blocker"></div>
       </div>
-      <div class="col-1">
+      <div class="col-2">
 		<h4>Name</h4>
       </div>
-      <div class="col-1">
+      <div class="col-2">
 		<h4>Price</h4>
       </div>
       <div class="col-2">
@@ -27,16 +27,16 @@
 		<div class="cart-item-detail my-4"> 
 			<span class="row justify-content-center align-items-center">
 				<!-- Icon -->
-				<div class="col-auto detail-img">
+				<div class="col-auto detail-img mx-2">
 					<picture>
 						<img src="{{ item.product.img }}" />
 					</picture>
 				</div>
 				<!-- Name and Type -->
-				<div class="col-1 detail-body" routerLink="/detail/{{ item.product.id }}">
+				<div class="col-2 detail-body" routerLink="/detail/{{ item.product.id }}">
 					<div><h2>{{ item.product.name }}</h2></div>
 				</div>
-				<div class="col-1 detail-body-price">
+				<div class="col-2 detail-body-price">
 					<div><h2>${{ item.product.price }}</h2></div>
 				</div>
 				<span class="col-2 detail-count d-flex flex-row">

@@ -1,4 +1,5 @@
-<div *ngIf="product" class="container pt-4 mt-5">
+<div *ngIf="product" class="container pt-4 mt-3"
+ng-view autoscroll>
   <div class="row g-5">
     <div class="col-md-6 col-xs-12">
       <img src="{{ product.img }}" alt="..." class="w-100 h-100" />
