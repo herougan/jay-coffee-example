@@ -21,6 +21,7 @@ export class CartWindowComponent {
   
   // DOM elements
   window: any;
+  scroll_wrapper: any;
   price_label: HTMLHeadingElement;
 
   // Main-nav-bar control
@@ -28,6 +29,8 @@ export class CartWindowComponent {
 
   // Visual constants
   desc_cutoff: number = 10;
+  scroll_time: number = 500;
+  timeout_f: any;
 
   constructor(private store: Store<{ cart: CartState }>) {
     this.cart$ = store.select('cart');
@@ -39,6 +42,15 @@ export class CartWindowComponent {
 
   ngOnInit(): void {
     this.window = document.querySelector('.cart-window');
+    this.scroll_wrapper = document.querySelector('.scroll-wrapper') as HTMLElement;
+    console.log(this.scroll_wrapper);
+    this.scroll_wrapper.addEventListener('scroll', () => {
+      this.scroll_wrapper.classList.add('on-search');
+      clearTimeout(this.timeout_f);
+      this.timeout_f = setTimeout(() => {
+        this.scroll_wrapper.classList.remove('on-search');
+      }, this.scroll_time);
+    });
   }
 
   show(): void {

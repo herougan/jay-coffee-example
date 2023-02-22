@@ -60,8 +60,8 @@ export class MainNavBarComponent implements OnInit {
 
   @HostListener('document:keydown.escape', ['$event'])
   handleKeyboardEscapeEvent(e: KeyboardEvent) {
-    if (this.cart.enabled) this.cart.show();
-    if (this.search.enabled) this.search.show();
+    if (this.cart.enabled) this.onCart();
+    if (this.search.enabled) this.onSearch();
   }
 
   onCart(): void {

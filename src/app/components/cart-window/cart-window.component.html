@@ -15,7 +15,7 @@
   <!-- <div *ngIf="count$" class="cart-test" (click)="addToCart()">
 		<h2>Count: {{count$ | async}}</h2>
 	</div> -->
-  <div class="cart-list mx-1">
+  <div class="scroll-wrapper"><div class="cart-list mx-1">
     <ng-container *ngFor="let item of (cart$ | async)?.cartItems; index as i">
       <button
         class="cart-item-detail my-2"
@@ -114,7 +114,7 @@
         </button>
       </div>
     </div>
-  </div>
+  </div></div>
 </div>
 <!-- <div class="cart-background">
 
