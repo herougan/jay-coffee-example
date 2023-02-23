@@ -29,6 +29,7 @@ export class CartWindowComponent {
 
   // Visual constants
   desc_cutoff: number = 10;
+  // Scroll constants
   scroll_time: number = 500;
   timeout_f: any;
 
@@ -42,8 +43,8 @@ export class CartWindowComponent {
 
   ngOnInit(): void {
     this.window = document.querySelector('.cart-window');
-    this.scroll_wrapper = document.querySelector('.scroll-wrapper') as HTMLElement;
-    console.log(this.scroll_wrapper);
+    this.scroll_wrapper = document.querySelector('.search-scroll') as HTMLElement;
+
     this.scroll_wrapper.addEventListener('scroll', () => {
       this.scroll_wrapper.classList.add('on-search');
       clearTimeout(this.timeout_f);
@@ -117,10 +118,4 @@ export class CartWindowComponent {
     }
   }
   //#endregion
-
-  /* Scroll */
-  scrollBar: any;
-  timeoutScroll(): void {
-
-  }
 }

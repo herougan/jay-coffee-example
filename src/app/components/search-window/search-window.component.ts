@@ -24,10 +24,15 @@ export class SearchWindowComponent {
   // DOM elements
   search_bar: any;
   window: any;
+  scroll_wrapper: any;
   backdrop: any;
 
   // Main-nav-bar control
   enabled: boolean = false;
+
+  // Scroll constants
+  scroll_time: number = 500;
+  timeout_f: any;
 
 
   // Escape to exit
@@ -54,7 +59,18 @@ export class SearchWindowComponent {
   ngOnInit(): void {
     this.window = document.querySelector('.search-window');
     this.backdrop = document.querySelector('.search-background');  
-    this.search_bar = document.querySelector('.search-bar');    
+    this.search_bar = document.querySelector('.search-bar');   
+    this.scroll_wrapper = document.querySelector('.scroll-wrapper') as HTMLElement;
+
+    this.scroll_wrapper.addEventListener('scroll', () => {
+      console.log(this.scroll_wrapper);
+
+      this.scroll_wrapper.classList.add('on-search');
+      clearTimeout(this.timeout_f);
+      this.timeout_f = setTimeout(() => {
+        this.scroll_wrapper.classList.remove('on-search');
+      }, this.scroll_time);
+    }) 
   }
 
   /* ===== Events ===== */
@@ -125,10 +141,4 @@ export class SearchWindowComponent {
     
   }
   //#endregion
-
-  /* Scroll */
-  scrollBar: any;
-  timeoutScroll(): void {
-
-  }
 }
