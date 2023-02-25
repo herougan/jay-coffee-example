@@ -73,6 +73,10 @@ export class SearchWindowComponent {
     }) 
   }
 
+  ngOnDestroy(): void {
+    
+  }
+
   /* ===== Events ===== */
 
   show(): void {

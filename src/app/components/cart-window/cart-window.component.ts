@@ -54,6 +54,10 @@ export class CartWindowComponent {
     });
   }
 
+  ngOnDestroy(): void {
+    // this.cart$.unsubscribe();
+  }
+
   show(): void {
     this.enabled = !this.enabled;
   }

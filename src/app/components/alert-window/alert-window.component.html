@@ -1,5 +1,15 @@
 <!-- <p>alert-window works!</p> -->
-
-<div *ngFor="let alert of alerts; index as i">
-	<p>hi</p>
+<div class="alert-group">
+	<div *ngFor="let alert of alerts; index as i">
+		<div [ngClass]="{'bg-primary': (alert.type === primary_type ),
+						'bg-secondary': (alert.type === secondary_type ),
+						'bg-success': (alert.type === success_type ),
+						'bg-warning': (alert.type === warning_type ),
+						'bg-danger': (alert.type === danger_type ),
+						'bg-info': (alert.type === info_type ),
+						'bg-dark': (alert.type === dark_type ),
+						'bg-light': (alert.type === light_type )}">
+			<p>{{alert.message}}</p>
+		</div>
+	</div>
 </div>
