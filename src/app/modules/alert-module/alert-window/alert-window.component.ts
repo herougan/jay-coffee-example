@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Alert, AlertType } from 'src/app/models/alert';
+import { Alert, AlertType, DefaultAlertMeta, EmptyAlert, EmptyAlertMeta } from 'src/app/models/alert';
 import { AlertService } from '../alert.service';
 
 @Component({
@@ -11,7 +11,14 @@ import { AlertService } from '../alert.service';
 })
 export class AlertWindowComponent {
 
-  alerts: Alert[] = [];
+  // Alerts
+  alerts: Alert[] = [
+    new Alert("One", "...", "...", AlertType.Primary, DefaultAlertMeta()),
+    new Alert("Two", "...", "...", AlertType.Secondary, DefaultAlertMeta()),
+    new Alert("Three", "...", "...", AlertType.Warning, DefaultAlertMeta()),
+    new Alert("Four", "...", "...", AlertType.Danger, DefaultAlertMeta()),
+    new Alert("Five", "...", "...", AlertType.Error, DefaultAlertMeta()),
+  ];
   alertSubscription!: Subscription;
   routeSubscription!: Subscription;
   
@@ -26,13 +33,36 @@ export class AlertWindowComponent {
   light_type: AlertType = AlertType.Light;
 
   // Visual constants
-  timeout: number = 500;
+  timeout: number = 5000;
 
   constructor(private router: Router, private alertService: AlertService) {
-
   }
 
   ngOnInit(): void {
+
+    // On new alert
+    this.alertSubscription = this.alertService.onAlert().subscribe(alert => {
+      console.log("Incoming: " + alert);
+      // If signature empty alert, this is the signal to clear the array
+      // if (alert === EmptyAlert()) {
+      if (alert.message === "") {
+        // Filter alerts with persist true
+        this.alerts = this.alerts.filter(x => x.meta.persist === true);
+
+        // Reset flag from leftover alerts
+        this.alerts.forEach(x => x.meta.persist = false);
+        return;
+      }
+
+      // Genuine new alert
+      this.alerts.push(alert);
+      if (alert.meta.autoClose) {
+        setTimeout(() => {
+          this.removeAlert(alert);
+        })
+      }
+    });
+
     this.routeSubscription = this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         this.alertService.clear();
@@ -49,19 +79,23 @@ export class AlertWindowComponent {
     // If alert already not removed, ignore
     if (!this.alerts.includes(alert)) return;
 
-    // Add fade class
-    
-
     // Remove alert
     setTimeout(() => {
-      this.alerts.filter(x => x !== alert);
-    }, this.timeout);
+      this.alerts = this.alerts.filter(x => x !== alert);
+    }, alert.meta.fade ? this.timeout : 0);
+  }
+
+  deleteAlert(alert: Alert): void {
+    if (!this.alerts.includes(alert)) return;
+
+    this.alerts = this.alerts.filter(x => x !== alert);
   }
 
   // Styling for alerts
   cssClass(alert: Alert) {
     if (!alert) return;
 
+    // console.log(alert);
     // Classes
     const classes = ['alert', 'alert-dismissible'];
     const alertTypeClass = {

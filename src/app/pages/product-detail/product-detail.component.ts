@@ -6,6 +6,8 @@ import { ActivatedRoute } from '@angular/router';
 
 import { addProductToCart } from 'src/app/actions/cart.actions';
 import { Store } from '@ngrx/store';
+import { AlertService } from 'src/app/modules/alert-module/alert.service';
+import { Alert, AlertType, DefaultAlertMeta } from 'src/app/models/alert';
 
 @Component({
   selector: 'app-product-detail',
@@ -18,7 +20,8 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private productService: ProductService,
-    private store: Store) {
+    private store: Store,
+    private alertService: AlertService) {
     }
 
   /* Emit (add)="onAdd($event)" (parent) (child) @Output() add = new EventEmitter<string>() */
@@ -31,6 +34,10 @@ export class ProductDetailComponent implements OnInit {
       this.product = p;
     }))
   }
+
+  addCartMessage(count: number, product: Product): string {
+    return count.toString() + " added";
+  }
   
   addProductToCart(count: number, product: Product): void {
     if (count < 1) {
@@ -38,6 +45,7 @@ export class ProductDetailComponent implements OnInit {
       return;
     }
     this.store.dispatch(addProductToCart({count, product}));
+    this.alertService.alert(new Alert(product.toString() + " added", "ProductDetail", product.desc, AlertType.Primary, DefaultAlertMeta()));
   }
 
   launchAlert(message: string): void {

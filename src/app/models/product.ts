@@ -10,6 +10,10 @@ export class Product {
     public shortDesc?: string,
     public colour?: string
   ) {}
+
+  toString(): string {
+    return this.name;
+  }
 }
 
 export function EmptyProduct(): Product {

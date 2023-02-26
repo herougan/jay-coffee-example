@@ -34,6 +34,10 @@ export function EmptyAlertMeta(): AlertMeta {
   return new AlertMeta(false, false, false, false);
 }
 
+export function DefaultAlertMeta(): AlertMeta {
+  return new AlertMeta(true, true, true, true);
+}
+
 export function EmptyAlert(): Alert {
   return new Alert("", "", "", AlertType.Primary, EmptyAlertMeta());
 }

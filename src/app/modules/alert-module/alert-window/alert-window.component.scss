@@ -1,4 +1,22 @@
 .alert-group {
 	position: fixed;
-	top: 10%;
+	bottom: 10%;
+	right: 10%;
+	height: auto;
+}
+
+.alert-body {
+	width: 200px;
+	justify-content: space-between;
+	pointer-events: none;
+}
+
+.alert-cancel-button {
+	cursor: pointer;
+	pointer-events: all;
+}
+.alert-message {
+	p {
+		margin-bottom: 0px;
+	}
 }

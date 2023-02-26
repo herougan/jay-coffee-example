@@ -1,15 +1,23 @@
 <div class="alert-group">
-	<p style="background-color: aliceblue;">alert-window works!</p>
+	<!-- Alerts -->
 	<div *ngFor="let alert of alerts; index as i">
-		<div [ngClass]="{'bg-primary': (alert.type === primary_type ),
+		<!-- <div [ngClass]="{'bg-primary': (alert.type === primary_type ),
 						'bg-secondary': (alert.type === secondary_type ),
 						'bg-success': (alert.type === success_type ),
 						'bg-warning': (alert.type === warning_type ),
 						'bg-danger': (alert.type === danger_type ),
 						'bg-info': (alert.type === info_type ),
 						'bg-dark': (alert.type === dark_type ),
-						'bg-light': (alert.type === light_type )}">
-			<p>{{alert.message}}</p>
+						'bg-light': (alert.type === light_type )}"> -->
+		<div class="alert-body {{cssClass(alert)}} d-flex">
+			<div class="alert-message">
+				<p>{{alert.message}}</p>
+			</div>
+			<div class="alert-cancel-button" (click)="deleteAlert(alert)">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+					<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+				</svg>
+			</div>
 		</div>
 	</div>
 </div>
