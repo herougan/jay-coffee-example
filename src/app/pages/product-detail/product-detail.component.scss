@@ -12,9 +12,10 @@ img {
   border-radius: 0px;
 }
 .product-input {
-  input {
-    height: 45px;
-    border-right: 0px!important;
+  &:focus {
+    outline: none !important;
+    outline-color: initial;
+    outline-style: none;
+    outline-width: initial;
   }
-  padding-right: 0px!important;
 }
