@@ -1,5 +1,4 @@
-<div *ngIf="product" class="container pt-4 mt-3"
-ng-view autoscroll>
+<div *ngIf="product" class="container pt-4 mt-3" ng-view autoscroll>
   <div class="row g-5">
     <div class="col-md-6 col-xs-12">
       <img src="{{ product.img }}" alt="..." class="w-100 h-100" />
@@ -11,24 +10,26 @@ ng-view autoscroll>
         <p *ngIf="product.desc" class="fs-5">{{ product.desc }}</p>
         <h2>${{ product.price }}</h2>
         <div class="container"></div>
-        <div class="submit-row row g-2">
-          <div class="product-input col-md-6 col-xs-12">
+        <div class="row g-3">
+          <div class="col-md-3 col-xs-12">
             <input
               #cart_count
               type="number"
               inputmode="numeric"
-              class="form-control border border-dark rounded-0 border-1 py-3 px-4 fs-5"
+              class="border border-dark rounded-0 border-1 py-3 px-4 fs-5 w-100 product-input"
               id="quantity"
               aria-describedby="quantity"
               (keyup)="validationCheck($event)"
             />
           </div>
-          <button
-            class="product-add col-md-6 col-xs-12 btn btn-dark rounded-0 py-2 fs-5 text-nowrap"
-            (click)="addProductToCart(cart_count.valueAsNumber, product)"
-          >
-            Add to Cart
-          </button>
+          <div class="col-md-3 col-xs-12">
+            <button
+              class="btn btn-dark rounded-0 py-2 fs-5 text-nowrap w-100 h-100"
+              (click)="addProductToCart(cart_count.valueAsNumber, product)"
+            >
+              Add to Cart
+            </button>
+          </div>
         </div>
       </div>
     </div>
