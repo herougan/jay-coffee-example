@@ -1,12 +1,5 @@
 @import "../../../variables.scss";
 
-// .product-card-body {
-// 	width: 30vw;
-// height: 6vw;
-// }
-// html {
-// 	font-size: 0.65vw;
-//   }
 .product-card {
   // font-size: 20px;
 
@@ -98,10 +91,22 @@
   color: white;
 }
 .yellow-popup {
-  background-color: rgba(60, 60, 59, 1);
+  background-color: rgb(175, 175, 37);
+}
+.grey-popup {
+  background-color: rgba(88, 88, 88, 0.822);
 }
 .red-popup {
   background-color: rgba(255, 0, 0, 0.8);
+}
+.blue-popup {
+  background-color: rgba(68, 0, 255, 0.8);
+}
+.green-popup {
+  background-color: rgba(0, 255, 4, 0.8);
+}
+.white-popup {
+  background-color: rgba(255, 255, 255, 0.8);
 }
 .product-tags {
   border-radius: 0.25vw;

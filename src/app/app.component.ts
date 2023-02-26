@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { initCart } from './actions/cart.actions';
 import { CartItem } from './models/cart-item';
+import { AlertService } from './modules/alert-module/alert.service';
 import { CartService } from './services/cart-service.service';
 
 @Component({
@@ -12,16 +13,13 @@ import { CartService } from './services/cart-service.service';
 export class AppComponent {
   title = 'home-test';
 
-  constructor(private cartService: CartService, private store: Store) {
+  constructor(private cartService: CartService, private store: Store,
+    private alertService: AlertService) {
 
   }
 
   ngOnInit() {
     this.cartService.initFakeCart().subscribe((items) => {
-      // let items: CartItem[] = [];
-      // products.forEach(product => {
-      //   items.push(new CartItem(product, 1));
-      // });
       this.store.dispatch(initCart({items}));
     });
   }

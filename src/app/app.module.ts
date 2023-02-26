@@ -29,7 +29,7 @@ import { cartReducer } from './actions/cart.reducer';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ProductNotFoundComponent } from './pages/product-not-found/product-not-found.component';
 import { TestPageComponent } from './pages/test-page/test-page.component';
-import { AlertWindowComponent } from './components/alert-window/alert-window.component';
+import { AlertModule } from './modules/alert-module/alert-module.module';
 
 @NgModule({
   declarations: [
@@ -58,11 +58,11 @@ import { AlertWindowComponent } from './components/alert-window/alert-window.com
     PageNotFoundComponent,
     ProductNotFoundComponent,
     TestPageComponent,
-    AlertWindowComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AlertModule,
     StoreModule.forRoot({ cart: cartReducer }),
   ],
   providers: [],
