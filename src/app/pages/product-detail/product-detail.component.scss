@@ -1,3 +1,5 @@
+@import '../../../variables.scss';
+
 img {
   object-fit: cover;
   aspect-ratio: 1/1;
@@ -11,6 +13,11 @@ img {
   height: 45px;
   border-radius: 0px;
 }
+
+.add-product-button {
+  min-width: 120px;
+}
+
 .product-input {
   &:focus {
     outline: none !important;
@@ -19,3 +26,9 @@ img {
     outline-width: initial;
   }
 }
+
+@media (max-width: $mdp) {
+  .product-input {
+    height: 40px; 
+  }
+} 

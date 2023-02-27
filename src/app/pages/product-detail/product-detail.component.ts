@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { addProductToCart } from 'src/app/actions/cart.actions';
 import { Store } from '@ngrx/store';
 import { AlertService } from 'src/app/modules/alert-module/alert.service';
-import { Alert, AlertType, DefaultAlertMeta } from 'src/app/models/alert';
+import { Alert, AlertType, DefaultAlertMeta } from 'src/app/modules/alert-module/alert-window/alert';
 
 @Component({
   selector: 'app-product-detail',
@@ -40,12 +40,12 @@ export class ProductDetailComponent implements OnInit {
   }
   
   addProductToCart(count: number, product: Product): void {
-    if (count < 1) {
+    if (count < 1 || isNaN(count)) {
       this.launchAlert("Only positive numbers allowed!");
       return;
     }
     this.store.dispatch(addProductToCart({count, product}));
-    this.alertService.alert(new Alert(product.toString() + " added", "ProductDetail", product.desc, AlertType.Primary, DefaultAlertMeta()));
+    this.alertService.alert(new Alert(count + "x " + product.name + " added", "ProductDetail", product.desc, AlertType.Primary, DefaultAlertMeta()));
   }
 
   launchAlert(message: string): void {

@@ -39,7 +39,11 @@ export class ProductCardComponent implements OnInit {
     // Choose colours of hover description background
     this.colours = ["white", "white", "white"];
   }
-
+  
+  // <svg:use [attr.xlink:href]="getIconPath(iconId)"></svg:use>
+  // getIconPath(tag: string): string {
+  //   return 'svg:g[app-path]';
+  // }
 
   // // Product List parent
   // onChosen(product: Product): void {

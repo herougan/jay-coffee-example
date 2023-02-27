@@ -1,8 +1,12 @@
+@import '../../../../variables.scss';
+
 .alert-group {
 	position: fixed;
-	bottom: 10%;
-	right: 10%;
+	bottom: 2%;
+	right: 2%;
 	height: auto;
+
+	z-index: 2;
 }
 
 .alert-body {
@@ -20,3 +24,17 @@
 		margin-bottom: 0px;
 	}
 }
+
+// Colour changes from original
+.alert-primary {
+	background-color: rgb(204, 138, 138);
+	background: linear-gradient(to left, rgb(198, 125, 125), rgb(221, 156, 156));
+	border-color: rgb(176, 115, 115);
+	color: rgb(39, 0, 0);
+}
+
+@media (max-width: $s) {
+	.alert-group {
+		right: calc(50% - 100px);
+	}
+} 

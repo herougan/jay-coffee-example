@@ -52,6 +52,12 @@
 	}
 }
 
+@media (max-width: $s) {
+	.detail-card-body {
+		margin-bottom: 2rem!important;
+	}
+}
+
 @media (max-width: $md) {
 	.detail-card-img {
 		> img {

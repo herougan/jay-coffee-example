@@ -240,7 +240,7 @@ export const MOCK_PRODUCTS: Product[] = [
     name: 'Fuschia Limelight',
     img: 'assets/static/images/products/pink_lime_cake.jpg',
     desc: 'lime fudge infused with rose petals, toped off with the fluffiest chantilly cream',
-    tags: [''],
+    tags: ['Eco'],
     price: 45,
     notes: 'Lime, Rose, Chantilly',
   },
