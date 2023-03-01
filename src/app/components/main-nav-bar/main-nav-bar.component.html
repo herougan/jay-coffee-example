@@ -71,6 +71,6 @@
     <div class="hamburger-items"></div>
   </div>
 
-  <app-cart-window #cart></app-cart-window>
+  <app-cart-window (windowShow)="onRouteChange()" #cart></app-cart-window>
 </div>
 <app-search-window #search></app-search-window>

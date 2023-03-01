@@ -25,6 +25,11 @@ img {
     outline-style: none;
     outline-width: initial;
   }
+  // For centering the text and stopping the padding from covering the text-number
+  padding-right: 0px!important;
+  padding-left: 0px!important;
+  text-align: center;
+  margin: auto;
 }
 
 @media (max-width: $mdp) {

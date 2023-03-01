@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { CartItem } from 'src/app/models/cart-item';
@@ -33,6 +33,8 @@ export class CartWindowComponent {
   scroll_time: number = 500;
   timeout_f: any;
 
+  @Output() windowShow = new EventEmitter<boolean>();
+
   constructor(private store: Store<{ cart: CartState }>) {
     this.cart$ = store.select('cart');
     this.cart$.subscribe(() => {
@@ -60,6 +62,7 @@ export class CartWindowComponent {
 
   show(): void {
     this.enabled = !this.enabled;
+    this.windowShow.emit(this.enabled);
   }
 
   //#region Cart

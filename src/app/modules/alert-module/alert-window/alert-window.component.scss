@@ -13,6 +13,7 @@
 	width: 200px;
 	justify-content: space-between;
 	pointer-events: none;
+	opacity: 0.92;
 }
 
 .alert-cancel-button {
@@ -27,10 +28,10 @@
 
 // Colour changes from original
 .alert-primary {
-	background-color: rgb(204, 138, 138);
-	background: linear-gradient(to left, rgb(198, 125, 125), rgb(221, 156, 156));
-	border-color: rgb(176, 115, 115);
-	color: rgb(39, 0, 0);
+	background-color: #a05a92;
+	background: linear-gradient(to left, #a05a92, #bc7272);
+	border-color: #9e5690;
+	color: #000;
 }
 
 @media (max-width: $s) {

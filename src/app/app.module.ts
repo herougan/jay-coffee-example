@@ -30,6 +30,9 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { ProductNotFoundComponent } from './pages/product-not-found/product-not-found.component';
 import { TestPageComponent } from './pages/test-page/test-page.component';
 import { AlertModule } from './modules/alert-module/alert-module.module';
+import { RegistrationComponent } from './pages/registration/registration.component';
+import { LoginComponent } from './components/login/login.component';
+import { UserComponent } from './pages/user/user.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +61,9 @@ import { AlertModule } from './modules/alert-module/alert-module.module';
     PageNotFoundComponent,
     ProductNotFoundComponent,
     TestPageComponent,
+    RegistrationComponent,
+    LoginComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,

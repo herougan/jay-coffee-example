@@ -51,7 +51,8 @@ export class MainNavBarComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   /* Nav bar items */
   onDropDown(): void {}
@@ -73,6 +74,13 @@ export class MainNavBarComponent implements OnInit {
       this.search_button.classList.remove('disabled');
     }
 
+    if (this.cart.enabled) 
+      this.cart_button.classList.add('alt-show-background');
+    else
+      this.cart_button.classList.remove('alt-show-background');
+  }
+
+  onRouteChange(): void {
     if (this.cart.enabled) 
       this.cart_button.classList.add('alt-show-background');
     else
