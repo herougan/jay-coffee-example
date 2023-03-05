@@ -8,7 +8,7 @@
   <!-- Image -->
   <div
     class="product-card-img w-100 mb-1"
-    routerLink="/detail/{{ product.id }}"
+    routerLink="/products/{{ product.id }}"
   >
     <img
       src="{{ product.img }}"
@@ -42,7 +42,8 @@
         }"
       >
         {{ tag }}
-        <!-- <i class="bi bi-0-square-fill"></i> --> <!-- use ngClass with icon classes -->
+        <!-- <i class="bi bi-0-square-fill"></i> -->
+        <!-- use ngClass with icon classes -->
       </p>
     </div>
   </div>

@@ -8,15 +8,15 @@ import { ShopComponent } from './pages/shop/shop.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'detail/:id', component: ProductDetailComponent },
+  { path: 'products/:id', component: ProductDetailComponent },
   { path: 'home', component: HomeComponent },
   { path: 'shop', component: ShopComponent },
   { path: 'cart', component: CartComponent },
-  { path: '**', component: PageNotFoundComponent}
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

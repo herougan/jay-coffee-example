@@ -34,6 +34,7 @@ import { AlertModule } from './modules/alert-module/alert-module.module';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserComponent } from './pages/user/user.component';
+import { ProductRecComponent } from './product-rec/product-rec.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { UserComponent } from './pages/user/user.component';
     RegistrationComponent,
     LoginComponent,
     UserComponent,
+    ProductRecComponent,
   ],
   imports: [
     BrowserModule,

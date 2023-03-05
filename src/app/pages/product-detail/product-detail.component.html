@@ -34,6 +34,15 @@
         </div>
       </div>
     </div>
+    <div class="col-xs-12 fs-3">You might also like</div>
+    <div class="col-xs-12">
+      <div class="row">
+        <div *ngFor="let rec of productRecs" class="col-md-3 col-xs-4">
+          <app-product-rec [product]="rec"></app-product-rec>
+          <!-- <div class="col-md-4">{{ product.name }}</div> -->
+        </div>
+      </div>
+    </div>
     <div class="col-md-9 col-xs-12">
       <div class="px-2 fs-4">
         <p class="">
