@@ -9,25 +9,29 @@
 	<div class="search-scroll"><div class="search-results" 
 	[ngClass]="{'mt-3 mb-2': results.length > 0}">
 		<ng-container *ngFor="let result of results; index as i">
-			<div class="search-result d-flex flex-row" id='result-{{i}}'
-			routerLink="/detail/{{ result.id }}"
-			(click)="onResult();">
-				<div class="result-img mx-1 me-3 mx-md-1 mx-md-3 my-2 my-sm-2 col-2">
+			<div class="search-result d-flex flex-row" id='result-{{i}}'	>
+				<div class="result-img mx-1 me-3 mx-md-1 mx-md-3 my-2 my-sm-2 col-2"
+				routerLink="/detail/{{ result.id }}"		
+				(click)="onResult();">
 					<picture>
 						<img src={{result.img}}>
 					</picture>
 				</div>
 				<div class="result-body col-10 d-flex flex-row justify-content-start align-items-center ">
 					<div class="result-title 
-					col-9 	col-sm-8 	col-md-3">
+					col-9 	col-sm-8 	col-md-3"
+					routerLink="/detail/{{ result.id }}"		
+					(click)="onResult();">
 						<p>{{result.name}}</p>
 					</div>
-					<div class="result-desc 
-										col-md-7">
+					<div class="result-desc col-md-7"
+						routerLink="/detail/{{ result.id }}">
 						<p>{{ (result.desc.length>desc_cutoff)? (result.desc | slice:0:desc_cutoff)+'...':(result.desc) }}</p>
 					</div>
 					<div class="result-price 
-					col-3 	col-sm-3 	col-md-1">
+					col-3 	col-sm-3 	col-md-1"
+					routerLink="/detail/{{ result.id }}"		
+					(click)="onResult();">
 						<p>{{result.price}}</p>
 					</div>
 					<div class="result-button

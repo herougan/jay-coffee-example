@@ -1,11 +1,6 @@
 import { UpperCasePipe } from '@angular/common';
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/models/product';
-// import { Store } from '@ngrx/store';
-
-import { addProductToCart } from 'src/app/actions/cart.actions';
-// import { CartService } from 'src/app/services/cart-service.service';
-import { CartItem } from 'src/app/models/cart-item';
 
 @Component({
   selector: 'app-product-card',
@@ -39,7 +34,11 @@ export class ProductCardComponent implements OnInit {
     // Choose colours of hover description background
     this.colours = ["white", "white", "white"];
   }
-
+  
+  // <svg:use [attr.xlink:href]="getIconPath(iconId)"></svg:use>
+  // getIconPath(tag: string): string {
+  //   return 'svg:g[app-path]';
+  // }
 
   // // Product List parent
   // onChosen(product: Product): void {

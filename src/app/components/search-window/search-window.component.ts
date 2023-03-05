@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
 import { addProductToCart } from 'src/app/actions/cart.actions';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
+import { Alert, AlertType, DefaultAlertMeta } from 'src/app/modules/alert-module/alert-window/alert';
+import { AlertService } from 'src/app/modules/alert-module/alert.service';
 
 @Component({
   selector: 'app-search-window',
@@ -53,7 +55,7 @@ export class SearchWindowComponent {
   }
 
   constructor(private product_service: ProductService, private eRef: ElementRef,
-    private store: Store, private router: Router) {
+    private store: Store, private router: Router, private alertService: AlertService) {
     }
 
   ngOnInit(): void {
@@ -128,6 +130,7 @@ export class SearchWindowComponent {
   addProductToCart(product: Product): void {
     let count: number = 1;
     this.store.dispatch(addProductToCart({count, product}));
+    this.alertService.alert(new Alert(count + "x " + product.name + " added", "ProductDetail", product.desc, AlertType.Primary, DefaultAlertMeta()));
   }
 
   //#endregion

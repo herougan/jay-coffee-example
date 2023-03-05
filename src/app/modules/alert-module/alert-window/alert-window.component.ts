@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Alert, AlertType, DefaultAlertMeta, EmptyAlert, EmptyAlertMeta } from 'src/app/models/alert';
+import { Alert, AlertType, DefaultAlertMeta, EmptyAlert, EmptyAlertMeta } from 'src/app/modules/alert-module/alert-window/alert';
 import { AlertService } from '../alert.service';
 
 @Component({
@@ -13,11 +13,11 @@ export class AlertWindowComponent {
 
   // Alerts
   alerts: Alert[] = [
-    new Alert("One", "...", "...", AlertType.Primary, DefaultAlertMeta()),
-    new Alert("Two", "...", "...", AlertType.Secondary, DefaultAlertMeta()),
-    new Alert("Three", "...", "...", AlertType.Warning, DefaultAlertMeta()),
-    new Alert("Four", "...", "...", AlertType.Danger, DefaultAlertMeta()),
-    new Alert("Five", "...", "...", AlertType.Error, DefaultAlertMeta()),
+    // new Alert("One", "...", "...", AlertType.Primary, DefaultAlertMeta()),
+    // new Alert("Two", "...", "...", AlertType.Secondary, DefaultAlertMeta()),
+    // new Alert("Three", "...", "...", AlertType.Warning, DefaultAlertMeta()),
+    // new Alert("Four", "...", "...", AlertType.Danger, DefaultAlertMeta()),
+    // new Alert("Five", "...", "...", AlertType.Error, DefaultAlertMeta()),
   ];
   alertSubscription!: Subscription;
   routeSubscription!: Subscription;
@@ -34,6 +34,7 @@ export class AlertWindowComponent {
 
   // Visual constants
   timeout: number = 5000;
+  alert_cutoff: number = 40;
 
   constructor(private router: Router, private alertService: AlertService) {
   }
@@ -42,7 +43,7 @@ export class AlertWindowComponent {
 
     // On new alert
     this.alertSubscription = this.alertService.onAlert().subscribe(alert => {
-      console.log("Incoming: " + alert);
+      
       // If signature empty alert, this is the signal to clear the array
       // if (alert === EmptyAlert()) {
       if (alert.message === "") {
@@ -59,7 +60,7 @@ export class AlertWindowComponent {
       if (alert.meta.autoClose) {
         setTimeout(() => {
           this.removeAlert(alert);
-        })
+        }, this.timeout)
       }
     });
 
@@ -79,10 +80,17 @@ export class AlertWindowComponent {
     // If alert already not removed, ignore
     if (!this.alerts.includes(alert)) return;
 
+    for (let i = 0; i < this.alerts.length; i++) {
+      if (this.alerts[i] == alert) {
+        this.alerts[i].meta.fade = true;
+        break;
+      }
+    }
+
     // Remove alert
     setTimeout(() => {
       this.alerts = this.alerts.filter(x => x !== alert);
-    }, alert.meta.fade ? this.timeout : 0);
+    }, alert.meta.fade ? 500 : 0);
   }
 
   deleteAlert(alert: Alert): void {
@@ -97,7 +105,7 @@ export class AlertWindowComponent {
 
     // console.log(alert);
     // Classes
-    const classes = ['alert', 'alert-dismissible'];
+    const classes = ['alert' /*, 'alert-dismissible'*/];
     const alertTypeClass = {
       [AlertType.Primary]: 'alert-primary',
       [AlertType.Secondary]: 'alert-secondary',

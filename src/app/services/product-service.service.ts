@@ -3,6 +3,8 @@ import { Observable, of, EMPTY } from 'rxjs';
 import { Product, EmptyProduct } from '../models/product';
 import { MOCK_PRODUCTS } from '../../assets/static/data/mock-products'
 import { CartItem } from '../models/cart-item';
+import { AlertService } from '../modules/alert-module/alert.service';
+import { Alert, AlertType, DefaultAlertMeta } from '../modules/alert-module/alert-window/alert';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,7 @@ export class ProductService {
   
   products: Product[] = [];
 
-  constructor() { 
+  constructor(private alertService: AlertService) { 
     this.products = MOCK_PRODUCTS;
   }
 
@@ -102,4 +104,17 @@ export class ProductService {
 
     return of(searchProducts);
   }
+
+  // Takes in operation name, and a safe result option
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+    // Log to remote logging infrastructure
+    // console.log("Error @" + operation);
+
+    // Log to user
+    this.alertService.alert(new Alert(error, operation, 'null desc', AlertType.Error, DefaultAlertMeta()))
+
+    // Return
+    return of(result as T);
+  }}
 }

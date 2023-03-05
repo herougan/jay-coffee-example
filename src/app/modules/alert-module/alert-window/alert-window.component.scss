@@ -1,14 +1,19 @@
+@import '../../../../variables.scss';
+
 .alert-group {
 	position: fixed;
-	bottom: 10%;
-	right: 10%;
+	bottom: 2%;
+	right: 2%;
 	height: auto;
+
+	z-index: 2;
 }
 
 .alert-body {
 	width: 200px;
 	justify-content: space-between;
 	pointer-events: none;
+	opacity: 0.92;
 }
 
 .alert-cancel-button {
@@ -20,3 +25,17 @@
 		margin-bottom: 0px;
 	}
 }
+
+// Colour changes from original
+.alert-primary {
+	background-color: #a05a92;
+	background: linear-gradient(to left, #a05a92, #bc7272);
+	border-color: #9e5690;
+	color: #000;
+}
+
+@media (max-width: $s) {
+	.alert-group {
+		right: calc(50% - 100px);
+	}
+} 

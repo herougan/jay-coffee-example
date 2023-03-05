@@ -11,9 +11,9 @@ export class Product {
     public colour?: string
   ) {}
 
-  toString(): string {
-    return this.name;
-  }
+  // toString(): string {
+  //   return this.name;
+  // }
 }
 
 export function EmptyProduct(): Product {

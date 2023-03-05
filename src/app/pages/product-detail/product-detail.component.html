@@ -18,13 +18,14 @@
               inputmode="numeric"
               class="border border-dark rounded-0 border-1 py-3 px-4 fs-5 w-100 product-input"
               id="quantity"
+              value="1"
               aria-describedby="quantity"
               (keyup)="validationCheck($event)"
             />
           </div>
           <div class="col-md-3 col-xs-12">
             <button
-              class="btn btn-dark rounded-0 py-2 fs-5 text-nowrap w-100 h-100"
+              class="btn btn-dark rounded-0 py-2 fs-5 text-nowrap w-100 h-100 add-product-button"
               (click)="addProductToCart(cart_count.valueAsNumber, product)"
             >
               Add to Cart

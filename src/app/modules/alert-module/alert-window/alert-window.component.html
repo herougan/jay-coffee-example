@@ -11,7 +11,7 @@
 						'bg-light': (alert.type === light_type )}"> -->
 		<div class="alert-body {{cssClass(alert)}} d-flex">
 			<div class="alert-message">
-				<p>{{alert.message}}</p>
+				<p>{{ (alert.message.length >alert_cutoff)? (alert.message | slice:0:alert_cutoff)+'...':(alert.message) }}</p>
 			</div>
 			<div class="alert-cancel-button" (click)="deleteAlert(alert)">
 				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">

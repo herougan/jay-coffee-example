@@ -24,18 +24,17 @@ export class AlertMeta  {
   constructor(
     public autoClose: boolean,
     public persist: boolean,
-    public fade: boolean,
-    public short: boolean,
+    public fade?: boolean,
     public link?: string,
   ) {}
 }
 
 export function EmptyAlertMeta(): AlertMeta {
-  return new AlertMeta(false, false, false, false);
+  return new AlertMeta(false, false, false);
 }
 
 export function DefaultAlertMeta(): AlertMeta {
-  return new AlertMeta(true, true, true, true);
+  return new AlertMeta(true, true, false);
 }
 
 export function EmptyAlert(): Alert {
