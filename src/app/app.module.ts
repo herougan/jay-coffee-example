@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,6 +34,7 @@ import { AlertModule } from './modules/alert-module/alert-module.module';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserComponent } from './pages/user/user.component';
+import { ProductRecComponent } from './product-rec/product-rec.component';
 import { MainComponent } from './admin/main/main.component';
 // Http
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -68,10 +70,12 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
     RegistrationComponent,
     LoginComponent,
     UserComponent,
+    ProductRecComponent,
     MainComponent,
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     AppRoutingModule,
     AlertModule,
     StoreModule.forRoot({ cart: cartReducer }),
@@ -80,6 +84,6 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
     //   InMemoryDataService, { dataEncapsulation: false }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

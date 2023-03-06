@@ -34,19 +34,30 @@
         </div>
       </div>
     </div>
+    <div class="col-xs-12 fs-3">You might also like</div>
+    <div class="col-xs-12">
+      <div class="row">
+        <div *ngFor="let rec of productRecs" class="col-md-3 col-xs-4">
+          <app-product-rec [product]="rec"></app-product-rec>
+          <!-- <div class="col-md-4">{{ product.name }}</div> -->
+        </div>
+      </div>
+    </div>
     <div class="col-md-9 col-xs-12">
-      <p class="fs-5">
-        We designed The Daily to be a balanced and approachable drip coffee,
-        drinkable every day yet complex enough to keep you coming back.
-      </p>
-      <p class="fs-5">
-        The Daily is built around seasonally fresh components, typically coffees
-        from South and Central America, chosen carefully to bring together our
-        favorite attributes in coffee, from brightness to body, sweetness to
-        finish. Currently, The Daily is made up of coffees from Brazil and
-        Colombia, and provides everything we look for in a satisfying,
-        drink-every-day blend.
-      </p>
+      <div class="px-2 fs-4">
+        <p class="">
+          We designed The Daily to be a balanced and approachable drip coffee,
+          drinkable every day yet complex enough to keep you coming back.
+        </p>
+        <p class="">
+          The Daily is built around seasonally fresh components, typically
+          coffees from South and Central America, chosen carefully to bring
+          together our favorite attributes in coffee, from brightness to body,
+          sweetness to finish. Currently, The Daily is made up of coffees from
+          Brazil and Colombia, and provides everything we look for in a
+          satisfying, drink-every-day blend.
+        </p>
+      </div>
     </div>
     <div class="col-md-3 col-xs-12 d-flex flex-column">
       <div class="border-top border-dark-subtle pt-3">
