@@ -33,6 +33,10 @@ import { AlertModule } from './modules/alert-module/alert-module.module';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserComponent } from './pages/user/user.component';
+import { MainComponent } from './admin/main/main.component';
+// Http
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { InMemoryDataService } from './in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -64,12 +68,16 @@ import { UserComponent } from './pages/user/user.component';
     RegistrationComponent,
     LoginComponent,
     UserComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AlertModule,
     StoreModule.forRoot({ cart: cartReducer }),
+    // HttpClientModule,
+    // HttpClientInMemoryWebApiModule.forRoot(
+    //   InMemoryDataService, { dataEncapsulation: false }),
   ],
   providers: [],
   bootstrap: [AppComponent]

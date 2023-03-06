@@ -2,7 +2,7 @@ import { Component, OnInit, Input, ɵɵsetComponentScope } from '@angular/core';
 import { Product } from '../../models/product';
 import { MOCK_PRODUCTS } from 'src/assets/static/data/mock-products';
 import { ProductService } from '../../services/product-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Route, Router } from '@angular/router';
 
 import { addProductToCart } from 'src/app/actions/cart.actions';
 import { Store } from '@ngrx/store';
@@ -17,11 +17,26 @@ import { Alert, AlertType, DefaultAlertMeta } from 'src/app/modules/alert-module
 export class ProductDetailComponent implements OnInit {
 
   product: Product | undefined;
+  lastUrl: string = "";
 
   constructor(private route: ActivatedRoute,
     private productService: ProductService,
     private store: Store,
-    private alertService: AlertService) {
+    private alertService: AlertService,
+    private router: Router) {
+
+      // Forget link so that changing arguments reloads the page
+      this.router.routeReuseStrategy.shouldReuseRoute = () => {
+        return false;
+      }
+      this.router.events.subscribe((evt => {
+        if (evt instanceof NavigationEnd) {
+          this.router.navigated = false;
+          this.lastUrl = evt.url;
+          // console.log(evt.url); // TODO
+          // https://stackoverflow.com/questions/56918496/how-do-i-get-angular-to-reload-the-same-page-but-with-a-different-argument
+        }
+      }));
     }
 
   /* Emit (add)="onAdd($event)" (parent) (child) @Output() add = new EventEmitter<string>() */
