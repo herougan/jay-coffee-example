@@ -42,7 +42,9 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         // route functions
 
 		function test() {
-			return ok();
+			return ok({
+                'reply': 'test',
+            });
 		}
 
         function authenticate() {
