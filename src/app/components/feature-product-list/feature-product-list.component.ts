@@ -11,16 +11,15 @@ import { filter } from 'rxjs';
   styleUrls: ['./feature-product-list.component.scss'],
 })
 export class FeatureProductListComponent implements OnInit {
-  
   products: Product[] = [];
 
-  constructor(private productService: ProductService /*, private cartService: CartService, private store: Store<{count: number, product: Product}> */) {
-    
-  }
+  constructor(
+    private productService: ProductService /*, private cartService: CartService, private store: Store<{count: number, product: Product}> */
+  ) {}
 
   ngOnInit(): void {
     this.productService
-      .getProducts(0)
+      .getProducts()
       .subscribe((products) => (this.products = products.slice(0, 3)));
   }
 }
