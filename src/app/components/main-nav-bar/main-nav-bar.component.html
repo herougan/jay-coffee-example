@@ -12,6 +12,14 @@
 
   <!-- Container -->
   <div class="nav-buttons-container d-flex ms-auto pe-1 pe-sm-3">
+    <div
+      type="button"
+      class="nav-bar-link"
+      data-bs-toggle="modal"
+      data-bs-target="#accountModal"
+    >
+      account
+    </div>
     <div class="cart-button mx-3 mx-sm-1" (click)="onCart()">
       <!-- routerLink="/cart" -->
       <svg
@@ -73,4 +81,76 @@
 
   <app-cart-window (windowShow)="onRouteChange()" #cart></app-cart-window>
 </div>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="accountModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            id="profile-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#login-tab-pane"
+            type="button"
+            role="tab"
+            aria-controls="profile-tab-pane"
+            aria-selected="false"
+          >
+            Login
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="signup-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#signup-tab-pane"
+            type="button"
+            role="tab"
+            aria-controls="signup-tab-pane"
+            aria-selected="true"
+          >
+            Signup
+          </button>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div
+          class="tab-pane fade show active"
+          id="login-tab-pane"
+          role="tabpanel"
+          aria-labelledby="login-tab"
+          tabindex="0"
+        >
+          <form [formGroup]="loginForm">
+            <label for="email">Email</label>
+            <input id="email" />
+            <label for="password">Password</label>
+            <input id="password" />
+            <button class="button" type="submit" (submit)="onLoginSubmit()">
+              Login
+            </button>
+          </form>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="signup-tab-pane"
+          role="tabpanel"
+          aria-labelledby="signup-tab"
+          tabindex="0"
+        >
+          Sign Up
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <app-search-window #search></app-search-window>

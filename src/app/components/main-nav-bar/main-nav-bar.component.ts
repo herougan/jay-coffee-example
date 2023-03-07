@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { CartWindowComponent } from '../cart-window/cart-window.component';
 import { SearchWindowComponent } from '../search-window/search-window.component';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-main-nav-bar',
@@ -13,8 +14,12 @@ export class MainNavBarComponent implements OnInit {
 
   cart_button: any;
   search_button: any;
+  loginForm = this.formBuilder.group({
+    email: '',
+    password: '',
+  });
 
-  constructor() {
+  constructor(private formBuilder: FormBuilder) {
     document.addEventListener('DOMContentLoaded', () => {
       // let nav = document.querySelector('.main-nav-bar');
       // let nav_logo = document.querySelector('.nav-logo-container');
@@ -51,8 +56,7 @@ export class MainNavBarComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   /* Nav bar items */
   onDropDown(): void {}
@@ -74,17 +78,15 @@ export class MainNavBarComponent implements OnInit {
       this.search_button.classList.remove('disabled');
     }
 
-    if (this.cart.enabled) 
+    if (this.cart.enabled)
       this.cart_button.classList.add('alt-show-background');
-    else
-      this.cart_button.classList.remove('alt-show-background');
+    else this.cart_button.classList.remove('alt-show-background');
   }
 
   onRouteChange(): void {
-    if (this.cart.enabled) 
+    if (this.cart.enabled)
       this.cart_button.classList.add('alt-show-background');
-    else
-      this.cart_button.classList.remove('alt-show-background');
+    else this.cart_button.classList.remove('alt-show-background');
   }
 
   onSearch(): void {
@@ -103,4 +105,9 @@ export class MainNavBarComponent implements OnInit {
   }
 
   //#endregion
+  onLoginSubmit(): void {
+    // Process checkout data here
+    console.warn('Your login details has been submitted', this.loginForm);
+    this.loginForm.reset();
+  }
 }
