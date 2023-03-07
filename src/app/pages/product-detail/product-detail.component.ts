@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, ɵɵsetComponentScope } from '@angular/core';
-import { Router } from '@angular/router';
 import { Product } from '../../models/product';
 import { MOCK_PRODUCTS } from 'src/assets/static/data/mock-products';
 import { ProductService } from '../../services/product-service.service';
@@ -21,34 +20,33 @@ import {
 })
 export class ProductDetailComponent implements OnInit {
   product: Product | undefined;
-  productRecs: Product[];
-  lastUrl: string = "";
+  productRecs: Product[] | undefined;
+  lastUrl: string = '';
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
     private store: Store,
     private alertService: AlertService,
-    private router: Router) {
-
-      // Forget link so that changing arguments reloads the page
-      this.router.routeReuseStrategy.shouldReuseRoute = () => {
-        return false;
+    private router: Router
+  ) {
+    // Forget link so that changing arguments reloads the page
+    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      return false;
+    };
+    this.router.events.subscribe((evt) => {
+      if (evt instanceof NavigationEnd) {
+        this.router.navigated = false;
+        this.lastUrl = evt.url;
+        // console.log(evt.url); // TODO
+        // https://stackoverflow.com/questions/56918496/how-do-i-get-angular-to-reload-the-same-page-but-with-a-different-argument
       }
-      this.router.events.subscribe((evt => {
-        if (evt instanceof NavigationEnd) {
-          this.router.navigated = false;
-          this.lastUrl = evt.url;
-          // console.log(evt.url); // TODO
-          // https://stackoverflow.com/questions/56918496/how-do-i-get-angular-to-reload-the-same-page-but-with-a-different-argument
-        }
-      }));
-    }
+    });
+  }
 
   /* Emit (add)="onAdd($event)" (parent) (child) @Output() add = new EventEmitter<string>() */
 
   ngOnInit(): void {
-    console.log('init productDetail');
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
 
     const routeParams = this.route.snapshot.paramMap;
@@ -56,6 +54,10 @@ export class ProductDetailComponent implements OnInit {
 
     this.productService.getProduct(productIdFromRoute).subscribe((p) => {
       this.product = p;
+    });
+
+    this.productService.getProducts().subscribe((products: Product[]) => {
+      this.productRecs = products.slice(0, 4);
     });
   }
 

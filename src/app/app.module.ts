@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { CartWindowComponent } from './components/cart-window/cart-window.component';
 import { SearchWindowComponent } from './components/search-window/search-window.component';
+
 // Actions
 import { StoreModule } from '@ngrx/store';
 import { cartReducer } from './actions/cart.reducer';
@@ -35,7 +37,7 @@ import { AlertModule } from './modules/alert-module/alert-module.module';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserComponent } from './pages/user/user.component';
-import { ProductRecComponent } from './product-rec/product-rec.component';
+import { ProductRecComponent } from './components/product-rec/product-rec.component';
 import { MainComponent } from './admin/main/main.component';
 // Http
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -81,7 +83,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
     AppRoutingModule,
     AlertModule,
     StoreModule.forRoot({ cart: cartReducer }),
-    // HttpClientModule,
+    HttpClientModule,
     // HttpClientInMemoryWebApiModule.forRoot(
     //   InMemoryDataService, { dataEncapsulation: false }),
   ],

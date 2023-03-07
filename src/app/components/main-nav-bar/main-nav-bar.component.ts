@@ -1,7 +1,10 @@
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 import { CartWindowComponent } from '../cart-window/cart-window.component';
 import { SearchWindowComponent } from '../search-window/search-window.component';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-main-nav-bar',
@@ -15,11 +18,16 @@ export class MainNavBarComponent implements OnInit {
   cart_button: any;
   search_button: any;
   loginForm = this.formBuilder.group({
-    email: '',
-    password: '',
+    email: ['', Validators.compose([Validators.required, Validators.email])],
+    password: ['', Validators.required],
+  });
+  signUpForm = this.formBuilder.group({
+    email: ['', Validators.compose([Validators.required, Validators.email])],
+    password: ['', Validators.required],
+    confirmPassword: ['', Validators.required],
   });
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private http: HttpClient) {
     document.addEventListener('DOMContentLoaded', () => {
       // let nav = document.querySelector('.main-nav-bar');
       // let nav_logo = document.querySelector('.nav-logo-container');
@@ -107,7 +115,28 @@ export class MainNavBarComponent implements OnInit {
   //#endregion
   onLoginSubmit(): void {
     // Process checkout data here
-    console.warn('Your login details has been submitted', this.loginForm);
+    console.warn('onLoginSubmit', this.loginForm);
+    const { email, password } = this.loginForm.value;
+
+    this.http
+      .post('/users/authenticate', { email, password })
+      .subscribe((res) => {
+        console.log(res);
+      });
+
     this.loginForm.reset();
+  }
+  onSignUpSubmit(): void {
+    // Process checkout data here
+    console.warn('onSignUpSubmit', this.signUpForm);
+    const { email, password } = this.signUpForm.value;
+
+    this.http
+      .post('/users/authenticate', { email, password })
+      .subscribe((res) => {
+        console.log(res);
+      });
+
+    this.signUpForm.reset();
   }
 }
