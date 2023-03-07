@@ -36,6 +36,10 @@ import { RegistrationComponent } from './pages/registration/registration.compone
 import { LoginComponent } from './components/login/login.component';
 import { UserComponent } from './pages/user/user.component';
 import { ProductRecComponent } from './product-rec/product-rec.component';
+import { MainComponent } from './admin/main/main.component';
+// Http
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { InMemoryDataService } from './in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -68,6 +72,7 @@ import { ProductRecComponent } from './product-rec/product-rec.component';
     LoginComponent,
     UserComponent,
     ProductRecComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,6 +81,9 @@ import { ProductRecComponent } from './product-rec/product-rec.component';
     AppRoutingModule,
     AlertModule,
     StoreModule.forRoot({ cart: cartReducer }),
+    // HttpClientModule,
+    // HttpClientInMemoryWebApiModule.forRoot(
+    //   InMemoryDataService, { dataEncapsulation: false }),
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,1 +1,24 @@
 <p>login works!</p>
+<div class="card">
+	<div>
+		<form (ngSubmit)="onSubmit()">
+			<div class="mb-3">
+				<label class="form-label">Username</label>
+				<input type="text" formControlName="username" class="form-control"> <!--  [ngClass]="{'is-invalid': submitted && f.username.errors }" -->
+				<!-- Error Message -->
+				<div>
+					<div>Username is required</div>
+				</div>
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label">Password</label>
+				<input type="password">
+				<div>
+					<div>Password is required</div>
+				</div>
+			</div>
+			<a routerLink="../register" class="btn btn-link">Register</a>
+		</form>
+	</div>
+</div>

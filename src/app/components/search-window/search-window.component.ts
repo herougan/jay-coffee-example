@@ -90,6 +90,7 @@ export class SearchWindowComponent {
 
   onResult(): void {
     this.show();
+    console.log("WHAT THE FUCK");
 
     // Going to another page
     if (!this.enabled) {
@@ -127,7 +128,8 @@ export class SearchWindowComponent {
     });
   }
   
-  addProductToCart(product: Product): void {
+  addProductToCart(event: Event, product: Product): void {
+    event.stopPropagation();
     let count: number = 1;
     this.store.dispatch(addProductToCart({count, product}));
     this.alertService.alert(new Alert(count + "x " + product.name + " added", "ProductDetail", product.desc, AlertType.Primary, DefaultAlertMeta()));
