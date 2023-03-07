@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -71,6 +72,7 @@ import { ProductRecComponent } from './product-rec/product-rec.component';
   imports: [
     BrowserModule,
     NgxPaginationModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     AlertModule,
     StoreModule.forRoot({ cart: cartReducer }),
