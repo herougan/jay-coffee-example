@@ -34,11 +34,12 @@
   visibility: 0;
   pointer-events: none;
   right: 0px;
-  transition: visibility 0.5s ease, right 0.5s ease;
+  transition: visibility 0.5s ease, right 0.5s ease; // , left 0.5s ease, display 0.5s ease;
 }
 
 .cart-button,
 .search-button,
+.account-button,
 .hamburger-button {
   cursor: pointer;
   pointer-events: all;
@@ -56,6 +57,9 @@
 }
 .cart-button {
   z-index: 3;
+}
+.account-button {
+  translate: -4px 0.5px
 }
 
 .cart-button.show-background {

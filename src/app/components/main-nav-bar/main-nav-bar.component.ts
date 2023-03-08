@@ -36,6 +36,7 @@ export class MainNavBarComponent implements OnInit {
       this.cart_button = document.querySelector('.cart-button');
       this.search_button = document.querySelector('.search-button');
       let hamburger_button = document.querySelector('.hamburger-button');
+      let account_button = document.querySelector('.account-button');
 
       if (nav_links && this.cart_button)
         window.addEventListener('scroll', () => {
@@ -53,11 +54,13 @@ export class MainNavBarComponent implements OnInit {
             this.cart_button?.classList.add('show-background');
             //
             this.search_button?.classList.add('hide-button');
+            account_button?.classList.add('hide-button');
             hamburger_button?.classList.add('hide-button');
           } else {
             this.cart_button?.classList.remove('show-background');
             //
             this.search_button?.classList.remove('hide-button');
+            account_button?.classList.remove('hide-button');
             hamburger_button?.classList.remove('hide-button');
           }
         });
