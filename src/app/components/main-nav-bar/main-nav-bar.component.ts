@@ -1,10 +1,15 @@
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { first, Observable } from 'rxjs';
 
 import { CartWindowComponent } from '../cart-window/cart-window.component';
 import { SearchWindowComponent } from '../search-window/search-window.component';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Route, Router } from '@angular/router';
+import { AccountService } from 'src/app/services/account.service';
+import { AlertService } from 'src/app/modules/alert-module/alert.service';
+import { AlertMeta, DefaultAlertMeta } from 'src/app/modules/alert-module/alert-window/alert';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-main-nav-bar',
@@ -17,17 +22,20 @@ export class MainNavBarComponent implements OnInit {
 
   cart_button: any;
   search_button: any;
-  loginForm = this.formBuilder.group({
-    email: ['', Validators.compose([Validators.required, Validators.email])],
-    password: ['', Validators.required],
-  });
-  signUpForm = this.formBuilder.group({
-    email: ['', Validators.compose([Validators.required, Validators.email])],
-    password: ['', Validators.required],
-    confirmPassword: ['', Validators.required],
-  });
+  signUpForm!: FormGroup;
+  loginForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) {
+  // css interactive
+  loading = false;
+  submitted = false;
+
+  constructor(
+    private formBuilder: FormBuilder, 
+    private http: HttpClient,
+    private route: ActivatedRoute,
+    private router: Router,
+    private accountService: AccountService,
+    private alertService: AlertService) {
     document.addEventListener('DOMContentLoaded', () => {
       // let nav = document.querySelector('.main-nav-bar');
       // let nav_logo = document.querySelector('.nav-logo-container');
@@ -67,7 +75,17 @@ export class MainNavBarComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      email: ['', Validators.compose([Validators.required, Validators.email])],
+      password: ['', Validators.required],
+    });
+    this.signUpForm = this.formBuilder.group({
+      email: ['', Validators.compose([Validators.required, Validators.email])],
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
+    });
+  }
 
   /* Nav bar items */
   onDropDown(): void {}
@@ -116,30 +134,69 @@ export class MainNavBarComponent implements OnInit {
   }
 
   //#endregion
+  
+  //#region Account
   onLoginSubmit(): void {
     // Process checkout data here
     console.warn('onLoginSubmit', this.loginForm);
-    const { email, password } = this.loginForm.value;
+    // const { email, password } = this.loginForm.value;
 
-    this.http
-      .post('/users/authenticate', { email, password })
-      .subscribe((res) => {
-        console.log(res);
-      });
+    this.alertService.clear();
+    this.accountService.login(this.l['email'].value, this.l['password'].value)
+        .pipe(first())
+        .subscribe({
+            next: () => {
+                // get return url from query parameters or default to home page
+                const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+                this.router.navigateByUrl(returnUrl);
+            },
+            error: error => {
+                this.alertService.error(error, DefaultAlertMeta());
+                this.loading = false;
+            }
+        });
 
-    this.loginForm.reset();
+    // this.http
+    //   .post('/users/authenticate', { email, password })
+    //   .subscribe((res) => {
+    //     console.log(res);
+    //   });
+
+    // this.loginForm.reset();
   }
+
+  // Convenience functions
+  get s() { return this.signUpForm.controls; }
+  get l() { return this.loginForm.controls; }
+
   onSignUpSubmit(): void {
     // Process checkout data here
     console.warn('onSignUpSubmit', this.signUpForm);
-    const { email, password } = this.signUpForm.value;
+    if (this.s['password'] !== this.s['confirmPassword']) return;
+    // const { email, password } = this.signUpForm.value;
 
-    this.http
-      .post('/users/authenticate', { email, password })
-      .subscribe((res) => {
-        console.log(res);
+    // this.accountService.register(this.s['value'])
+    this.accountService.register(new User('0'/*dummy*/, this.s['email'].value,
+                                this.s['password'].value, this.s['email'].value))
+      .pipe(first())
+      .subscribe({
+          next: () => {
+            this.alertService.success('Registration successful', new AlertMeta(true, true, true) /*, { keepAfterRouteChange: true } */);
+            this.router.navigate(['../login'], { relativeTo: this.route });
+          },
+          error: error => {
+            this.alertService.error(error, DefaultAlertMeta());
+            this.loading = false;
+          }
       });
+
+    // this.http
+    //   .post('/users/authenticate', { email, password })
+    //   .subscribe((res) => {
+    //     console.log(res);
+    //   });
 
     this.signUpForm.reset();
   }
+  //#endregion
 }
