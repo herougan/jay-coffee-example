@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,6 +41,9 @@ import { ProductRecComponent } from './components/product-rec/product-rec.compon
 import { MainComponent } from './admin/main/main.component';
 // Http
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { ErrorInterceptor } from './helpers/error.interceptor';
+import { fakeBackendProvider } from './helpers/fake-backend';
 // import { InMemoryDataService } from './in-memory-data.service';
 
 @NgModule({
@@ -87,7 +90,13 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
     // HttpClientInMemoryWebApiModule.forRoot(
     //   InMemoryDataService, { dataEncapsulation: false }),
   ],
-  providers: [],
+  providers: [
+      { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+      { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+      // provider used to create fake backend
+      fakeBackendProvider
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

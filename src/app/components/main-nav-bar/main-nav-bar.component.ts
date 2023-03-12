@@ -10,6 +10,7 @@ import { AccountService } from 'src/app/services/account.service';
 import { AlertService } from 'src/app/modules/alert-module/alert.service';
 import { AlertMeta, DefaultAlertMeta } from 'src/app/modules/alert-module/alert-window/alert';
 import { User } from 'src/app/models/user';
+import { matchValidator } from 'src/app/util/validators';
 
 @Component({
   selector: 'app-main-nav-bar',
@@ -26,8 +27,11 @@ export class MainNavBarComponent implements OnInit {
   loginForm!: FormGroup;
 
   // css interactive
-  loading = false;
-  submitted = false;
+  signUpSubmitted = false;
+  loginSubmitted = false;
+  signUpLoading = false;
+  loginLoading = false;
+  passwordMismatch = false;
 
   constructor(
     private formBuilder: FormBuilder, 
@@ -77,14 +81,23 @@ export class MainNavBarComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      email: ['', Validators.compose([Validators.required, Validators.email])],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
     this.signUpForm = this.formBuilder.group({
-      email: ['', Validators.compose([Validators.required, Validators.email])],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', [Validators.required,
+      ]],
     });
+    this.signUpForm.controls['confirmPassword'].addValidators(
+      matchValidator(this.s['password'], this.s['confirmPassword'])
+    );
+    
+    // Comment: Since this form is rigged up without bootstrap's ng-validation options anyway,
+    // Why not add validators the whole form instead, and rig the text that way?
+    this.signUpForm.addValidators(matchValidator(this.s['password'], this.s['confirmPassword']));
+    this.signUpForm.updateValueAndValidity();
   }
 
   /* Nav bar items */
@@ -137,11 +150,21 @@ export class MainNavBarComponent implements OnInit {
   
   //#region Account
   onLoginSubmit(): void {
+
+    this.loginSubmitted = true;
+
     // Process checkout data here
     console.warn('onLoginSubmit', this.loginForm);
-    // const { email, password } = this.loginForm.value;
+    if (this.loginForm.controls['email'].errors) {
+      console.warn('Email', this.loginForm.controls['email'].errors['required']);
+      console.warn('Email', this.loginForm.controls['email'].errors['email']);
+    }
+    if (this.loginForm.controls['password'].errors) {
+      console.warn('Password', this.loginForm.controls['password'].errors['required']);
+    }
 
     this.alertService.clear();
+    this.loginLoading = true;
     this.accountService.login(this.l['email'].value, this.l['password'].value)
         .pipe(first())
         .subscribe({
@@ -152,32 +175,31 @@ export class MainNavBarComponent implements OnInit {
             },
             error: error => {
                 this.alertService.error(error, DefaultAlertMeta());
-                this.loading = false;
+                this.loginLoading = false;
             }
         });
 
-    // this.http
-    //   .post('/users/authenticate', { email, password })
-    //   .subscribe((res) => {
-    //     console.log(res);
-    //   });
-
-    // this.loginForm.reset();
+    this.loginForm.reset();
   }
 
   // Convenience functions
   get s() { return this.signUpForm.controls; }
   get l() { return this.loginForm.controls; }
 
-  onSignUpSubmit(): void {
-    // Process checkout data here
-    console.warn('onSignUpSubmit', this.signUpForm);
-    if (this.s['password'] !== this.s['confirmPassword']) return;
-    // const { email, password } = this.signUpForm.value;
+  onsignUpSubmit(): void {
 
-    // this.accountService.register(this.s['value'])
-    this.accountService.register(new User('0'/*dummy*/, this.s['email'].value,
-                                this.s['password'].value, this.s['email'].value))
+    this.signUpSubmitted = true;
+
+    if (this.signUpForm.invalid) {
+      // this.alertService.error("One of the fields is invalid!", DefaultAlertMeta(), "signUp", "Sign up request failed.")
+      return;
+    }
+
+    delete this.signUpForm.value['confirmPassword'];
+
+    this.alertService.clear();
+    this.signUpLoading = true;
+    this.accountService.register(this.signUpForm.value)
       .pipe(first())
       .subscribe({
           next: () => {
@@ -186,15 +208,9 @@ export class MainNavBarComponent implements OnInit {
           },
           error: error => {
             this.alertService.error(error, DefaultAlertMeta());
-            this.loading = false;
+            this.signUpLoading = false;
           }
       });
-
-    // this.http
-    //   .post('/users/authenticate', { email, password })
-    //   .subscribe((res) => {
-    //     console.log(res);
-    //   });
 
     this.signUpForm.reset();
   }

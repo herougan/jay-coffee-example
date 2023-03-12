@@ -94,6 +94,7 @@
 >
   <div class="modal-dialog">
     <div class="modal-content p-2">
+      <!-- Tabs -->
       <ul
         class="nav nav-tabs justify-content-center fs-5"
         id="myTab"
@@ -116,19 +117,20 @@
         <li class="nav-item" role="presentation">
           <button
             class="nav-link"
-            id="signup-tab"
+            id="signUp-tab"
             data-bs-toggle="tab"
-            data-bs-target="#signup-tab-pane"
+            data-bs-target="#signUp-tab-pane"
             type="button"
             role="tab"
-            aria-controls="signup-tab-pane"
+            aria-controls="signUp-tab-pane"
             aria-selected="true"
           >
-            Signup
+            Sign Up
           </button>
         </li>
       </ul>
       <div class="tab-content p-5" id="myTabContent">
+        <!-- Login Modal -->
         <div
           class="tab-pane fade show active"
           id="login-tab-pane"
@@ -136,81 +138,121 @@
           aria-labelledby="login-tab"
           tabindex="0"
         >
-          <form [formGroup]="loginForm" (submit)="onLoginSubmit()">
+          <form [formGroup]="loginForm" (submit)="onLoginSubmit()" class="needs-validation" novalidate>
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label"
+              <label for="loginEmail" class="form-label"
                 >Email address</label
               >
               <input
                 type="email"
                 class="form-control"
-                id="exampleInputEmail1"
+                id="loginEmail"
                 aria-describedby="emailHelp"
                 formControlName="email"
+                [ngClass]="{'is-invalid': loginSubmitted && l['email'].errors}"
               />
+              <div *ngIf="loginSubmitted && l['email'].errors" class="invalid-feedback">
+                  <div *ngIf="l['email'].errors['required']">Email is required</div>
+              </div>
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label"
+              <label for="loginPassword" class="form-label"
                 >Password</label
               >
               <input
                 type="password"
                 class="form-control"
-                id="exampleInputPassword1"
+                id="loginPassword"
                 formControlName="password"
+                [ngClass]="{'is-invalid': loginSubmitted && l['password'].errors}"
               />
+              <div *ngIf="loginSubmitted && l['password'].errors" class="invalid-feedback">
+                  <div *ngIf="l['password'].errors['required']">Password is required</div>
+              </div>
             </div>
             <div class="mb-3 form-check"></div>
-            <button type="submit" class="btn btn-dark w-100">Login</button>
+            <button type="submit" class="btn btn-dark w-100">
+              <span *ngIf="signUpLoading" class="spinner-border spinner-border-sm me-1"></span>
+              Login
+            </button>
           </form>
         </div>
+        <!-- signUp Modal -->
         <div
           class="tab-pane fade"
-          id="signup-tab-pane"
+          id="signUp-tab-pane"
           role="tabpanel"
-          aria-labelledby="signup-tab"
+          aria-labelledby="signUp-tab"
           tabindex="0"
         >
-          <form [formGroup]="signUpForm" (submit)="onSignUpSubmit()">
+          <form [formGroup]="signUpForm" (submit)="onsignUpSubmit()" class="needs-validation" novalidate>
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label"
+              <label for="signUpEmail" class="form-label"
                 >Email address</label
               >
               <input
                 type="email"
                 class="form-control"
-                id="exampleInputEmail1"
+                name="signUpEmail"
+                id="signUpEmail"
                 aria-describedby="emailHelp"
                 formControlName="email"
+                required
+                aria-describedby="emailRequired emailGood"
+                [ngClass]="{'is-invalid': signUpSubmitted && s['email'].errors}"
               />
+              <div *ngIf="signUpSubmitted && s['email'].errors" class="invalid-feedback">
+                  <div id="emailRequired" *ngIf="s['email'].errors['required']">Email is required</div>
+                  <!-- <div *ngIf="exampleInputEmail1.errors?.['required']"></div> -->
+              </div>
+              <div id="emailGood" class="valid-feedback">
+                Looks good!
+              </div>
               <div id="emailHelp" class="form-text">
                 We'll never share your email with anyone else.
               </div>
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label"
+              <label for="signUpPassword" class="form-label"
                 >Password</label
               >
               <input
                 type="password"
                 class="form-control"
-                id="exampleInputPassword1"
-                formControlName="confirmPassword"
+                id="signUpPassword"
+                formControlName="password"
+                required
+                aria-describedby="passwordRequired passwordMinlength"
+                [ngClass]="{'is-invalid': signUpSubmitted && s['password'].errors}"
               />
+              <div *ngIf="signUpSubmitted && s['password'].errors" class="invalid-feedback">
+                  <div id="passwordRequired" *ngIf="s['password'].errors['required']">Password is required</div>
+                  <div id="passwordMinlength" *ngIf="s['password'].errors['minlength']">Password must be at least 6 characters</div>
+              </div>
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label"
+              <label for="signUpConfirmPassword" class="form-label"
                 >Confirm Password</label
               >
               <input
                 type="password"
                 class="form-control"
-                id="exampleInputPassword1"
-                formControlName="password"
+                id="signUpConfirmPassword"
+                formControlName="confirmPassword"
+                required
+                aria-describedby="confirmPasswordMismatch"
+                [ngClass]="{'is-invalid': signUpSubmitted && s['confirmPassword'].errors}"
               />
+              <div *ngIf="signUpSubmitted && s['confirmPassword'].errors" class="invalid-feedback">
+                <div *ngIf="s['confirmPassword'].errors['mismatch']"
+                id="confirmPasswordMismatch">Passwords do not match!</div>
+              </div>
             </div>
             <div class="mb-3 form-check"></div>
-            <button type="submit" class="btn btn-dark w-100">Sign Up</button>
+            <button type="submit" class="btn btn-dark w-100">
+              <span *ngIf="signUpLoading" class="spinner-border spinner-border-sm me-1"></span>
+              Sign Up
+            </button>
           </form>
         </div>
       </div>
