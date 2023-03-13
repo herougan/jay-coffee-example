@@ -5,8 +5,6 @@ export function matchValidator(
 	controlTwo: AbstractControl,
 ): ValidatorFn {
 	return () => {
-		// console.log(controlOne.value + " : " + controlTwo.value);
-		// if (controlOne.value === "") return null;
 		if (controlOne.value !== controlTwo.value)
 		  return { mismatch : 'Value does not match' };
 		return null;

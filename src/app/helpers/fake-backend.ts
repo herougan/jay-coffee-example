@@ -15,8 +15,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         return handleRoute();
 
         function handleRoute() {
-          console.log("Here!");
-          console.log(url);
             switch (true) {
                 case url.endsWith('/users/authenticate') && method === 'POST':
                     return authenticate();
@@ -38,6 +36,12 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             }    
         }
 
+        function test() {
+          return ok({
+            'value': 'high',            
+          });
+        }
+
         // route functions
 
         function authenticate() {
@@ -53,8 +57,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         function register() {
             const user = body
 
-            if (users.find(x => x.username === user.username)) {
-                return error('Username "' + user.username + '" is already taken')
+            if (users.find(x => x.email === user.email)) {
+                return error('Email "' + user.email + '" is already taken')
             }
 
             user.id = users.length ? Math.max(...users.map(x => x.id)) + 1 : 1;
@@ -99,12 +103,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             users = users.filter(x => x.id !== idFromUrl());
             localStorage.setItem(usersKey, JSON.stringify(users));
             return ok();
-        }
-
-        function test() {
-          return ok({
-            'value': 'high',            
-          });
         }
 
         // helper functions

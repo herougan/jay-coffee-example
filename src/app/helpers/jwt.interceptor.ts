@@ -5,6 +5,7 @@ import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { AccountService } from "../services/account.service";
 
+// JSON Web Tokens (JST) Interceptor for Authorisation
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
 	constructor(private accountService: AccountService) {}

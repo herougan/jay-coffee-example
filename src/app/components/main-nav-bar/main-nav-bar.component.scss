@@ -113,6 +113,20 @@
   pointer-events: none;
 }
 
+.modal-error {
+  background-color: rgba(196, 103, 103, 0.884);
+  border-radius: 10px;
+  display: none;
+}
+
+.modal-error.error-visible {
+  display: block;
+}
+
+.modal.hidden {
+  display: none!important;
+}
+
 @media (max-width: $s) {
   .nav-router-links-container {
     display: none !important;

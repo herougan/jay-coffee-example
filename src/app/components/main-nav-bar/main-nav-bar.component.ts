@@ -11,6 +11,7 @@ import { AlertService } from 'src/app/modules/alert-module/alert.service';
 import { AlertMeta, DefaultAlertMeta } from 'src/app/modules/alert-module/alert-window/alert';
 import { User } from 'src/app/models/user';
 import { matchValidator } from 'src/app/util/validators';
+import { wait } from 'src/app/util/async_util';
 
 @Component({
   selector: 'app-main-nav-bar',
@@ -32,6 +33,9 @@ export class MainNavBarComponent implements OnInit {
   signUpLoading = false;
   loginLoading = false;
   passwordMismatch = false;
+
+  // user current value
+  user: any;
 
   constructor(
     private formBuilder: FormBuilder, 
@@ -93,6 +97,8 @@ export class MainNavBarComponent implements OnInit {
     this.signUpForm.controls['confirmPassword'].addValidators(
       matchValidator(this.s['password'], this.s['confirmPassword'])
     );
+
+    this.user = this.accountService.userValue;
     
     // Comment: Since this form is rigged up without bootstrap's ng-validation options anyway,
     // Why not add validators the whole form instead, and rig the text that way?
@@ -182,6 +188,11 @@ export class MainNavBarComponent implements OnInit {
     this.loginForm.reset();
   }
 
+  accountModalOpen() {
+    let modal = document.querySelector('#accountModal');
+    modal?.classList.remove('hidden');
+  }
+
   // Convenience functions
   get s() { return this.signUpForm.controls; }
   get l() { return this.loginForm.controls; }
@@ -203,16 +214,58 @@ export class MainNavBarComponent implements OnInit {
       .pipe(first())
       .subscribe({
           next: () => {
+            // let modal = new bootstrap.Modal(document.querySelector('#accountModal'), {
+            // }); // requires jquery
+            // modal.hide();
             this.alertService.success('Registration successful', new AlertMeta(true, true, true) /*, { keepAfterRouteChange: true } */);
-            this.router.navigate(['../login'], { relativeTo: this.route });
+            this.router.navigate(['/home']);
+            this.user = this.accountService.userValue;
+            // Hide modal
+            let modal = document.querySelector('#accountModal');
+            let modal_backdrop = document.querySelector('.modal-backdrop');
+            modal?.classList.add('hidden');
+            modal_backdrop?.classList.remove('show');
+            // TODO use hidden instead of show
           },
           error: error => {
             this.alertService.error(error, DefaultAlertMeta());
+            this.modalError(error);
+            this.shakeModal();
             this.signUpLoading = false;
           }
       });
 
+  
     this.signUpForm.reset();
+  }
+
+  modalTime: number = 500;
+  modalError(message: string): void {
+    let modal = document.querySelector('.modal-error');
+    
+    modal?.classList.add('error-visible');
+    let timeout_f = setTimeout(() => {
+      modal?.classList.remove('error-visible');
+    }, this.modalTime);
+  } 
+  
+  shakeTime: number = 100;
+  minStrength: number = 1;
+  maxStrength: number = 3;
+  async shakeModal(): Promise<void> {
+    let modal = document.querySelector('#accountTabContent') as HTMLElement;
+    let strength = this.minStrength;
+
+    for (let i = 0; i < 20; i++) {
+      let x = Math.random() * strength - strength / 2;
+      let y = Math.random() * strength - strength / 2;
+      if (i < 10)
+        strength = (strength + this.maxStrength) / 2;
+      else 
+        strength /= 2;
+      modal.style.transform = "translate(" + x.toString + "px, " + y.toString() + "px)";
+      await wait(20);
+    }
   }
   //#endregion
 }
