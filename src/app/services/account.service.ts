@@ -33,9 +33,9 @@ export class AccountService {
     // :base/:collectionName
   }
 
-  login(username: string, password: string) {
+  login(email: string, password: string) {
     /// Post to local url for testing
-    return this.http.post<User>(`${environment.apiUrl}/users/authenticate`, {username, password})
+    return this.http.post<User>(`${environment.apiUrl}/users/authenticate`, {email, password})
       .pipe(map(user => {
         // Store user details and jwt token in local storage
         localStorage.setItem('user', JSON.stringify(user));
@@ -48,7 +48,6 @@ export class AccountService {
     //
     localStorage.removeItem('user');
     this.userSubject.next(null);
-    this.router.navigate(['/account/login']);
   }
 
   register(user: User) {

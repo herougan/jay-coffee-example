@@ -12,11 +12,14 @@
 
   <!-- Container -->
   <div class="nav-buttons-container d-flex ms-auto pe-1 pe-sm-3">
+    <!-- <div *ngIf="user">
+      Hello
+    </div> -->
     <div
       type="button"
       class="nav-bar-link account-button"
       data-bs-toggle="modal"
-      data-bs-target="#accountModal"
+      data-bs-target="#account-modal"
       (click)="accountModalOpen()"
     >
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
@@ -87,14 +90,13 @@
 
 <!-- Modal -->
 <div
-  *ngIf="!user"
   class="modal fade"
-  id="accountModal"
+  id="account-modal"
   tabindex="-1"
-  aria-labelledby="exampleModalLabel"
+  aria-labelledby="accountModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog">
+  <div class="modal-dialog" id="account-modal-window">
     <div class="modal-content p-2">
       <!-- Tabs -->
       <ul
@@ -112,6 +114,7 @@
             role="tab"
             aria-controls="profile-tab-pane"
             aria-selected="false"
+            *ngIf="!user"
           >
             Login
           </button>
@@ -126,12 +129,13 @@
             role="tab"
             aria-controls="signUp-tab-pane"
             aria-selected="true"
+            *ngIf="!user"
           >
             Sign Up
           </button>
         </li>
       </ul>
-      <div class="tab-content p-5" id="accountTabContent">
+      <div class="tab-content p-5" id="account-tab-content">
         <!-- Login Modal -->
         <div
           class="tab-pane fade show active"
@@ -139,6 +143,7 @@
           role="tabpanel"
           aria-labelledby="login-tab"
           tabindex="0"
+          *ngIf="!user"
         >
           <form [formGroup]="loginForm" (submit)="onLoginSubmit()" class="needs-validation" novalidate>
             <div class="mb-3">
@@ -185,7 +190,8 @@
           id="signUp-tab-pane"
           role="tabpanel"
           aria-labelledby="signUp-tab"
-          tabindex="0"
+          tabindex="1"
+          *ngIf="!user"
         >
           <form [formGroup]="signUpForm" (submit)="onsignUpSubmit()" class="needs-validation" novalidate>
             <div class="mb-3">
@@ -256,6 +262,14 @@
               Sign Up
             </button>
           </form>
+        </div>
+        <!-- Management Modal -->
+        <div
+          *ngIf="user"
+        >
+          <p>Welcome Back {{user.email}}</p>
+          <button (click)="signOut()">Sign Out</button>
+          <button>View Cart</button>
         </div>
       </div>
       <div class="modal-error">

@@ -160,17 +160,18 @@ export class MainNavBarComponent implements OnInit {
     this.loginSubmitted = true;
 
     // Process checkout data here
-    console.warn('onLoginSubmit', this.loginForm);
-    if (this.loginForm.controls['email'].errors) {
-      console.warn('Email', this.loginForm.controls['email'].errors['required']);
-      console.warn('Email', this.loginForm.controls['email'].errors['email']);
-    }
-    if (this.loginForm.controls['password'].errors) {
-      console.warn('Password', this.loginForm.controls['password'].errors['required']);
-    }
 
     this.alertService.clear();
     this.loginLoading = true;
+
+    if (this.loginForm.invalid) {
+      this.shakeModal();
+      this.loginLoading = false;
+      return;
+    }
+
+    // Uncolour modal
+    this.loginSubmitted = false;
     this.accountService.login(this.l['email'].value, this.l['password'].value)
         .pipe(first())
         .subscribe({
@@ -178,10 +179,19 @@ export class MainNavBarComponent implements OnInit {
                 // get return url from query parameters or default to home page
                 const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
                 this.router.navigateByUrl(returnUrl);
+                this.user = this.accountService.userValue;
+                this.alertService.success('Welcome back, ' + this.user.email, new AlertMeta(true, true, true));
+
+                // Hide modal
+                this.loginLoading = false;
+                this.hideModal();
             },
             error: error => {
                 this.alertService.error(error, DefaultAlertMeta());
+                this.modalError(error);
+                this.shakeModal();
                 this.loginLoading = false;
+                this.loginSubmitted = true;
             }
         });
 
@@ -199,44 +209,61 @@ export class MainNavBarComponent implements OnInit {
 
   onsignUpSubmit(): void {
 
+    // Start loading graphic, allow error messages to appear
     this.signUpSubmitted = true;
+    this.signUpLoading = true;
 
     if (this.signUpForm.invalid) {
       // this.alertService.error("One of the fields is invalid!", DefaultAlertMeta(), "signUp", "Sign up request failed.")
+      this.shakeModal();
+      this.signUpLoading = false;
       return;
     }
-
     delete this.signUpForm.value['confirmPassword'];
 
     this.alertService.clear();
-    this.signUpLoading = true;
+    // Start loading graphic
+
+    // Uncolour modal
+    this.signUpSubmitted = false;
     this.accountService.register(this.signUpForm.value)
       .pipe(first())
       .subscribe({
           next: () => {
-            // let modal = new bootstrap.Modal(document.querySelector('#accountModal'), {
-            // }); // requires jquery
-            // modal.hide();
+            // Send request
             this.alertService.success('Registration successful', new AlertMeta(true, true, true) /*, { keepAfterRouteChange: true } */);
             this.router.navigate(['/home']);
             this.user = this.accountService.userValue;
-            // Hide modal
-            let modal = document.querySelector('#accountModal');
-            let modal_backdrop = document.querySelector('.modal-backdrop');
-            modal?.classList.add('hidden');
-            modal_backdrop?.classList.remove('show');
-            // TODO use hidden instead of show
+
+            // Stop loading graphic            
+            this.signUpLoading = false;
+            this.hideModal();
           },
           error: error => {
             this.alertService.error(error, DefaultAlertMeta());
             this.modalError(error);
             this.shakeModal();
             this.signUpLoading = false;
+            this.signUpSubmitted = true;
           }
       });
 
   
     this.signUpForm.reset();
+  }
+
+  signOut(): void {
+    this.accountService.logout();
+    this.router.navigate(['/home']);
+    this.hideModal();
+  }
+
+  hideModal(): void {
+    // Hide modal
+    let modal = document.querySelector('#account-modal');
+    let modal_backdrop = document.querySelector('.modal-backdrop');
+    modal?.classList.remove('show');
+    modal_backdrop?.classList.remove('show');
   }
 
   modalTime: number = 500;
@@ -250,22 +277,30 @@ export class MainNavBarComponent implements OnInit {
   } 
   
   shakeTime: number = 100;
-  minStrength: number = 1;
-  maxStrength: number = 3;
+  minStrength: number = 15;
+  maxStrength: number = 30;
+  shaking: boolean = false;
   async shakeModal(): Promise<void> {
-    let modal = document.querySelector('#accountTabContent') as HTMLElement;
+    if (this.shaking) return;
+    let modal = document.querySelector('#account-modal-window') as HTMLElement;
     let strength = this.minStrength;
+    this.shaking = true;
 
-    for (let i = 0; i < 20; i++) {
-      let x = Math.random() * strength - strength / 2;
-      let y = Math.random() * strength - strength / 2;
-      if (i < 10)
+    for (let i = 0; i < 15; i++) {
+      let x = strength * (i % 2 ? -1 : 1);
+      // let y = Math.random() * strength - strength / 2;
+      if (i < 4)
         strength = (strength + this.maxStrength) / 2;
       else 
-        strength /= 2;
-      modal.style.transform = "translate(" + x.toString + "px, " + y.toString() + "px)";
-      await wait(20);
+        strength /= 1.5;
+      modal.style.transform = "translate(" + x.toString() + "px, " + 0 + "px)";
+      await wait(60);
+
+      if (!this.shaking) break;
     }
+    modal.style.transform = "translate(0px, 0px)";
+
+    this.shaking = false;
   }
   //#endregion
 }

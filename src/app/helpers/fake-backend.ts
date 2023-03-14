@@ -28,26 +28,18 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                     return updateUser();
                 case url.match(/\/users\/\d+$/) && method === 'DELETE':
                     return deleteUser();
-                case url.match(/\/test\/\d+$/) && method === 'POST':
-                    return test();
                 default:
                     // pass through any requests not handled above
                     return next.handle(request);
             }    
         }
 
-        function test() {
-          return ok({
-            'value': 'high',            
-          });
-        }
-
         // route functions
 
         function authenticate() {
-            const { username, password } = body;
-            const user = users.find(x => x.username === username && x.password === password);
-            if (!user) return error('Username or password is incorrect');
+            const { email, password } = body;
+            const user = users.find(x => x.email === email && x.password === password);
+            if (!user) return error('Email or password is incorrect');
             return ok({
                 ...basicDetails(user),
                 token: 'fake-jwt-token'
