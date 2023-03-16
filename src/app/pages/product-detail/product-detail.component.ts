@@ -38,8 +38,6 @@ export class ProductDetailComponent implements OnInit {
       if (evt instanceof NavigationEnd) {
         this.router.navigated = false;
         this.lastUrl = evt.url;
-        // console.log(evt.url); // TODO
-        // https://stackoverflow.com/questions/56918496/how-do-i-get-angular-to-reload-the-same-page-but-with-a-different-argument
       }
     });
   }

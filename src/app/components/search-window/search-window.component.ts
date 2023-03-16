@@ -90,7 +90,6 @@ export class SearchWindowComponent {
 
   onResult(): void {
     this.show();
-    console.log("WHAT THE FUCK");
 
     // Going to another page
     if (!this.enabled) {

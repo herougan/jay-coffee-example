@@ -256,6 +256,7 @@ export class MainNavBarComponent implements OnInit {
     this.accountService.logout();
     this.router.navigate(['/home']);
     this.hideModal();
+    document.location.reload();
   }
 
   hideModal(): void {

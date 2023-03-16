@@ -268,8 +268,10 @@
           *ngIf="user"
         >
           <p>Welcome Back {{user.email}}</p>
-          <button (click)="signOut()">Sign Out</button>
-          <button>View Cart</button>
+          <div class="d-flex flex-row">
+            <button class="btn btn-dark w-100" (click)="signOut()">Sign Out</button>
+            <button class="btn btn-dark w-100">View Cart</button>
+          </div>
         </div>
       </div>
       <div class="modal-error">
