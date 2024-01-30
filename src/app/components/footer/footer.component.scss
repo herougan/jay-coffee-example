@@ -115,6 +115,7 @@ p.tiny {
 .cloudflare-logo {
 	height: 76px;
 	transform: translate(0, -20px);
+	filter: brightness(27%)
 }
 
 @media (max-width: $s) {

@@ -11,6 +11,5 @@ export class FeatureCardComponent implements OnInit {
   @Input() detail?: FeatureCardDetail;
 
   ngOnInit(): void {
-    
   }
 }
