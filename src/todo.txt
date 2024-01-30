@@ -1,3 +1,6 @@
+Deploy to Git
+
 Fix banner image
+Fix top bar
 Apply GSAP to items on spawn
 Apply linear-gradient shadow to main banner
