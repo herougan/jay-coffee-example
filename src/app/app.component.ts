@@ -11,7 +11,7 @@ import { CartService } from './services/cart-service.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'home-test';
+  title = 'jay-coffee-example';
 
   constructor(private cartService: CartService, private store: Store,
     private alertService: AlertService) {
