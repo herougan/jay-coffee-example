@@ -1,0 +1,3 @@
+Fix banner image
+Apply GSAP to items on spawn
+Apply linear-gradient shadow to main banner
