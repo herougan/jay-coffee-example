@@ -100,9 +100,35 @@
   // padding-inline-start: 4em;
 }
 
+/* Banner Rows */
+
+#banner-top-row,
+#banner-second-row {
+  margin-right: 0px;
+}
+
+p.tiny {
+	font-size: 20px!important;
+	color: rgb(57, 57, 57)!important;
+}
+
+.cloudflare-logo {
+	height: 76px;
+	transform: translate(0, -20px);
+}
+
 @media (max-width: $s) {
   .email-input {
     width: 65%;
+  }
+
+  p.tiny {
+	font-size: 16px!important;
+	color: rgb(57, 57, 57)!important;
+	}
+  .cloudflare-logo {
+	  height: 60px;
+	  transform: translate(0, -20px);
   }
 }
 
@@ -131,20 +157,13 @@
   * {
     font-size: 10px;
   }
-}
-/* Banner Rows */
 
-#banner-top-row,
-#banner-second-row {
-  margin-right: 0px;
-}
-
-p.tiny {
-	font-size: 20px!important;
+  p.tiny {
+	font-size: 18px!important;
 	color: rgb(57, 57, 57)!important;
-}
-
-.cloudflare-logo {
-	height: 76px;
-	transform: translate(0, -20px);
+	}
+  .cloudflare-logo {
+	  height: 65px;
+	  transform: translate(0, -20px);
+  }
 }

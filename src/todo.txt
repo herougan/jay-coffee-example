@@ -4,3 +4,5 @@ Fix banner image
 Fix top bar
 Apply GSAP to items on spawn
 Apply linear-gradient shadow to main banner
+
+https://www.syncfusion.com/blogs/post/host-angular-app-in-github-pages.aspx

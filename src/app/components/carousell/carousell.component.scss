@@ -9,10 +9,18 @@
   }
 }
 
+.carousel-shade {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.7));
+	z-index: 1;
+}
+
 .carousel-indicators {
   // top: calc(42vmax - 20px);
   top: calc(42vmax - 20px);
-  z-index: 1;
+  z-index: 3;
 }
 
 .carousel-indicators button {
@@ -22,7 +30,7 @@
   border: 2px solid white;
   opacity: 1;
   background: transparent;
-  z-index: 1;
+  z-index: 3;
 }
 
 .carousel-indicators button.active {
@@ -33,7 +41,7 @@
   height: 100%;
 
   img {
-    filter: brightness(80%);
+    // filter: brightness(80%);
     // object-fit: cover;
   }
 }
@@ -43,7 +51,7 @@
   top: calc(42vmax - 15rem);
   left: calc(100vw - 40rem);
   color: white;
-  z-index: 0;
+  z-index: 2;
   .btn {
     margin-top: 2vw;
     font-size: 1.5rem;
