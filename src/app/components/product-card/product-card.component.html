@@ -6,6 +6,7 @@
   onclick=""
 >
   <!-- Image -->
+  <div class="product-card-img-shade w-100"></div>
   <div
     class="product-card-img w-100 mb-1"
     routerLink="/products/{{ product.id }}"
@@ -51,6 +52,6 @@
   <!-- Body -->
   <div class="pt-1 pb-3">
     <span class="card-title fs-4 fw-semibold">{{ product.name }}</span>
-    <p class="fs-5">{{ product.desc }}</p>
+    <p class="fs-5">{{ product.desc | italicArray:product.italics }}</p>
   </div>
 </div>

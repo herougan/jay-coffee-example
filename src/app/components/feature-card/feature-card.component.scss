@@ -11,6 +11,18 @@
 	}
 }
 
+.detail-card-img-shade {
+	pointer-events: none;
+	position: absolute;
+	background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
+	z-index: 1;
+	
+	width: 30vw;
+	height:30vw;
+	aspect-ratio: 1/1;
+	object-fit: cover;
+}
+
 .detail-card-body, .detail-card-mask {
 	height: 10vw;
 	bottom: 0vw;

@@ -1,6 +1,7 @@
 <!-- Type 1 -->
 <div class="card detail-card border-0 mx-2" style="pointer-events: none;" *ngIf="detail" onclick="" routerLink="/detail/{{detail.id}}">
 	<!-- Image -->
+  	<div class="detail-card-img-shade"></div>
 	<div class="detail-card-img" style="pointer-events: auto; position: relative" routerLink="/detail/{{detail.id}}">
 		<img class="img-fluid" src="{{detail.img}}"  alt="...">
 		<div class="detail-desc-popup	d-flex flex-column justify-content-center">

@@ -12,6 +12,7 @@ export class BannerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+	let banner_of_the_day: string = ""; // Service fetch banner
   }
 
 }

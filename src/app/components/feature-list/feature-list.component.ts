@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FeatureCardDetail } from 'src/app/models/feature-card-details';
 import { FeatureCardDetailService } from 'src/app/services/feature-card-detail.service';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
 
 @Component({
   selector: 'app-feature-list',
@@ -19,6 +20,7 @@ export class FeatureListComponent {
   }
 
   ngAfterViewInit(): void {
+	gsap.registerPlugin(ScrollTrigger);
     this.featureCardEntry();
   }
 
@@ -29,10 +31,10 @@ export class FeatureListComponent {
 		gsap.from(detail_card, {
 			yPercent: 10,
 			opacity: 0,
-			duration: 2,
+			duration: 1,
 			scrollTrigger: {
 				trigger: detail_card,
-				start: "top 100%",
+				start: "top 90%",
 			},
 		})
 

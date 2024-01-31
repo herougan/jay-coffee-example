@@ -45,6 +45,7 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { fakeBackendProvider } from './helpers/fake-backend';
 // import { InMemoryDataService } from './in-memory-data.service';
+import { ItalicArrayPipe } from 'src/app/util/J_ItalicArrayPipe';
 
 @NgModule({
   declarations: [
@@ -87,6 +88,7 @@ import { fakeBackendProvider } from './helpers/fake-backend';
     AlertModule,
     StoreModule.forRoot({ cart: cartReducer }),
     HttpClientModule,
+	ItalicArrayPipe,
     // HttpClientInMemoryWebApiModule.forRoot(
     //   InMemoryDataService, { dataEncapsulation: false }),
   ],

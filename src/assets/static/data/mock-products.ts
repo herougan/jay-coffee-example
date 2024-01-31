@@ -9,6 +9,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: ['Ghost Pepper', 'Coconut'],
     price: 50,
     notes: 'Cherry, Chocolate, Almond',
+	italics: [10, 11], // Compulsory to list because constructor not used.
   },
   {
     id: 1,
@@ -19,6 +20,7 @@ export const MOCK_PRODUCTS: Product[] = [
     price: 45,
     colour: 'yellow',
     notes: 'Cherry, Chocolate, Almond',
+	italics: [],
   },
   {
     id: 2,
@@ -29,6 +31,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: ['Chocolate', 'Whisky'],
     price: 10,
     notes: 'Cherry, Chocolate, Almond',
+	italics: [],
   },
   {
     id: 3,
@@ -39,6 +42,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: ['Chicken', 'Ghost Pepper'],
     price: 10,
     notes: 'Cherry, Chocolate, Almond',
+	italics: [],
   },
   {
     id: 4,
@@ -48,6 +52,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: [''],
     price: 25,
     notes: 'Cherry, Chocolate, Almond',
+	italics: [],
   },
   {
     id: 5,
@@ -57,6 +62,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: [''],
     price: 40,
     notes: 'Cherry, Chocolate, Almond',
+	italics: [],
   },
   {
     id: 6,
@@ -66,6 +72,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: [''],
     price: 42,
     notes: 'Cherry, Chocolate, Almond',
+	italics: [],
   },
   {
     id: 7,
@@ -75,6 +82,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: [''],
     price: 45,
     notes: 'Cherry, Chocolate, Almond',
+	italics: [],
   },
   {
     id: 8,
@@ -84,6 +92,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: ['Nuts', 'Alcohol'],
     price: 50,
     notes: 'Cherry, Chocolate, Almond',
+	italics: [],
   },
   {
     id: 9,
@@ -94,6 +103,7 @@ export const MOCK_PRODUCTS: Product[] = [
     price: 45,
     colour: 'yellow',
     notes: 'Cherry, Chocolate, Almond',
+	italics: [],
   },
   {
     id: 10,
@@ -104,6 +114,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: [''],
     price: 10,
     notes: 'Cherry, Chocolate, Almond',
+	italics: [],
   },
   {
     id: 11,
@@ -114,6 +125,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: [''],
     price: 10,
     notes: 'Cherry, Chocolate, Almond',
+	italics: [],
   },
   {
     id: 12,
@@ -123,6 +135,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: [''],
     price: 25,
     notes: 'Cherry, Chocolate, Almond',
+	italics: [],
   },
   {
     id: 13,
@@ -132,6 +145,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: [''],
     price: 40,
     notes: 'Cherry, Chocolate, Almond',
+	italics: [],
   },
   {
     id: 14,
@@ -141,6 +155,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: [''],
     price: 42,
     notes: 'Cherry, Chocolate, Almond',
+	italics: [],
   },
   {
     id: 15,
@@ -150,6 +165,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: [''],
     price: 45,
     notes: 'Cherry, Chocolate, Almond',
+	italics: [],
   },
   {
     id: 16,
@@ -159,6 +175,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: ['Nuts', 'Alcohol'],
     price: 50,
     notes: 'Cherry, Chocolate, Almond',
+	italics: [],
   },
   {
     id: 17,
@@ -169,6 +186,7 @@ export const MOCK_PRODUCTS: Product[] = [
     price: 45,
     colour: 'yellow',
     notes: 'Cherry, Chocolate, Almond',
+	italics: [],
   },
   {
     id: 18,
@@ -179,6 +197,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: [''],
     price: 10,
     notes: 'Cherry, Chocolate, Almond',
+	italics: [],
   },
   {
     id: 19,
@@ -189,6 +208,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: [''],
     price: 10,
     notes: 'Cherry, Chocolate, Almond',
+	italics: [],
   },
   {
     id: 20,
@@ -198,6 +218,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: [''],
     price: 25,
     notes: 'Cherry, Chocolate, Almond',
+	italics: [],
   },
   {
     id: 21,
@@ -207,6 +228,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: [''],
     price: 40,
     notes: 'Cherry, Chocolate, Almond',
+	italics: [],
   },
   {
     id: 22,
@@ -216,6 +238,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: [''],
     price: 42,
     notes: 'Cherry, Chocolate, Almond',
+	italics: [],
   },
   {
     id: 23,
@@ -225,6 +248,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: [''],
     price: 45,
     notes: 'Cherry, Chocolate, Almond',
+	italics: [],
   },
   {
     id: 24,
@@ -234,6 +258,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: ['Nuts', 'Alcohol'],
     price: 50,
     notes: 'Cherry, Chocolate, Almond',
+	italics: [],
   },
   {
     id: 25,
@@ -243,6 +268,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: ['Eco'],
     price: 45,
     notes: 'Lime, Rose, Chantilly',
+	italics: [],
   },
   {
     id: 26,
@@ -252,6 +278,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: [''],
     price: 45,
     notes: 'Grapefruit, Mango, Coconut',
+	italics: [],
   },
   {
     id: 27,
@@ -261,5 +288,7 @@ export const MOCK_PRODUCTS: Product[] = [
     tags: [''],
     price: 45,
     notes: 'Grapefruit, Mango, Coconut',
+	italics: [],
   },
+  new Product(28, "Shortcut Jane", 'assets/static/images/products/bloody_mary.jpg', 'Unknown drink from an unknown vendor', 500, ""),
 ];

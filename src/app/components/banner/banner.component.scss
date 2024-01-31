@@ -6,15 +6,26 @@
 
 .banner-img {
   height: 50vh;
-  // background-image: url("/assets/static/images/banner/black_marble.jpg");
-  background-color: rgb(0, 0, 0);
-  // object-fit: cover;
+//   background-image: url("/assets/static/images/banner/black_marble.jpg");
+  background-image: url("/assets/static/images/banner/get_the_app_2.jpg");
+//   background: rgba(0, 0, 0, 0.1);
+	background-repeat: no-repeat;
+	background-size: cover;
   background-position: bottom right;
+}
+
+.banner-shade {
+	position: absolute;
+	background: linear-gradient(rgba(10,0,0,0.4), rgba(0,0,0,0.9));
+	height: 50vh;
+	width: 100vw;
+	z-index: 1;
 }
 
 .banner-overlay {
   position: absolute;
   color: rgb(255, 255, 255);
+  z-index: 2;
 }
 
 @media (max-width: $s) {

@@ -6,9 +6,10 @@ export class Product {
     public desc: string,
     public price: number,
     public notes: string,
+	public italics: number[] = [],
     public tags?: string[],
     public shortDesc?: string,
-    public colour?: string
+    public colour?: string,
   ) {}
 
   // toString(): string {
