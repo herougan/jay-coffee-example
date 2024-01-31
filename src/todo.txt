@@ -1,5 +1,6 @@
-Deploy to Git
+Deploy to Git DONE
+How to re-deploy to GIT? 
 
-Fix banner image
+Make ItalicsArrayPipe work
 
 https://www.syncfusion.com/blogs/post/host-angular-app-in-github-pages.aspx

@@ -12,11 +12,12 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'shop', component: ShopComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'detail/:id', component: ProductDetailComponent},
   { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
